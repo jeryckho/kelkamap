@@ -1,0 +1,20 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut et les paramètres utilisateur.
+{
+	"editor.renderIndentGuides": true,
+   // Nombre d'espaces correspondant à une tabulation.
+   "editor.tabSize": 3,
+
+   // Insérer des espaces en appuyant sur Tab.
+   "editor.insertSpaces": false,
+
+   // Quand vous ouvrez un fichier, 'editor.tabSize' et 'editor.insertSpaces' sont détectés en fonction du contenu du fichier.
+   "editor.detectIndentation": false,
+   
+   // Configurez les modèles Glob pour l'exclusion des fichiers et des dossiers.
+   "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true
+   }
+}

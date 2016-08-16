@@ -1,0 +1,3 @@
+browser-sync start --server --files="src/**" --browser="firefox" --startPath="src/#/Jey"
+
+npm install  angular-moment-picker --save
