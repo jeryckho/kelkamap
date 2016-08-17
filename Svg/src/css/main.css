@@ -14,7 +14,7 @@ svg .Z {
 
 svg .Z:hover , .Z.active {
     cursor: pointer;
-    stroke-width: 2;
+    stroke-width: 10;
     stroke: #000 !important;
     z-index: 20;
 }
