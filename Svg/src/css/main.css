@@ -6,6 +6,7 @@ svg .Z {
     -o-transition: stroke 0.5s, stroke-width 0.5s;
     transition: stroke 0.5s, stroke-width 0.5s;
     z-index: 50;
+	 fill-opacity: 0.5;
 }
 
 #D41, #D36, #D79, #D86, #D37 {
