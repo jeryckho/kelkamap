@@ -15,34 +15,29 @@
 <body ng-app="SvgMapApp" ng-controller="MainCtrl">
 	<div class="container">
 		<h2>Kelkalor Responsive SVG Map</h2>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel panel-body">
-						<div svg-map></div>
-						<div class="scale">
-							<div ng-repeat="n in [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]" ng-style="{backgroundColor:'{{n | map_colour}}'}">{{n}}
-							</div>
+		<table>
+			<tr>
+				<td>
+					<div svg-map></div>
+				</td>
+				<td width="10px">
+					<div class="regionlist">
+						<div ng-repeat="(key,region) in dummyData" ng-class="{active:hoverRegion==key}" ng-mouseover="changeHoverRegion(key)">
+							<div>{{key}}</div>
+							<div>{{region.value*100 | number}}</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<p>
-					<button ng-click="createDummyData()" class="btn btn-block btn-default">Create Dummy Data</button>
-				</p>
-				<div class="panel panel-default">
-					<div class="panel panel-body">
-						<div class="regionlist">
-							<div ng-repeat="(key,region) in dummyData" ng-class="{active:hoverRegion==key}" ng-mouseover="changeHoverRegion(key)">
-								<div>{{key}}</div>
-								<div>{{region.value*100 | number}}</div>
-							</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="scale">
+						<div ng-repeat="n in [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]" ng-style="{backgroundColor:'{{n | map_colour}}'}">{{n}}
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<!-- build:jsm js/app.js -->
 	<!-- AngularJS -->

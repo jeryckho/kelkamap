@@ -40,3 +40,16 @@ angular.module('SvgMapApp').directive('region', ['$compile', function ($compile)
         }
     }
 }]);
+
+angular.module('SvgMapApp').directive('viewBox', [
+	function () {
+		'use strict';
+		return {
+			link: function (scope, element, attributes) {
+				attributes.$observe('viewBox', function(value) {
+					element.attr('viewBox', value);
+				});
+			}
+		};
+	}
+]);
