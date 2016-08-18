@@ -1,4 +1,4 @@
-angular.module('SvgMapApp', [])
+angular.module('SvgMapApp', ['angular-loading-bar'])
     .controller('MainCtrl', ['$scope', function ($scope) {
         var states = [
 				"path3344","path3342","path3346","path3348","polygon3350","polygon3352","polygon3354","polygon3356",
