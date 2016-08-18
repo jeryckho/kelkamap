@@ -8,26 +8,26 @@ gulp.task('prod', ['font'], function () {
 			jsm: [$.uglify],
 			css: [$.minifyCss]
 		}))
-		.pipe(gulp.dest('bin/'));
+		.pipe(gulp.dest('bin/public/'));
 });
 
 gulp.task('font', ['dev'], function () {
 	gulp.src('node_modules/bootstrap/dist/fonts/**')
 		.pipe($.rename({ dirname: '' }))
-		.pipe(gulp.dest('bin/fonts'));
+		.pipe(gulp.dest('bin/public/fonts'));
 	gulp.src('node_modules/font-awesome/fonts/***')
 		.pipe($.rename({ dirname: '' }))
-		.pipe(gulp.dest('bin/fonts'));
+		.pipe(gulp.dest('bin/public/fonts'));
 });
 
 gulp.task('purge', function () {
-	return gulp.src('./bin/')
+	return gulp.src('./bin/public/')
 		.pipe($.rimraf({ force: true }));
 });
 
 gulp.task('dev', ['purge'], function () {
 	return gulp.src('./src/**')
-		.pipe(gulp.dest('bin/'));
+		.pipe(gulp.dest('bin/public/'));
 });
 
 gulp.task('default', ['dev']);
