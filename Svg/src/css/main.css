@@ -1,4 +1,4 @@
-svg .Z {
+svg .H {
     stroke-width: 2;
     stroke: #fff;
 
@@ -13,7 +13,7 @@ svg .Z {
     stroke: blue;    
 }
 
-svg .Z:hover , .Z.active {
+svg .H:hover , .H.active {
     cursor: pointer;
     stroke-width: 10;
     stroke: #000 !important;
