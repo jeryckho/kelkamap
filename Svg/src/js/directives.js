@@ -1,7 +1,7 @@
 angular.module('SvgMapApp').directive('svgMap', ['$compile', function ($compile) {
     return {
         restrict: 'A',
-        templateUrl: 'img/FondCarte3.svg',
+        templateUrl: 'img/KelkaMap.svg',
         link: function (scope, element, attrs) {
             var regions = element[0].querySelectorAll('.H');
             angular.forEach(regions, function (path, key) {
