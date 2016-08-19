@@ -11,6 +11,13 @@ svg .H {
 	 stroke-opacity: 0;
 }
 
+svg .Z {
+    stroke-width: 0;
+    z-index: 25;
+	 fill-opacity: 0;
+	 stroke-opacity: 0;
+}
+
 #D41, #D36, #D79, #D86, #D37 {
     stroke: blue;    
 }
