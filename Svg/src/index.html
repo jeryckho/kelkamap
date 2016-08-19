@@ -25,10 +25,25 @@
 							<div>{{key}}</div>
 							<div>{{region.value*100 | number}}</div>
 						</div>
+						{{hoverRegion}}
 					</div>
-					<button type="button" ng-click="toPan(0,-0.25)">Up</button><br/>
-					<button type="button" ng-click="toPan(-0.25,0)">Left</button> <button type="button" ng-click="toZoom(1.1,true)">+</button> <button type="button" ng-click="toZoom(1.1,false)">-</button> <button type="button" ng-click="toPan(0.25,0)">Right</button><br/>
-					<button type="button" ng-click="toPan(0,0.25)">down</button><br/>
+					<table>
+						<tr>
+							<td> </td>
+							<td><button type="button" ng-click="toPan(0,-0.25)">Up</button></td>
+							<td> </td>
+						</tr>
+						<tr>
+							<td><button type="button" ng-click="toPan(-0.25,0)">Left</button></td>
+							<td><button type="button" ng-click="toZoom(1.1,true)">+</button> <button type="button" ng-click="toZoom(1.1,false)">-</button></td>
+							<td><button type="button" ng-click="toPan(0.25,0)">Right</button></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td><button type="button" ng-click="toPan(0,0.25)">down</button></td>
+							<td> </td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 		</table>
