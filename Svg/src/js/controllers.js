@@ -7,6 +7,7 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 		};
 		//   $scope.ngViewBox = "100 100 1230 870";
 		var states = ["Terres", "Autre"];
+		$scope.layer = { iFond : true, gHex : true };
 
 		$scope.createDummyData = function () {
 			var dataTemp = {};
@@ -49,6 +50,10 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 			if ( $scope.vBox.Crt.y + $scope.vBox.Crt.h > $scope.vBox.Max.y ) $scope.vBox.Crt.y = $scope.vBox.Max.y - $scope.vBox.Crt.h;
 			$scope.ngViewBox = $scope.vBox.Crt.x + " " + $scope.vBox.Crt.y + " " + $scope.vBox.Crt.w + " " + $scope.vBox.Crt.h;
 		};
+
+		$scope.tog = function (id) {
+			$scope.layer[id] = ! $scope.layer[id];
+		}
 
 		$scope.createDummyData();
 		$scope.setBox();
