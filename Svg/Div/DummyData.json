@@ -1,0 +1,14 @@
+{
+	"Nations" : {
+		"Sartak" : {
+			"Hexagones" : [ "H2525", "H2526",  "H2625",  "H2626" ],
+			"Cities" : [ "Trancavel" ],
+			"Ressources" : []
+		}
+	},
+	"Cities" : {
+		"Trancavel" : {
+			"Desc" : "Fière cité qui défend la Marche du Sud." 
+		}
+	}
+}
