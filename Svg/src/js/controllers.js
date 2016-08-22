@@ -5,20 +5,35 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
 			Crt: { x: -2640, y: -2520, w: 5880, h: 5880 }
 		};
-		//   $scope.ngViewBox = "100 100 1230 870";
-		var states = ["Terres", "Autre"];
-		$scope.layer = { iFond : true, gHex : true };
 
-		$scope.createDummyData = function () {
-			var dataTemp = {};
-			angular.forEach(states, function (state, key) {
-				dataTemp[state] = { value: Math.random() }
-			});
-			$scope.dummyData = dataTemp;
-		};
+		$scope.layer = { iFond : true, gHex : true };
+		$scope.dummyData = {
+			"Nations": {
+				"Sartak": {
+					"Hexagones": [ "H2525", "H2526", "H2625", "H2626" ],
+					"Cities": [ "Trancavel" ],
+					"Ressources": []
+				}
+			},
+			"Cities": {
+				"Trancavel": {
+					"Desc": "Fière cité qui défend la Marche du Sud."
+				}
+			},
+			"Hexagones": {
+				"H2525": "Sartak",
+				"H2526": "Sartak",
+				"H2625": "Sartak",
+				"H2626": "Sartak"
+			},
+			"Focus": {}
+		};		
 
 		$scope.changeHoverRegion = function (region) {
-			$scope.hoverRegion = region;
+			var Lst = $scope.dummyData.Nations[region].Hexagones;
+			angular.forEach(Lst, function (elem) {
+				$scope.dummyData.Focus[elem] = true;
+			});
 		};
 
 		$scope.toZoom = function (fac,bZoom) {
@@ -55,6 +70,5 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 			$scope.layer[id] = ! $scope.layer[id];
 		}
 
-		$scope.createDummyData();
 		$scope.setBox();
 	}]);

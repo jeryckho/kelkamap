@@ -22,10 +22,18 @@ svg .Z {
     stroke: blue;    
 }
 
-svg .H:hover , .H.active {
+svg .H.nation {
     cursor: pointer;
+	 fill: #0f0;
 	 fill-opacity: 0.25;
-    z-index: 100;
+    z-index: 90;
+}
+
+svg .H:hover , .H.active {
+	cursor: pointer;
+	fill: #f00 !important;
+	fill-opacity: 0.25;
+	z-index: 100;
 }
 
 .regionlist {

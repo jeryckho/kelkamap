@@ -1,14 +1,21 @@
 {
-	"Nations" : {
-		"Sartak" : {
-			"Hexagones" : [ "H2525", "H2526",  "H2625",  "H2626" ],
-			"Cities" : [ "Trancavel" ],
-			"Ressources" : []
+	"Nations": {
+		"Sartak": {
+			"Hexagones": [ "H2525", "H2526", "H2625", "H2626" ],
+			"Cities": [ "Trancavel" ],
+			"Ressources": []
 		}
 	},
-	"Cities" : {
-		"Trancavel" : {
-			"Desc" : "Fière cité qui défend la Marche du Sud." 
+	"Cities": {
+		"Trancavel": {
+			"Desc": "Fière cité qui défend la Marche du Sud."
 		}
-	}
+	},
+	"Hexagones": {
+		"H2525": "Sartak",
+		"H2526": "Sartak",
+		"H2625": "Sartak",
+		"H2626": "Sartak"
+	},
+	"Focus": {}
 }

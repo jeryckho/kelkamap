@@ -25,17 +25,35 @@ angular.module('SvgMapApp').directive('region', ['$compile', function ($compile)
         link: function (scope, element, attrs) {
             scope.elementId = element.attr("id");
             scope.regionClick = function () {
-               //  alert(scope.dummyData[scope.elementId].value);
-					alert(scope.elementId);
+					// alert(scope.elementId);
+                scope.hoverRegion = scope.elementId;
+					 if (angular.isDefined(scope.dummyData.Hexagones[scope.hoverRegion])) {
+						 scope.dummyData.Focus = {};
+						 var Lst = scope.dummyData.Nations[scope.dummyData.Hexagones[scope.hoverRegion]].Hexagones;
+						 angular.forEach(Lst, function (elem) {
+							scope.dummyData.Focus[elem] = true;
+						 });
+					 } else {
+						 scope.dummyData.Focus = {};
+					 }
             };
             scope.regionMouseOver = function () {
                 scope.hoverRegion = scope.elementId;
+					 if (angular.isDefined(scope.dummyData.Hexagones[scope.hoverRegion])) {
+						 scope.dummyData.Focus = {};
+						 var Lst = scope.dummyData.Nations[scope.dummyData.Hexagones[scope.hoverRegion]].Hexagones;
+						 angular.forEach(Lst, function (elem) {
+							scope.dummyData.Focus[elem] = true;
+						 });
+					 } else {
+						 scope.dummyData.Focus = {};
+					 }
                //  element[0].parentNode.appendChild(element[0]);	
             };
             element.attr("ng-click", "regionClick()");
             // element.attr("ng-attr-fill", "{{dummyData[elementId].value | map_colour}}");
             element.attr("ng-mouseover", "regionMouseOver()");
-            element.attr("ng-class", "{active:hoverRegion==elementId}");
+            element.attr("ng-class", "{active:hoverRegion==elementId,nation:dummyData.Focus[elementId]}");
             element.removeAttr("region");
             $compile(element)(scope);
         }
