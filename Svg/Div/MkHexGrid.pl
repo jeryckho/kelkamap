@@ -3,7 +3,7 @@ use Math::Trig;
 
 my $tpl = '<polygon class="H" id="H%02d%02d" points="%s"/>';
 
-my $Size = 5880/82;
+my $Size = 5880/81;
 my $Vert = $Size * sqrt(3);
 my $W = 5880;
 my $H = 5880;

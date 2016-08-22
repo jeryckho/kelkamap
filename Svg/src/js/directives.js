@@ -42,26 +42,26 @@ angular.module('SvgMapApp').directive('region', ['$compile', 'DataSvc', function
             scope.regionClick = function () {
 					// alert(scope.elementId);
                 scope.hoverRegion = scope.elementId;
+					 scope.DataSvc.Map.Focus = {};
+					 scope.DataSvc.Map.FocusNation = "";					 
 					 if (angular.isDefined(scope.DataSvc.Map.Hexagones[scope.hoverRegion])) {
-						 scope.DataSvc.Map.Focus = {};
+						 scope.DataSvc.Map.FocusNation = scope.DataSvc.Map.Hexagones[scope.hoverRegion];
 						 var Lst = scope.DataSvc.Map.Nations[scope.DataSvc.Map.Hexagones[scope.hoverRegion]].Hexagones;
 						 angular.forEach(Lst, function (elem) {
 							scope.DataSvc.Map.Focus[elem] = true;
 						 });
-					 } else {
-						 scope.DataSvc.Map.Focus = {};
 					 }
             };
             scope.regionMouseOver = function () {
                 scope.hoverRegion = scope.elementId;
+					 scope.DataSvc.Map.Focus = {};
+					 scope.DataSvc.Map.FocusNation = "";					 
 					 if (angular.isDefined(scope.DataSvc.Map.Hexagones[scope.hoverRegion])) {
-						 scope.DataSvc.Map.Focus = {};
+						 scope.DataSvc.Map.FocusNation = scope.DataSvc.Map.Hexagones[scope.hoverRegion];
 						 var Lst = scope.DataSvc.Map.Nations[scope.DataSvc.Map.Hexagones[scope.hoverRegion]].Hexagones;
 						 angular.forEach(Lst, function (elem) {
 							scope.DataSvc.Map.Focus[elem] = true;
 						 });
-					 } else {
-						 scope.DataSvc.Map.Focus = {};
 					 }
                //  element[0].parentNode.appendChild(element[0]);	
             };

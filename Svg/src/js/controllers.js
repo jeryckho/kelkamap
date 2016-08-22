@@ -11,6 +11,8 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 
 		$scope.changeHoverRegion = function (region) {
 			var Lst = $scope.DataSvc.Map.Nations[region].Hexagones;
+			$scope.DataSvc.Map.Focus = {};
+			$scope.DataSvc.Map.FocusNation = region;			
 			angular.forEach(Lst, function (elem) {
 				$scope.DataSvc.Map.Focus[elem] = true;
 			});

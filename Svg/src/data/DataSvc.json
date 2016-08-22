@@ -1,21 +1,30 @@
 {
 	"Nations": {
 		"Sartak": {
-			"Hexagones": [ "H2525", "H2526", "H2625", "H2626" ],
+			"Nom" : "Duché de Sartak",
+			"Hexagones": [ "H3525","H3425","H3325","H3225","H3125","H3025","H2925","H3626","H3526","H3426","H3326","H3226","H3126","H3026","H3027","H3127","H3227","H3327","H3427","H3527","H3627","H3028","H3128","H3228","H3328","H3428","H3528","H3628","H3129","H3229","H3329","H3429","H3529","H3629","H3030","H3130","H3230","H3330","H3430","H3530","H3630","H3730","H3231","H3431","H3731" ],
 			"Cities": [ "Trancavel" ],
+			"Ressources": []
+		},
+		"Enders": {
+			"Nom": "Royaume d'Enders",
+			"Hexagones": [ "H4424", "H4425",  "H4524",  "H4523", "H4324" ],
+			"Cities": [ "Azura" ],
 			"Ressources": []
 		}
 	},
 	"Cities": {
 		"Trancavel": {
 			"Desc": "Fière cité qui défend la Marche du Sud."
+		},
+		"Azura": {
+			"Desc": "Berceau des Phénix."
 		}
 	},
 	"Hexagones": {
-		"H2525": "Sartak",
-		"H2526": "Sartak",
-		"H2625": "Sartak",
-		"H2626": "Sartak"
+		"H3525": "Sartak","H3425": "Sartak","H3325": "Sartak","H3225": "Sartak","H3125": "Sartak","H3025": "Sartak","H2925": "Sartak","H3626": "Sartak","H3526": "Sartak","H3426": "Sartak","H3326": "Sartak","H3226": "Sartak","H3126": "Sartak","H3026": "Sartak","H3027": "Sartak","H3127": "Sartak","H3227": "Sartak","H3327": "Sartak","H3427": "Sartak","H3527": "Sartak","H3627": "Sartak","H3028": "Sartak","H3128": "Sartak","H3228": "Sartak","H3328": "Sartak","H3428": "Sartak","H3528": "Sartak","H3628": "Sartak","H3129": "Sartak","H3229": "Sartak","H3329": "Sartak","H3429": "Sartak","H3529": "Sartak","H3629": "Sartak","H3030": "Sartak","H3130": "Sartak","H3230": "Sartak","H3330": "Sartak","H3430": "Sartak","H3530": "Sartak","H3630": "Sartak","H3730": "Sartak","H3231": "Sartak","H3431": "Sartak","H3731": "Sartak",
+		"H4523": "Enders","H4424": "Enders","H4425": "Enders","H4524": "Enders","H4324": "Enders"
 	},
-	"Focus": {}
+	"Focus": {},
+	"FocusNation": ""
 }
