@@ -15,6 +15,23 @@ angular.module('SvgMapApp').directive('svgMap', ['$compile', function ($compile)
     }
 }]);
 
+angular.module('SvgMapApp').directive('svgGrid', ['$compile', function ($compile) {
+    return {
+        restrict: 'A',
+        templateUrl: 'img/KelkaGrid.svg',
+        link: function (scope, element, attrs) {
+            var regions = element[0].querySelectorAll('.H');
+            angular.forEach(regions, function (path, key) {
+                var regionElement = angular.element(path);
+                regionElement.attr("region", "");
+                regionElement.attr("dummy-data", "dummyData");
+                regionElement.attr("hover-region", "hoverRegion");
+                $compile(regionElement)(scope);
+            })
+        }
+    }
+}]);
+
 angular.module('SvgMapApp').directive('region', ['$compile', function ($compile) {
     return {
         restrict: 'A',
