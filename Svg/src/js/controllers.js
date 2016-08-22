@@ -1,21 +1,18 @@
 angular.module('SvgMapApp', ['angular-loading-bar'])
-	.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+	.controller('MainCtrl', ['$scope', '$http', 'DataSvc', function ($scope, $http, DataSvc) {
 		$scope.vBox = {
 			Min: { x: -2640, y: -2520, w: 980, h: 980 },
 			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
 			Crt: { x: -2640, y: -2520, w: 5880, h: 5880 }
 		};
 
-		$scope.dummyData = {};
+		$scope.DataSvc = DataSvc;
 		$scope.layer = { iFond: true, gHex: true };
-		$http.get('data/dummyData.json').success(function(data) {
-			$scope.dummyData = data;
-		});
 
 		$scope.changeHoverRegion = function (region) {
-			var Lst = $scope.dummyData.Nations[region].Hexagones;
+			var Lst = $scope.DataSvc.Map.Nations[region].Hexagones;
 			angular.forEach(Lst, function (elem) {
-				$scope.dummyData.Focus[elem] = true;
+				$scope.DataSvc.Map.Focus[elem] = true;
 			});
 		};
 
