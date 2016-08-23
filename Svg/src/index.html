@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head lang="en">
+<head lang="fr">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,6 +44,10 @@
 						<td> </td>
 					</tr>
 					<tr><td colspan="3"><button type="button" ng-click="tog('iFond')">Fond</button> <button type="button" ng-click="tog('gHex')">Hexagones</button></td></tr>
+					<tr>
+						<td colspan="3">Log : <input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/>
+							<button type="button" ng-click="connect()">Admin</button> {{cnt | json}}</td>
+					</tr>
 				</table>
 			</div>
 		</div>
@@ -51,9 +55,16 @@
 	<!-- build:jsm js/app.js -->
 	<!-- AngularJS -->
 	<script src="../node_modules/angular/angular.min.js"></script>
+	<!-- Firebase -->
+	<script src="../node_modules/firebase/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="../node_modules/angularfire/dist/angularfire.min.js"></script>
+	<!-- AngularBootstrap -->
 	<script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<!-- Ng Loading Bar -->
 	<script src="../node_modules/angular-loading-bar/build/loading-bar.min.js"></script>
 	<!-- endbuild -->
+	<script src="js/firebase.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/directives.js"></script>
 	<script src="js/services.js"></script>

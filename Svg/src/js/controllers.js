@@ -1,5 +1,5 @@
-angular.module('SvgMapApp', ['angular-loading-bar'])
-	.controller('MainCtrl', ['$scope', '$http', 'DataSvc', function ($scope, $http, DataSvc) {
+angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
+	.controller('MainCtrl', ['$scope', '$http', 'DataSvc', 'FbSvc', function ($scope, $http, DataSvc, FbSvc) {
 		$scope.vBox = {
 			Min: { x: -2640, y: -2520, w: 980, h: 980 },
 			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
@@ -7,12 +7,13 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 		};
 
 		$scope.DataSvc = DataSvc;
+		$scope.FbSvc = FbSvc;
 		$scope.layer = { iFond: true, gHex: true };
 
 		$scope.changeHoverRegion = function (region) {
 			var Lst = $scope.DataSvc.Map.Nations[region].Hexagones;
 			$scope.DataSvc.Map.Focus = {};
-			$scope.DataSvc.Map.FocusNation = region;			
+			$scope.DataSvc.Map.FocusNation = region;
 			angular.forEach(Lst, function (elem) {
 				$scope.DataSvc.Map.Focus[elem] = true;
 			});
@@ -50,6 +51,16 @@ angular.module('SvgMapApp', ['angular-loading-bar'])
 
 		$scope.tog = function (id) {
 			$scope.layer[id] = !$scope.layer[id];
+		}
+
+		$scope.connect = function () {
+			$scope.FbSvc.login($scope.alog, $scope.apwd)
+				.then(function (data) {
+					$scope.cnt = "OK";
+				})
+				.catch(function (error) {
+					$scope.cnt = error;
+				});
 		}
 
 		$scope.setBox();
