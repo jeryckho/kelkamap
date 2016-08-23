@@ -6,6 +6,7 @@ gulp.task('prod', ['font'], function () {
 		.pipe($.usemin({
 			html: [function () { return $.minifyHtml({ empty: true }); }],
 			jsm: [$.uglify],
+			jsi: [$.uglify],
 			css: [$.minifyCss]
 		}))
 		.pipe(gulp.dest('bin/public/'));
