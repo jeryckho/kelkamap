@@ -39,7 +39,7 @@ angular.module('SvgMapApp')
 		}
 
 		svc.logout = function () {
-			svc.auth.$signOut();
+			return svc.auth.$signOut();
 		}
 
 		svc.isLoggedIn = function () {

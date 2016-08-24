@@ -21,4 +21,13 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
 					$scope.cnt = error;
 				});
 		}
+		$scope.unlog = function () {
+			$scope.Auth.logout()
+				.then(function (data) {
+					$scope.cnt = "-";
+				})
+				.catch(function (error) {
+					$scope.cnt = error;
+				});
+		}
 	}]);
