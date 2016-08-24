@@ -1,14 +1,16 @@
 {
 	"Nations": {
-		"Sartak": {
-			"Nom" : "Duché de Sartak",
-			"Hexagones": [ "H3525","H3425","H3325","H3225","H3125","H3025","H2925","H3626","H3526","H3426","H3326","H3226","H3126","H3026","H3027","H3127","H3227","H3327","H3427","H3527","H3627","H3028","H3128","H3228","H3328","H3428","H3528","H3628","H3129","H3229","H3329","H3429","H3529","H3629","H3030","H3130","H3230","H3330","H3430","H3530","H3630","H3730","H3231","H3431","H3731" ],
+		"STK": {
+			"Nom": "Sartak",
+			"NomLong" : "Duché de Sartak",
+			"Hexs": [ "H3525","H3425","H3325","H3225","H3125","H3025","H2925","H3626","H3526","H3426","H3326","H3226","H3126","H3026","H3027","H3127","H3227","H3327","H3427","H3527","H3627","H3028","H3128","H3228","H3328","H3428","H3528","H3628","H3129","H3229","H3329","H3429","H3529","H3629","H3030","H3130","H3230","H3330","H3430","H3530","H3630","H3730","H3231","H3431","H3731" ],
 			"Cities": [ "Trancavel" ],
 			"Ressources": []
 		},
-		"Enders": {
-			"Nom": "Royaume d'Enders",
-			"Hexagones": [ "H4424", "H4425",  "H4524",  "H4523", "H4324" ],
+		"EDS": {
+			"Nom": "Enders",
+			"NomLong": "Royaume d'Enders",
+			"Hexs": [ "H4424", "H4425",  "H4524",  "H4523", "H4324" ],
 			"Cities": [ "Azura" ],
 			"Ressources": []
 		}
@@ -21,9 +23,8 @@
 			"Desc": "Berceau des Phénix."
 		}
 	},
-	"Hexagones": {
-		"H3525": "Sartak","H3425": "Sartak","H3325": "Sartak","H3225": "Sartak","H3125": "Sartak","H3025": "Sartak","H2925": "Sartak","H3626": "Sartak","H3526": "Sartak","H3426": "Sartak","H3326": "Sartak","H3226": "Sartak","H3126": "Sartak","H3026": "Sartak","H3027": "Sartak","H3127": "Sartak","H3227": "Sartak","H3327": "Sartak","H3427": "Sartak","H3527": "Sartak","H3627": "Sartak","H3028": "Sartak","H3128": "Sartak","H3228": "Sartak","H3328": "Sartak","H3428": "Sartak","H3528": "Sartak","H3628": "Sartak","H3129": "Sartak","H3229": "Sartak","H3329": "Sartak","H3429": "Sartak","H3529": "Sartak","H3629": "Sartak","H3030": "Sartak","H3130": "Sartak","H3230": "Sartak","H3330": "Sartak","H3430": "Sartak","H3530": "Sartak","H3630": "Sartak","H3730": "Sartak","H3231": "Sartak","H3431": "Sartak","H3731": "Sartak",
-		"H4523": "Enders","H4424": "Enders","H4425": "Enders","H4524": "Enders","H4324": "Enders"
+	"Hexs": {
+		"H3525": "STK","H3425": "STK","H3325": "STK","H3225": "STK","H3125": "STK","H3025": "STK","H2925": "STK","H3626": "STK","H3526": "STK","H3426": "STK","H3326": "STK","H3226": "STK","H3126": "STK","H3026": "STK","H3027": "STK","H3127": "STK","H3227": "STK","H3327": "STK","H3427": "STK","H3527": "STK","H3627": "STK","H3028": "STK","H3128": "STK","H3228": "STK","H3328": "STK","H3428": "STK","H3528": "STK","H3628": "STK","H3129": "STK","H3229": "STK","H3329": "STK","H3429": "STK","H3529": "STK","H3629": "STK","H3030": "STK","H3130": "STK","H3230": "STK","H3330": "STK","H3430": "STK","H3530": "STK","H3630": "STK","H3730": "STK","H3231": "STK","H3431": "STK","H3731": "STK", "H4523": "EDS","H4424": "EDS","H4425": "EDS","H4524": "EDS","H4324": "EDS"
 	},
 	"Focus": {},
 	"FocusNation": ""

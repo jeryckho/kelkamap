@@ -11,12 +11,7 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
 		$scope.layer = { iFond: true, gHex: true };
 
 		$scope.changeHoverRegion = function (region) {
-			var Lst = $scope.DataSvc.Map.Nations[region].Hexagones;
-			$scope.DataSvc.Map.Focus = {};
-			$scope.DataSvc.Map.FocusNation = region;
-			angular.forEach(Lst, function (elem) {
-				$scope.DataSvc.Map.Focus[elem] = true;
-			});
+			$scope.DataSvc.OverNation(region);
 		};
 
 		$scope.toZoom = function (fac, bZoom) {

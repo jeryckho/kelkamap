@@ -41,30 +41,12 @@ angular.module('SvgMapApp')
 				scope.elementId = element.attr("id");
 				scope.DataSvc = DataSvc;
 				scope.regionClick = function () {
-					// alert(scope.elementId);
 					scope.hoverRegion = scope.elementId;
-					scope.DataSvc.Map.Focus = {};
-					scope.DataSvc.Map.FocusNation = "";
-					if (angular.isDefined(scope.DataSvc.Map.Hexagones[scope.hoverRegion])) {
-						scope.DataSvc.Map.FocusNation = scope.DataSvc.Map.Hexagones[scope.hoverRegion];
-						var Lst = scope.DataSvc.Map.Nations[scope.DataSvc.Map.Hexagones[scope.hoverRegion]].Hexagones;
-						angular.forEach(Lst, function (elem) {
-							scope.DataSvc.Map.Focus[elem] = true;
-						});
-					}
+					scope.DataSvc.OverHex(scope.hoverRegion);
 				};
 				scope.regionMouseOver = function () {
 					scope.hoverRegion = scope.elementId;
-					scope.DataSvc.Map.Focus = {};
-					scope.DataSvc.Map.FocusNation = "";
-					if (angular.isDefined(scope.DataSvc.Map.Hexagones[scope.hoverRegion])) {
-						scope.DataSvc.Map.FocusNation = scope.DataSvc.Map.Hexagones[scope.hoverRegion];
-						var Lst = scope.DataSvc.Map.Nations[scope.DataSvc.Map.Hexagones[scope.hoverRegion]].Hexagones;
-						angular.forEach(Lst, function (elem) {
-							scope.DataSvc.Map.Focus[elem] = true;
-						});
-					}
-					//  element[0].parentNode.appendChild(element[0]);	
+					scope.DataSvc.OverHex(scope.hoverRegion);
 				};
 				element.attr("ng-click", "regionClick()");
 				element.attr("ng-mouseover", "regionMouseOver()");

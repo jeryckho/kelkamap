@@ -6,6 +6,23 @@ angular.module('SvgMapApp')
 			svc.Map = data;
 		});
 
+		svc.OverNation = function(nation) {
+			svc.Map.Focus = {};
+			svc.Map.FocusNation = nation;		
+			var Lst = svc.Map.Nations[nation].Hexs;
+			angular.forEach(Lst, function (elem) {
+				svc.Map.Focus[elem] = true;
+			});
+		}
+
+		svc.OverHex = function(hOver) {
+			svc.Map.Focus = {};
+			svc.Map.FocusNation = "";
+			if (angular.isDefined(svc.Map.Hexs[hOver])) {
+				svc.OverNation(svc.Map.Hexs[hOver]);
+			}
+		}
+
 		return svc;
 	}])
 
