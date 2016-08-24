@@ -8,7 +8,6 @@ angular.module('SvgMapApp')
 				angular.forEach(regions, function (path, key) {
 					var regionElement = angular.element(path);
 					regionElement.attr("region", "");
-					regionElement.attr("hover-region", "hoverRegion");
 					$compile(regionElement)(scope);
 				})
 			}
@@ -24,7 +23,6 @@ angular.module('SvgMapApp')
 				angular.forEach(regions, function (path, key) {
 					var regionElement = angular.element(path);
 					regionElement.attr("region", "");
-					regionElement.attr("hover-region", "hoverRegion");
 					$compile(regionElement)(scope);
 				})
 			}
@@ -35,22 +33,19 @@ angular.module('SvgMapApp')
 		return {
 			restrict: 'A',
 			scope: {
-				hoverRegion: "="
 			},
 			link: function (scope, element, attrs) {
 				scope.elementId = element.attr("id");
 				scope.DataSvc = DataSvc;
 				scope.regionClick = function () {
-					scope.hoverRegion = scope.elementId;
-					scope.DataSvc.OverHex(scope.hoverRegion);
+					scope.DataSvc.OverHex(scope.elementId);
 				};
 				scope.regionMouseOver = function () {
-					scope.hoverRegion = scope.elementId;
-					scope.DataSvc.OverHex(scope.hoverRegion);
+					scope.DataSvc.OverHex(scope.elementId);
 				};
 				element.attr("ng-click", "regionClick()");
 				element.attr("ng-mouseover", "regionMouseOver()");
-				element.attr("ng-class", "{active:hoverRegion==elementId,nation:DataSvc.Map.Focus[elementId]}");
+				element.attr("ng-class", "{active:DataSvc.Map.Focus.Over==elementId,nation:DataSvc.Map.Focus.Hexs[elementId]}");
 				element.removeAttr("region");
 				$compile(element)(scope);
 			}

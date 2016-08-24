@@ -10,7 +10,7 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
 		$scope.FbSvc = FbSvc;
 		$scope.layer = { iFond: true, gHex: true };
 
-		$scope.changeHoverRegion = function (region) {
+		$scope.changeNation = function (region) {
 			$scope.DataSvc.OverNation(region);
 		};
 

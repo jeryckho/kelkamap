@@ -21,11 +21,11 @@
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 				<div class="regionlist">
-					<div ng-repeat="(key,region) in DataSvc.Map.Nations" ng-class="{active:DataSvc.Map.FocusNation==key}" ng-mouseover="changeHoverRegion(key)">
+					<div ng-repeat="(key,region) in DataSvc.Map.Nations" ng-class="{active:DataSvc.Map.Focus.Nation==key}" ng-mouseover="changeNation(key)">
 						<div>{{region.Nom}}</div>
 						<div>{{region.Hexs.length | number}}</div>
 					</div>
-					<!--H: {{hoverRegion}} N: {{DataSvc.Map.Hexs[hoverRegion]}} F: {{ DataSvc.Map.Focus | json }}-->
+					<!--H: {{DataSvc.Map.Focus.Over}} N: {{DataSvc.Map.Hexs[DataSvc.Map.Focus.Over]}} F: {{ DataSvc.Map.Focus.Hexs | json }}-->
 				</div>
 				<table>
 					<tr>
