@@ -1,13 +1,16 @@
 angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
-	.controller('MainCtrl', ['$scope', 'Data', 'Auth', 'Zoom', function ($scope, Data, Auth, Zoom) {
+	.controller('MainCtrl', ['$scope', 'Data', 'Zoom', function ($scope, Data, Zoom) {
+
+		$scope.Data = Data;
+		$scope.Zoom = Zoom;
+
+		$scope.Zoom.setBox();
+	}])
+	.controller('InfoCtrl', ['$scope', 'Data', 'Auth', 'Zoom', function ($scope, Data, Auth, Zoom) {
 
 		$scope.Data = Data;
 		$scope.Auth = Auth;
 		$scope.Zoom = Zoom;
-
-		$scope.tog = function (id) {
-			$scope.layer[id] = !$scope.layer[id];
-		}
 
 		$scope.connect = function () {
 			$scope.Auth.login($scope.alog, $scope.apwd)
@@ -18,7 +21,4 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase'])
 					$scope.cnt = error;
 				});
 		}
-
-		$scope.layer = { iFond: true, gHex: true };
-		$scope.Zoom.setBox();
 	}]);

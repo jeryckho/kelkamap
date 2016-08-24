@@ -13,13 +13,13 @@
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 
-<body ng-app="SvgMapApp" ng-controller="MainCtrl">
+<body ng-app="SvgMapApp">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" ng-controller="MainCtrl">
 				<div class="text-center" svg-map></div>
 			</div>
-			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" ng-controller="InfoCtrl">
 				<div class="regionlist">
 					<div ng-repeat="(key,region) in Data.Map.Nations" ng-class="{active:Data.Map.Focus.Nation==key}" ng-mouseover="Data.OverNation(key)">
 						<div>{{region.Nom}}</div>
@@ -43,7 +43,7 @@
 						<td><button type="button" ng-click="Zoom.Move(0,0.25)">Down</button></td>
 						<td> </td>
 					</tr>
-					<tr><td colspan="3"><button type="button" ng-click="tog('iFond')">Fond</button> <button type="button" ng-click="tog('gHex')">Hexagones</button></td></tr>
+					<tr><td colspan="3"><button type="button" ng-click="Data.Toggle('iFond')">Fond</button> <button type="button" ng-click="Data.Toggle('gHex')">Hexagones</button></td></tr>
 					<tr>
 						<td colspan="3">Log : <input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/> <button type="button" ng-click="connect()">Admin</button> {{cnt | json}}</td>
 					</tr>

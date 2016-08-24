@@ -1,10 +1,15 @@
 angular.module('SvgMapApp')
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
+		svc.Layer = { iFond: true, gHex: true };
 
 		$http.get('data/Map.json').success(function (data) {
 			svc.Map = data;
 		});
+
+		svc.Toggle = function (id) {
+			svc.Layer[id] = !svc.Layer[id];
+		}
 
 		svc.OverNation = function (nation) {
 			svc.Map.Focus.Hexs = {};
