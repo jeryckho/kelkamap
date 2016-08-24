@@ -29,23 +29,23 @@ angular.module('SvgMapApp')
 		}
 	}])
 
-	.directive('region', ['$compile', 'DataSvc', function ($compile, DataSvc) {
+	.directive('region', ['$compile', 'Data', function ($compile, Data) {
 		return {
 			restrict: 'A',
 			scope: {
 			},
 			link: function (scope, element, attrs) {
 				scope.elementId = element.attr("id");
-				scope.DataSvc = DataSvc;
+				scope.Data = Data;
 				scope.regionClick = function () {
-					scope.DataSvc.OverHex(scope.elementId);
+					scope.Data.OverHex(scope.elementId);
 				};
 				scope.regionMouseOver = function () {
-					scope.DataSvc.OverHex(scope.elementId);
+					scope.Data.OverHex(scope.elementId);
 				};
 				element.attr("ng-click", "regionClick()");
 				element.attr("ng-mouseover", "regionMouseOver()");
-				element.attr("ng-class", "{active:DataSvc.Map.Focus.Over==elementId,nation:DataSvc.Map.Focus.Hexs[elementId]}");
+				element.attr("ng-class", "{active:Data.Map.Focus.Over==elementId,nation:Data.Map.Focus.Hexs[elementId]}");
 				element.removeAttr("region");
 				$compile(element)(scope);
 			}
