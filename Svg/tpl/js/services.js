@@ -2,7 +2,7 @@ angular.module('SvgMapApp')
 	// Service des Donnees Carte
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
-		svc.Layer = { iFond: true, gHex: true };
+		svc.Layer = { iFond: true, gHex: true, cLand:true };
 		svc.Modif = false;
 
 		$http.get('data/Map.json').success(function (data) {
