@@ -16,6 +16,13 @@ angular.module('SvgMapApp')
 		$scope.Toggle = function () {
 			$scope.Data.Modif = !$scope.Data.Modif;
 		}
+
+		$scope.Add = function (what) {
+			if (!$scope.Data.Map.Nations[what]) {
+				$scope.Data.Map.Nations[what] = { Nom: 'Nouveau' };
+				$scope.New = '';
+			}
+		}
 	}])
 
 	// Controleur Login (#/Log)
