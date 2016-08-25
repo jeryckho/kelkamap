@@ -2,8 +2,9 @@ angular.module('SvgMapApp')
 	// Service des Donnees Carte
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
-		svc.Layer = { iFond: true, gHex: true, cLand:true };
+		svc.Layer = { iFond: true, gHex: true, cLand: true };
 		svc.Modif = false;
+		svc.Conflit = false;
 
 		$http.get('data/Map.json').success(function (data) {
 			svc.Map = data;
@@ -22,10 +23,33 @@ angular.module('SvgMapApp')
 			});
 		}
 
+		svc.ClickHex = function (hOver) {
+			if (svc.Modif) {
+				svc.Map.Focus.Over = hOver;
+				if ((!angular.isDefined(svc.Map.Hexs[hOver])) || (svc.Map.Hexs[hOver] == "")) {
+					svc.Res = 'ADD';
+				} else if (svc.Map.Hexs[hOver] == svc.Map.Focus.Nation) {
+					svc.Res = 'SUB';
+				} else {
+					svc.Res = 'SWAP';
+				}
+			} else {
+				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
+				if (angular.isDefined(svc.Map.Hexs[hOver])) {
+					svc.OverNation(svc.Map.Hexs[hOver]);
+				}
+			}
+		}
+
 		svc.OverHex = function (hOver) {
-			svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
-			if (angular.isDefined(svc.Map.Hexs[hOver])) {
-				svc.OverNation(svc.Map.Hexs[hOver]);
+			if (svc.Modif) {
+				svc.Map.Focus.Over = hOver;
+				svc.Conflit = (angular.isDefined(svc.Map.Hexs[hOver])) && (svc.Map.Focus.Nation != "") && (svc.Map.Hexs[hOver] != "") && (svc.Map.Hexs[hOver] != svc.Map.Focus.Nation);
+			} else {
+				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
+				if (angular.isDefined(svc.Map.Hexs[hOver])) {
+					svc.OverNation(svc.Map.Hexs[hOver]);
+				}
 			}
 		}
 

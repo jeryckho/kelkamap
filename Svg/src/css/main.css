@@ -33,6 +33,12 @@ svg .H:hover {
 	stroke-width: 10 !important;
 }
 
+svg .H.conflit:hover {
+	fill: #a44 !important;
+	fill-opacity: 0.25 !important;
+
+}
+
 .regionlist {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */

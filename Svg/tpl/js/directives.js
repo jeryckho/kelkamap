@@ -38,14 +38,14 @@ angular.module('SvgMapApp')
 				scope.elementId = element.attr("id");
 				scope.Data = Data;
 				scope.regionClick = function () {
-					scope.Data.OverHex(scope.elementId);
+					scope.Data.ClickHex(scope.elementId);
 				};
 				scope.regionMouseOver = function () {
 					scope.Data.OverHex(scope.elementId);
 				};
 				element.attr("ng-click", "regionClick()");
 				element.attr("ng-mouseover", "regionMouseOver()");
-				element.attr("ng-class", "{active:Data.Map.Focus.Over==elementId,nation:Data.Map.Focus.Hexs[elementId]}");
+				element.attr("ng-class", "{conflit:(Data.Map.Focus.Over==elementId)&&(Data.Conflit)&&(Data.Modif),nation:Data.Map.Focus.Hexs[elementId]}");
 				element.removeAttr("region");
 				$compile(element)(scope);
 			}
