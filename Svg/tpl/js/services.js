@@ -14,6 +14,22 @@ angular.module('SvgMapApp')
 			svc.Layer[id] = !svc.Layer[id];
 		}
 
+		svc.AddHexToNation = function (hOver, nation) {
+			svc.Map.Hexs[hOver] = nation;
+			if (!angular.isDefined(svc.Map.Nations[nation].Hexs)) {
+				svc.Map.Nations[nation].Hexs = [];
+			}
+			svc.Map.Nations[nation].Hexs.push(hOver);
+		}
+
+		svc.SubHexToNation = function (hOver, nation) {
+			delete svc.Map.Hexs[hOver];
+			var index = svc.Map.Nations[nation].Hexs.indexOf(hOver);
+			if (index > -1) {
+				svc.Map.Nations[nation].Hexs.splice(index, 1);
+			}
+		}
+
 		svc.OverNation = function (nation) {
 			svc.Map.Focus.Hexs = {};
 			svc.Map.Focus.Nation = nation;
@@ -27,12 +43,17 @@ angular.module('SvgMapApp')
 			if (svc.Modif) {
 				svc.Map.Focus.Over = hOver;
 				if ((!angular.isDefined(svc.Map.Hexs[hOver])) || (svc.Map.Hexs[hOver] == "")) {
-					svc.Res = 'ADD';
+					// ADD
+					svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
 				} else if (svc.Map.Hexs[hOver] == svc.Map.Focus.Nation) {
-					svc.Res = 'SUB';
+					// SUB
+					svc.SubHexToNation(hOver, svc.Map.Focus.Nation);
 				} else {
-					svc.Res = 'SWAP';
+					// SWAP
+					svc.SubHexToNation(hOver, svc.Map.Hexs[hOver]);
+					svc.AddHexToNation(hOver, svc.Map.Focus.Nation);					
 				}
+				svc.OverNation(svc.Map.Focus.Nation);
 			} else {
 				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
 				if (angular.isDefined(svc.Map.Hexs[hOver])) {
