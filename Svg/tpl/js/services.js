@@ -41,19 +41,21 @@ angular.module('SvgMapApp')
 
 		svc.ClickHex = function (hOver) {
 			if (svc.Modif) {
-				svc.Map.Focus.Over = hOver;
-				if ((!angular.isDefined(svc.Map.Hexs[hOver])) || (svc.Map.Hexs[hOver] == "")) {
-					// ADD
-					svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
-				} else if (svc.Map.Hexs[hOver] == svc.Map.Focus.Nation) {
-					// SUB
-					svc.SubHexToNation(hOver, svc.Map.Focus.Nation);
-				} else {
-					// SWAP
-					svc.SubHexToNation(hOver, svc.Map.Hexs[hOver]);
-					svc.AddHexToNation(hOver, svc.Map.Focus.Nation);					
+				if (svc.Map.Focus.Nation != "") {
+					svc.Map.Focus.Over = hOver;
+					if ((!angular.isDefined(svc.Map.Hexs[hOver])) || (svc.Map.Hexs[hOver] == "")) {
+						// ADD
+						svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
+					} else if (svc.Map.Hexs[hOver] == svc.Map.Focus.Nation) {
+						// SUB
+						svc.SubHexToNation(hOver, svc.Map.Focus.Nation);
+					} else {
+						// SWAP
+						svc.SubHexToNation(hOver, svc.Map.Hexs[hOver]);
+						svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
+					}
+					svc.OverNation(svc.Map.Focus.Nation);
 				}
-				svc.OverNation(svc.Map.Focus.Nation);
 			} else {
 				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
 				if (angular.isDefined(svc.Map.Hexs[hOver])) {

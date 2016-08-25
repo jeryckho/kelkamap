@@ -34,8 +34,8 @@ svg .H:hover {
 }
 
 svg .H.conflit:hover {
-	fill: #a44 !important;
-	fill-opacity: 0.25 !important;
+	fill: #f00 !important;
+	fill-opacity: 0.75 !important;
 
 }
 

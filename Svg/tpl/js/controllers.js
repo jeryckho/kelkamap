@@ -22,7 +22,13 @@ angular.module('SvgMapApp')
 				$scope.Data.Map.Nations[what] = { Nom: 'Nouveau' };
 				$scope.New = '';
 			}
+			$scope.Data.OverNation(what);
 		}
+
+		$scope.Vide = function () {
+			$scope.Data.OverNation("");			
+		}
+		
 	}])
 
 	// Controleur Login (#/Log)
