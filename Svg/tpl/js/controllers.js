@@ -1,36 +1,5 @@
-angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute'])
-
-	.run(['$rootScope', '$location', function ($rootScope, $location) {
-		$rootScope.$on('$routeChangeError', function (event, next, previous, error) {
-			if (error === 'AUTH_REQUIRED') {
-				$location.path('/Log');
-			}
-		});
-	}])
-
-	.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/', {
-				templateUrl: 'html/Info.html',
-				controller: 'InfoCtrl',
-			})
-			.when('/Log', {
-				templateUrl: 'html/Log.html',
-				controller: 'LogCtrl',
-			})
-			.when('/Adm', {
-				templateUrl: 'html/Adm.html',
-				controller: 'AdmCtrl',
-				resolve: {
-					'currentAuth': ['Auth', function (Auth) {
-						return Auth.auth.$requireSignIn();
-					}]
-				}
-			})
-			.otherwise({ redirectTo: '/' });
-	}])
-
-
+angular.module('SvgMapApp')
+	// Controleur partie image
 	.controller('ImgCtrl', ['$scope', 'Data', 'Zoom', function ($scope, Data, Zoom) {
 
 		$scope.Data = Data;
@@ -39,10 +8,17 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute'])
 		$scope.Zoom.setBox();
 	}])
 
-	.controller('AdmCtrl', ['$scope', 'currentAuth', function ($scope, currentAuth) {
+	// Controleur Administration (#/Adm)
+	.controller('AdmCtrl', ['$scope', 'Data', 'currentAuth', function ($scope, Data, currentAuth) {
+		$scope.Data = Data;
 		$scope.cnt = 'ADM';
+
+		$scope.Toggle = function () {
+			$scope.Data.Modif = !$scope.Data.Modif;
+		}
 	}])
 
+	// Controleur Login (#/Log)
 	.controller('LogCtrl', ['$scope', 'Auth', '$location', function ($scope, Auth, $location) {
 		$scope.Auth = Auth;
 		$scope.cnt = 'LOG';
@@ -69,6 +45,7 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute'])
 		}
 	}])
 
+	// Controleur Info (#/)
 	.controller('InfoCtrl', ['$scope', 'Data', 'Auth', 'Zoom', function ($scope, Data, Auth, Zoom) {
 		$scope.Auth = Auth;
 		$scope.Data = Data;

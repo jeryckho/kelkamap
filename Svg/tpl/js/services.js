@@ -1,7 +1,9 @@
 angular.module('SvgMapApp')
+	// Service des Donnees Carte
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
 		svc.Layer = { iFond: true, gHex: true };
+		svc.Modif = false;
 
 		$http.get('data/Map.json').success(function (data) {
 			svc.Map = data;
@@ -30,6 +32,7 @@ angular.module('SvgMapApp')
 		return svc;
 	}])
 
+	// Service d'Authent
 	.factory('Auth', ['$firebaseAuth', function ($firebaseAuth) {
 		var svc = {};
 		svc.auth = $firebaseAuth();
@@ -49,6 +52,7 @@ angular.module('SvgMapApp')
 		return svc;
 	}])
 
+	// Service de Zoom
 	.factory('Zoom', [function () {
 		var svc = {};
 		svc.ViewBox = "";

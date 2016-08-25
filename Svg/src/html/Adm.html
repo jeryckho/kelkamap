@@ -1,2 +1,11 @@
-Adm : {{ cnt }}
+Mode actuel : {{ Data.Modif ? 'Modif' : 'Normal' }} <br/>
+<button ng-click="Toggle()">Changer mode</button><br/>
+<table ng-show="Data.Modif">
+	<tr>
+		<td ng-show="Data.Map.Focus.Nation">Modifier Nation (à faire)</td>
+	</tr>
+	<tr>
+		<td ng-hide="Data.Map.Focus.Nation">Ajouter Nation (à faire)</td>
+	</tr>
+</table>
 <a class="btn btn-default" href="#/" role="button">Back</a>
