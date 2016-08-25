@@ -1,0 +1,7 @@
+<table>
+	<tr>
+		<td colspan="3" ng-hide="Auth.isLoggedIn()">Log : <input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/> <button type="button"
+				ng-click="connect()">Admin</button> {{cnt | json}}</td>
+		<td colspan="3" ng-show="Auth.isLoggedIn()"> {{Auth.isLoggedIn().email}} : <button type="button" ng-click="unlog()">Unlog</button></td>
+	</tr>
+</table>
