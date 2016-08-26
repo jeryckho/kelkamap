@@ -4,7 +4,7 @@ angular.module('SvgMapApp')
 	///////////////////////////////
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
-		svc.Layer = { iFond: false, gHex: true, cLand: true };
+		svc.Layer = { iFond: true, gHex: true, cLand: true };
 		svc.Modif = false;
 		svc.Conflit = false;
 
@@ -13,6 +13,9 @@ angular.module('SvgMapApp')
 			angular.copy(svc.Map, x);
 			x.Focus = { Hexs: {}, Nation: "", Over: "" };
 			x.Hexs = {};
+			angular.forEach(x.Nations, function (nation, code) {
+				nation.Hexs.sort();
+			});			
 			return x;
 		}
 

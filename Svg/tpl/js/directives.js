@@ -1,4 +1,7 @@
 angular.module('SvgMapApp')
+	///////////////////
+	// Inclusion Map //
+	///////////////////
 	.directive('svgMap', ['$compile', function ($compile) {
 		return {
 			restrict: 'A',
@@ -14,6 +17,9 @@ angular.module('SvgMapApp')
 		}
 	}])
 
+	///////////////////
+	// Inclusion Hex //
+	///////////////////
 	.directive('svgGrid', ['$compile', function ($compile) {
 		return {
 			restrict: 'A',
@@ -29,6 +35,9 @@ angular.module('SvgMapApp')
 		}
 	}])
 
+	////////////////////////
+	// Decoration des Hex //
+	////////////////////////
 	.directive('region', ['$compile', 'Data', function ($compile, Data) {
 		return {
 			restrict: 'A',
@@ -52,6 +61,9 @@ angular.module('SvgMapApp')
 		}
 	}])
 
+	///////////////////
+	// Suivi ViewBox //
+	///////////////////
 	.directive('viewBox', [
 		function () {
 			'use strict';
@@ -63,4 +75,14 @@ angular.module('SvgMapApp')
 				}
 			};
 		}
-	]);
+	])
+
+	////////////////////
+	// Inclusion Rose //
+	////////////////////
+	.directive('svgRose', ['$compile', function ($compile) {
+		return {
+			restrict: 'A',
+			templateUrl: 'img/Rose.svg'
+		}
+	}]);

@@ -9,23 +9,7 @@
 		</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Zoom" is-open="true">
-		<table>
-			<tr>
-				<td> </td>
-				<td><button type="button" ng-click="Zoom.Move(0,-0.25)">Up</button></td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td><button type="button" ng-click="Zoom.Move(-0.25,0)">Left</button></td>
-				<td><button type="button" ng-click="Zoom.InOut(1.1,true)">+</button> <button type="button" ng-click="Zoom.InOut(1.1,false)">-</button></td>
-				<td><button type="button" ng-click="Zoom.Move(0.25,0)">Right</button></td>
-			</tr>
-			<tr>
-				<td> </td>
-				<td><button type="button" ng-click="Zoom.Move(0,0.25)">Down</button></td>
-				<td> </td>
-			</tr>
-		</table>
+		<div class="text-center" svg-rose></div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
 		<input type="checkbox" ng-model="Data.Layer.iFond"> Fond <br/>

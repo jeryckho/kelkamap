@@ -13,6 +13,6 @@
 	</defs>
 	<image ng-show="Data.Layer.iFond" id="image4188" width="5.88e3" xlink:href="img/fondcarte.jpg" height="5.88e3" y="-2.52e3" x="-2.64e3" preserveAspectRatio="none"/>
 	<g clip-path="url(#land)" >
-		<g transform="translate(-2480,-2180)" ng-show="Data.Layer.gHex" svg-grid>	</g>
+		<g transform="translate(-2480,-2180)" ng-show="Data.Layer.gHex" svg-grid="">	</g>
 	</g>
 </svg>
