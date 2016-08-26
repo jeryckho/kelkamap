@@ -8,7 +8,7 @@
 			<!--H: {{Data.Map.Focus.Over}} N: {{Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Boutons" is-open="true">
+	<div uib-accordion-group class="panel-default" heading="Zoom" is-open="true">
 		<table>
 			<tr>
 				<td> </td>
@@ -25,12 +25,13 @@
 				<td><button type="button" ng-click="Zoom.Move(0,0.25)">Down</button></td>
 				<td> </td>
 			</tr>
-			<tr>
-				<td colspan="3"><button type="button" ng-click="Data.Toggle('iFond')">Fond</button> <button type="button" ng-click="Data.Toggle('gHex')">Hexagones</button>					<button type="button" ng-click="Data.Toggle('cLand')">Terres</button></td>
-			</tr>
-			<tr>
-				<td colspan="3" ng-show="Auth.isLoggedIn()"><a class="btn btn-default" href="#/Adm" role="button">Admin</a></td>
-			</tr>
 		</table>
+	</div>
+	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
+		<input type="checkbox" ng-model="Data.Layer.iFond"> Fond <br/>
+		<input type="checkbox" ng-model="Data.Layer.gHex"> Hexagones (<input type="checkbox" ng-disabled="!Data.Layer.gHex" ng-model="Data.Layer.cLand"> Limiter aux terres) <br/>
+	</div>
+	<div uib-accordion-group class="panel-default" heading="Administration" is-open="true" ng-show="Auth.isLoggedIn()">
+		<a class="btn btn-default" href="#/Adm" role="button">Accéder</a>
 	</div>
 </uib-accordion>
