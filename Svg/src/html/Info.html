@@ -1,28 +1,36 @@
-<div class="regionlist">
-	<div ng-repeat="(key,region) in Data.Map.Nations" ng-class="{active:Data.Map.Focus.Nation==key}" ng-mouseover="Data.OverNation(key)">
-		<div>{{region.Nom}}</div>
-		<div>{{region.Hexs.length | number}}</div>
+<uib-accordion close-others="false">
+	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true">
+		<div class="regionlist">
+			<div ng-repeat="(key,region) in Data.Map.Nations" ng-class="{active:Data.Map.Focus.Nation==key}" ng-mouseover="Data.OverNation(key)">
+				<div>{{region.Nom}}</div>
+				<div>{{region.Hexs.length | number}}</div>
+			</div>
+			<!--H: {{Data.Map.Focus.Over}} N: {{Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ Data.Map.Focus.Hexs | json }}-->
+		</div>
 	</div>
-	<!--H: {{Data.Map.Focus.Over}} N: {{Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ Data.Map.Focus.Hexs | json }}-->
-</div>
-<table>
-	<tr>
-		<td> </td>
-		<td><button type="button" ng-click="Zoom.Move(0,-0.25)">Up</button></td>
-		<td> </td>
-	</tr>
-	<tr>
-		<td><button type="button" ng-click="Zoom.Move(-0.25,0)">Left</button></td>
-		<td><button type="button" ng-click="Zoom.InOut(1.1,true)">+</button> <button type="button" ng-click="Zoom.InOut(1.1,false)">-</button></td>
-		<td><button type="button" ng-click="Zoom.Move(0.25,0)">Right</button></td>
-	</tr>
-	<tr>
-		<td> </td>
-		<td><button type="button" ng-click="Zoom.Move(0,0.25)">Down</button></td>
-		<td> </td>
-	</tr>
-	<tr><td colspan="3"><button type="button" ng-click="Data.Toggle('iFond')">Fond</button> <button type="button" ng-click="Data.Toggle('gHex')">Hexagones</button> <button type="button" ng-click="Data.Toggle('cLand')">Terres</button></td></tr>
-	<tr>
-		<td colspan="3" ng-show="Auth.isLoggedIn()"><a class="btn btn-default" href="#/Adm" role="button">Admin</a></td>
-	</tr>
-</table>
+	<div uib-accordion-group class="panel-default" heading="Boutons" is-open="true">
+		<table>
+			<tr>
+				<td> </td>
+				<td><button type="button" ng-click="Zoom.Move(0,-0.25)">Up</button></td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td><button type="button" ng-click="Zoom.Move(-0.25,0)">Left</button></td>
+				<td><button type="button" ng-click="Zoom.InOut(1.1,true)">+</button> <button type="button" ng-click="Zoom.InOut(1.1,false)">-</button></td>
+				<td><button type="button" ng-click="Zoom.Move(0.25,0)">Right</button></td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td><button type="button" ng-click="Zoom.Move(0,0.25)">Down</button></td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td colspan="3"><button type="button" ng-click="Data.Toggle('iFond')">Fond</button> <button type="button" ng-click="Data.Toggle('gHex')">Hexagones</button>					<button type="button" ng-click="Data.Toggle('cLand')">Terres</button></td>
+			</tr>
+			<tr>
+				<td colspan="3" ng-show="Auth.isLoggedIn()"><a class="btn btn-default" href="#/Adm" role="button">Admin</a></td>
+			</tr>
+		</table>
+	</div>
+</uib-accordion>

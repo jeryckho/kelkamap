@@ -1,5 +1,7 @@
-angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute'])
-	// Redirection de #/Adm vers #/Log
+angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute', 'ui.bootstrap'])
+	/////////////////////////////////////
+	// Redirection de #/Adm vers #/Log //
+	/////////////////////////////////////
 	.run(['$rootScope', '$location', function ($rootScope, $location) {
 		$rootScope.$on('$routeChangeError', function (event, next, previous, error) {
 			if (error === 'AUTH_REQUIRED') {
@@ -8,7 +10,9 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute'])
 		});
 	}])
 
-	// Config Routeur
+	////////////////////
+	// Config Routeur //
+	////////////////////
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
 			.when('/', {

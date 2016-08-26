@@ -1,30 +1,37 @@
-Mode actuel : {{ Data.Modif ? 'Modif' : 'Normal' }} <br/>
-<button ng-click="Toggle()">Changer mode</button><br/>
-<table ng-show="Data.Modif">
-	<tbody ng-show="Data.Map.Focus.Nation">
-		<tr>
-			<td>Modifier Nation {{Data.Map.Focus.Nation}} (à faire)</td>
-		</tr>
-		<tr>
-			<td>Nom : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].Nom"></td>
-		</tr>
-		<tr>
-			<td>Nom Détaillé : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].NomLong"></td>
-		</tr>
-		<tr>
-			<td><button ng-click="Vide()">Nouveau</button></td>
-		</tr>
-	</tbody>
-	<tbody ng-hide="Data.Map.Focus.Nation">
-		<tr>
-			<td>Ajouter Nation (à faire) </td>
-		</tr>
-		<tr>
-			<td><input type="text" ng-model="New"> <button ng-disabled="!New" ng-click="Add(New)">Add</button></td>
-		</tr>
-	</tbody>
-</table>
+<uib-accordion close-others="false">
+	<div uib-accordion-group class="panel-default" heading="Mode" is-open="true">
+		Mode actuel : {{ Data.Modif ? 'Modif' : 'Normal' }} <br/>
+		<button ng-click="Toggle()">Changer mode</button>
+	</div>
+	<div uib-accordion-group class="panel-default" heading="Modifs" is-open="true" ng-show="Data.Modif">
+		<table>
+			<tbody ng-show="Data.Map.Focus.Nation">
+				<tr>
+					<td>Modifier Nation {{Data.Map.Focus.Nation}} (à faire)</td>
+				</tr>
+				<tr>
+					<td>Nom : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].Nom"></td>
+				</tr>
+				<tr>
+					<td>Nom Détaillé : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].NomLong"></td>
+				</tr>
+				<tr>
+					<td><button ng-click="Vide()">Nouveau</button></td>
+				</tr>
+			</tbody>
+			<tbody ng-hide="Data.Map.Focus.Nation">
+				<tr>
+					<td>Ajouter Nation (à faire) </td>
+				</tr>
+				<tr>
+					<td><input type="text" ng-model="New"> <button ng-disabled="!New" ng-click="Add(New)">Add</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div uib-accordion-group class="panel-default" heading="Export" is-open="false">
+		<button ng-click="Xport()">Exporter</button> <input type="checkbox" ng-model="Json"><br/>
+		<div ng-show="Json">{{Xpt | json}}</div>
+	</div>
+</uib-accordion>
 <a class="btn btn-default" href="#/" role="button">Back</a>
-<hr>
-<button ng-click="Xport()">Exporter</button> <input type="checkbox" ng-model="Json"><br/>
-<div ng-show="Json">{{Xpt | json}}</div>
