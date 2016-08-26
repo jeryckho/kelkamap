@@ -25,6 +25,6 @@ Mode actuel : {{ Data.Modif ? 'Modif' : 'Normal' }} <br/>
 	</tbody>
 </table>
 <a class="btn btn-default" href="#/" role="button">Back</a>
-
-<input type="checkbox" ng-model="Json"><br/>
-<div ng-show="Json">{{Data.Map | json}}</div>
+<hr>
+<button ng-click="Xport()">Exporter</button> <input type="checkbox" ng-model="Json"><br/>
+<div ng-show="Json">{{Xpt | json}}</div>

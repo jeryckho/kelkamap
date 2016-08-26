@@ -1,13 +1,33 @@
 angular.module('SvgMapApp')
-	// Service des Donnees Carte
+	///////////////////////////////
+	// Service des Donnees Carte //
+	///////////////////////////////
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
 		svc.Layer = { iFond: true, gHex: true, cLand: true };
 		svc.Modif = false;
 		svc.Conflit = false;
 
+		svc.Xport = function () {
+			var x = {};
+			angular.copy(svc.Map, x);
+			x.Focus = { Hexs: {}, Nation: "", Over: "" };
+			x.Hexs = {};
+			return x;
+		}
+
+		svc.ComputeHexs = function () {
+			svc.Map.Hexs = {};
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				angular.forEach(nation.Hexs, function (hex) {
+					svc.Map.Hexs[hex] = code;
+				});
+			});
+		}
+
 		$http.get('data/Map.json').success(function (data) {
 			svc.Map = data;
+			svc.ComputeHexs();
 		});
 
 		svc.Toggle = function (id) {
@@ -79,7 +99,9 @@ angular.module('SvgMapApp')
 		return svc;
 	}])
 
-	// Service d'Authent
+	///////////////////////
+	// Service d'Authent //
+	///////////////////////
 	.factory('Auth', ['$firebaseAuth', function ($firebaseAuth) {
 		var svc = {};
 		svc.auth = $firebaseAuth();
@@ -99,7 +121,9 @@ angular.module('SvgMapApp')
 		return svc;
 	}])
 
-	// Service de Zoom
+	////////////////////
+	// Service de Zoom//
+	////////////////////
 	.factory('Zoom', [function () {
 		var svc = {};
 		svc.ViewBox = "";

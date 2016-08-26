@@ -1,5 +1,7 @@
 angular.module('SvgMapApp')
-	// Controleur partie image
+	/////////////////////////////
+	// Controleur partie image //
+	/////////////////////////////
 	.controller('ImgCtrl', ['$scope', 'Data', 'Zoom', function ($scope, Data, Zoom) {
 
 		$scope.Data = Data;
@@ -8,7 +10,9 @@ angular.module('SvgMapApp')
 		$scope.Zoom.setBox();
 	}])
 
-	// Controleur Administration (#/Adm)
+	///////////////////////////////////////
+	// Controleur Administration (#/Adm) //
+	///////////////////////////////////////
 	.controller('AdmCtrl', ['$scope', 'Data', 'currentAuth', function ($scope, Data, currentAuth) {
 		$scope.Data = Data;
 		$scope.cnt = 'ADM';
@@ -26,12 +30,19 @@ angular.module('SvgMapApp')
 		}
 
 		$scope.Vide = function () {
-			$scope.Data.OverNation("");			
+			$scope.Data.OverNation("");
 		}
-		
+
+		$scope.Xport = function () {
+			$scope.Xpt = $scope.Data.Xport();
+			$scope.Json = true;
+		}
+
 	}])
 
-	// Controleur Login (#/Log)
+	//////////////////////////////
+	// Controleur Login (#/Log) //
+	//////////////////////////////
 	.controller('LogCtrl', ['$scope', 'Auth', '$location', function ($scope, Auth, $location) {
 		$scope.Auth = Auth;
 		$scope.cnt = 'LOG';
@@ -58,7 +69,9 @@ angular.module('SvgMapApp')
 		}
 	}])
 
-	// Controleur Info (#/)
+	//////////////////////////
+	// Controleur Info (#/) //
+	//////////////////////////
 	.controller('InfoCtrl', ['$scope', 'Data', 'Auth', 'Zoom', function ($scope, Data, Auth, Zoom) {
 		$scope.Auth = Auth;
 		$scope.Data = Data;
