@@ -8,12 +8,20 @@
 			<!--H: {{Data.Map.Focus.Over}} N: {{Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Zoom" is-open="true">
-		<div class="text-center" svg-rose></div>
-	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
-		<input type="checkbox" ng-model="Data.Layer.iFond"> Fond <br/>
-		<input type="checkbox" ng-model="Data.Layer.gHex"> Hexagones (<input type="checkbox" ng-disabled="!Data.Layer.gHex" ng-model="Data.Layer.cLand"> Limiter aux terres) <br/>
+		<table>
+			<tr>
+				<td>
+					<div class="text-center" svg-rose></div>
+				</td>
+				<td style="vertical-align: top">
+					<input type="checkbox" ng-model="Data.Layer.iFond" id="cbFond"> <label for="cbFond" ng-class="{'text-success':Data.Layer.iFond,'text-muted':!Data.Layer.iFond}"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i> Fond</label> <br/>
+					<input type="checkbox" ng-model="Data.Layer.gHex" id="cbHex"> <label for="cbHex" ng-class="{'text-success':Data.Layer.gHex,'text-muted':!Data.Layer.gHex}"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label> <br/>
+					&nbsp; &nbsp; 
+					<input type="checkbox" ng-disabled="!Data.Layer.gHex" ng-model="Data.Layer.cLand" id="cbLand"> <label for="cbLand" ng-class="{'text-success':(Data.Layer.cLand && Data.Layer.gHex),'text-muted':(!Data.Layer.gHex || !Data.Layer.cLand) }"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label> <br/>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Administration" is-open="true" ng-show="Auth.isLoggedIn()">
 		<a class="btn btn-default" href="#/Adm" role="button">Accéder</a>

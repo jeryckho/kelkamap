@@ -56,10 +56,12 @@ angular.module('SvgMapApp')
 		svc.OverNation = function (nation) {
 			svc.Map.Focus.Hexs = {};
 			svc.Map.Focus.Nation = nation;
-			var Lst = svc.Map.Nations[nation].Hexs;
-			angular.forEach(Lst, function (elem) {
-				svc.Map.Focus.Hexs[elem] = true;
-			});
+			if (nation != "") {
+				var Lst = svc.Map.Nations[nation].Hexs;
+				angular.forEach(Lst, function (elem) {
+					svc.Map.Focus.Hexs[elem] = true;
+				});
+			}
 		}
 
 		svc.ClickHex = function (hOver) {

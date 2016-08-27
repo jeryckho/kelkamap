@@ -30,6 +30,7 @@ angular.module('SvgMapApp')
 		}
 
 		$scope.Vide = function () {
+			$scope.New = "";
 			$scope.Data.OverNation("");
 		}
 
