@@ -15,7 +15,7 @@ angular.module('SvgMapApp')
 			x.Hexs = {};
 			angular.forEach(x.Nations, function (nation, code) {
 				nation.Hexs.sort();
-			});			
+			});
 			return x;
 		}
 
@@ -165,6 +165,16 @@ angular.module('SvgMapApp')
 			svc.vBox.Crt.y += mH * svc.vBox.Crt.h;
 			svc.setBox();
 		}
+
+      svc.Wheel = function (event, delta, deltaX, deltaY) {
+			if (delta > 0) {
+				svc.InOut(1.1, true);
+			} else if (delta < 0) {
+				svc.InOut(1.1, false);
+			}
+			event.stopPropagation();
+			event.preventDefault();
+      };
 
 		return svc;
 	}]);
