@@ -2,11 +2,21 @@ angular.module('SvgMapApp')
 	///////////////////////////////
 	// Service des Donnees Carte //
 	///////////////////////////////
-	.factory('Data', ['$http', function ($http) {
+	.factory('Data', ['$http', '$document', function ($http, $document) {
 		var svc = {};
 		svc.Layer = { iFond: true, gHex: true, cLand: true, gCities: true };
 		svc.Modif = false;
 		svc.Conflit = false;
+
+		svc.Find = function (id,pos) {
+			var queryResult = $document[0].getElementById(id);
+			if (queryResult != null) {
+				var res = angular.element(queryResult).attr('points').split(" ");
+				return res[pos];
+			} else {
+				return "-1000";
+			}
+		}
 
 		svc.Xport = function () {
 			var x = {};
