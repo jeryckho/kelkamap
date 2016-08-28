@@ -698,9 +698,13 @@
 	},
 	"Cities": {
 		"Trancavel": {
+			"X" : 3665,
+			"Y" : 3457,
 			"Desc": "Fière cité qui défend la Marche du Sud."
 		},
 		"Azura": {
+			"X" : 4863,
+			"Y" : 3143,
 			"Desc": "Berceau des Phénix."
 		}
 	},

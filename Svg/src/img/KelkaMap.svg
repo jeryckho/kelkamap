@@ -22,6 +22,6 @@
 		<g transform="translate(-2480,-2180)" ng-show="Data.Layer.gHex" svg-grid=""></g>
 	</g>
 	<g transform="translate(-2480,-2180)" ng-show="Data.Layer.gCities">
-		<use xlink:href="#pin" x="3500" y="3500" />
+			<use ng-repeat="(key,city) in Data.Map.Cities" xlink:href="#pin" ng-x="{{city.X}}" ng-y="{{city.Y}}" id="key"/>
 	</g>
 </svg>

@@ -77,6 +77,28 @@ angular.module('SvgMapApp')
 		}
 	])
 
+	///////////////////
+	// Suivi value X //
+	///////////////////
+	.directive('ngX', function () {
+		return function (scope, elem, attrs) {
+			attrs.$observe('ngX', function (x) {
+				elem.attr('x', x);
+			});
+		};
+	})
+
+	///////////////////
+	// Suivi value Y //
+	///////////////////
+	.directive('ngY', function () {
+		return function (scope, elem, attrs) {
+			attrs.$observe('ngY', function (y) {
+				elem.attr('y', y);
+			});
+		};
+	})
+
 	////////////////////
 	// Inclusion Rose //
 	////////////////////
