@@ -74,8 +74,9 @@ angular.module('SvgMapApp')
 	//////////////////////////
 	// Controleur Info (#/) //
 	//////////////////////////
-	.controller('InfoCtrl', ['$scope', 'Data', 'Auth', 'Zoom', function ($scope, Data, Auth, Zoom) {
-		$scope.Auth = Auth;
-		$scope.Data = Data;
-		$scope.Zoom = Zoom;
+	.controller('InfoCtrl', ['Data', 'Auth', 'Zoom', function (Data, Auth, Zoom) {
+		var vm = this;
+		vm.Auth = Auth;
+		vm.Data = Data;
+		vm.Zoom = Zoom;
 	}]);

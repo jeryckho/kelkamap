@@ -1,11 +1,11 @@
 <uib-accordion close-others="false">
 	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true">
 		<div class="regionlist">
-			<div ng-repeat="(key,region) in Data.Map.Nations" ng-class="{active:Data.Map.Focus.Nation==key}" ng-mouseover="Data.OverNation(key)">
+			<div ng-repeat="(key,region) in VM.Data.Map.Nations" ng-class="{active:VM.Data.Map.Focus.Nation==key}" ng-mouseover="VM.Data.OverNation(key)">
 				<div>{{region.Nom}}</div>
 				<div>{{region.Hexs.length | number}}</div>
 			</div>
-			<!--H: {{Data.Map.Focus.Over}} N: {{Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ Data.Map.Focus.Hexs | json }}-->
+			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
@@ -15,11 +15,10 @@
 					<div class="text-center" svg-rose></div>
 				</td>
 				<td style="vertical-align: top">
-					<input type="checkbox" ng-model="Data.Layer.iFond" id="cbFond"> <label for="cbFond" ng-class="{'text-success':Data.Layer.iFond,'text-muted':!Data.Layer.iFond}"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i> Fond</label> <br/>
-					<input type="checkbox" ng-model="Data.Layer.gHex" id="cbHex"> <label for="cbHex" ng-class="{'text-success':Data.Layer.gHex,'text-muted':!Data.Layer.gHex}"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label> <br/>
-					&nbsp; &nbsp; 
-					<input type="checkbox" ng-disabled="!Data.Layer.gHex" ng-model="Data.Layer.cLand" id="cbLand"> <label for="cbLand" ng-class="{'text-success':(Data.Layer.cLand && Data.Layer.gHex),'text-muted':(!Data.Layer.gHex || !Data.Layer.cLand) }"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label> <br/>
-					<input type="checkbox" ng-model="Data.Layer.gCities" id="cbCities"> <label for="cbCities" ng-class="{'text-success':Data.Layer.gCities,'text-muted':!Data.Layer.gCities}"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Cités</label> <br/>
+					<input type="checkbox" ng-model="VM.Data.Layer.iFond" id="cbFond"> <label for="cbFond" ng-class="VM.Data.Layer.iFond?'text-success':'text-muted'"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i> Fond</label> <br/>
+					<input type="checkbox" ng-model="VM.Data.Layer.gHex" id="cbHex"> <label for="cbHex" ng-class="VM.Data.Layer.gHex?'text-success':'text-muted'"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label> <br/>
+					&nbsp; &nbsp; <input type="checkbox" ng-disabled="!VM.Data.Layer.gHex" ng-model="VM.Data.Layer.cLand" id="cbLand"> <label for="cbLand" ng-class="(VM.Data.Layer.cLand && VM.Data.Layer.gHex)?'text-success':'text-muted'"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label> <br/>
+					<input type="checkbox" ng-model="VM.Data.Layer.gCities" id="cbCities"> <label for="cbCities" ng-class="VM.Data.Layer.gCities?'text-success':'text-muted'"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Cités</label> <br/>
 				</td>
 			</tr>
 		</table>

@@ -18,6 +18,7 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute', 'ui.b
 			.when('/', {
 				templateUrl: 'html/Info.html',
 				controller: 'InfoCtrl',
+				controllerAs: 'VM'
 			})
 			.when('/Log', {
 				templateUrl: 'html/Log.html',

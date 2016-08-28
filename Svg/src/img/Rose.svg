@@ -404,25 +404,25 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(0,-852.36218)" msd-wheel="Zoom.Wheel($event, $delta, $deltaX, $deltaY)">
+     transform="translate(0,-852.36218)" msd-wheel="VM.Zoom.Wheel($event, $delta, $deltaX, $deltaY)">
     <path
        style="fill:url(#linearGradient4154);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient4156);stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dashoffset:0"
        d="M 74.093749,938.83093 9.5625015,953.67468 74.499999,966.64343 c -2.36746,-4.22066 -3.71875,-9.09764 -3.71875,-14.28125 0,-4.88093 1.196239,-9.48688 3.3125,-13.53125 z"
-       id="LEFT" ng-click="Zoom.Move(-0.25,0)"/>
+       id="LEFT" ng-click="VM.Zoom.Move(-0.25,0)"/>
     <path
        style="fill:url(#linearGradient4149);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient4151);stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dashoffset:0"
        d="m 114.28125,977.86215 c -4.22066,2.36746 -9.09764,3.71875 -14.28125,3.71875 -4.88093,0 -9.486889,-1.19624 -13.53125,-3.3125 l 14.84375,64.5313 z"
-       id="DOWN" ng-click="Zoom.Move(0,0.25)"/>
+       id="DOWN" ng-click="VM.Zoom.Move(0,0.25)"/>
     <path
        style="fill:url(#linearGradient4144);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient4146);stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dashoffset:0"
        d="m 98.6875,861.92467 -12.96875,64.9375 c 4.22067,-2.36746 9.09764,-3.71875 14.28125,-3.71875 4.88093,0 9.48689,1.19624 13.53125,3.3125 z"
-       id="UP" ng-click="Zoom.Move(0,-0.25)"/>
+       id="UP" ng-click="VM.Zoom.Move(0,-0.25)"/>
     <path
        style="fill:url(#linearGradient4139);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient4141);stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dashoffset:0"
        d="m 125.5,938.08093 c 2.36746,4.22066 3.71875,9.09764 3.71875,14.28125 0,4.88093 -1.19624,9.48689 -3.3125,13.53125 l 64.53125,-14.84375 z"
-       id="RIGHT" ng-click="Zoom.Move(0.25,0)"/>
+       id="RIGHT" ng-click="VM.Zoom.Move(0.25,0)"/>
     <g
-       id="IN" ng-click="Zoom.InOut(1.1,true)">
+       id="IN" ng-click="VM.Zoom.InOut(1.1,true)">
       <path
          id="path3763-4"
          transform="translate(0,852.36218)"
@@ -434,7 +434,7 @@
          id="path3079" />
     </g>
     <g
-       id="OUT" ng-click="Zoom.InOut(1.1,false)">
+       id="OUT" ng-click="VM.Zoom.InOut(1.1,false)">
       <path
          id="path3763-4-2"
          d="m 120.8125,931.89343 -41.281252,41.28125 c 5.272901,5.18572 12.488869,8.40625 20.46875,8.40625 16.136062,0 29.218752,-13.08269 29.218752,-29.21875 0,-7.97988 -3.22053,-15.19585 -8.40625,-20.46875 z"
