@@ -9,6 +9,7 @@ my $W = 5880;
 my $H = 5880;
 
 # print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'."\n<svg>\n";
+print "<g>";
 
 $dx = 0;
 for(my $x = 0; $x < $W; $x += 1.5 * $Size) {
@@ -22,6 +23,7 @@ for(my $x = 0; $x < $W; $x += 1.5 * $Size) {
 	$dy = 0;
 	$dx++;
 }
+print "</g>";
 # print "</svg>\n";
 
 exit(0);
