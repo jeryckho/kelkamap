@@ -4,7 +4,7 @@ angular.module('SvgMapApp')
 	///////////////////////////////
 	.factory('Data', ['$http', function ($http) {
 		var svc = {};
-		svc.Layer = { iFond: true, gHex: true, cLand: true };
+		svc.Layer = { iFond: true, gHex: true, cLand: true, gCities: true };
 		svc.Modif = false;
 		svc.Conflit = false;
 

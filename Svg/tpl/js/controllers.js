@@ -48,8 +48,8 @@ angular.module('SvgMapApp')
 		$scope.Auth = Auth;
 		$scope.cnt = 'LOG';
 
-		$scope.connect = function () {
-			$scope.Auth.login($scope.alog, $scope.apwd)
+		$scope.connect = function (alog, apwd) {
+			$scope.Auth.login(alog, apwd)
 				.then(function (data) {
 					$scope.cnt = 'OK';
 					$location.path('/Adm');

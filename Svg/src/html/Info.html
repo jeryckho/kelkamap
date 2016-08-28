@@ -19,6 +19,7 @@
 					<input type="checkbox" ng-model="Data.Layer.gHex" id="cbHex"> <label for="cbHex" ng-class="{'text-success':Data.Layer.gHex,'text-muted':!Data.Layer.gHex}"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label> <br/>
 					&nbsp; &nbsp; 
 					<input type="checkbox" ng-disabled="!Data.Layer.gHex" ng-model="Data.Layer.cLand" id="cbLand"> <label for="cbLand" ng-class="{'text-success':(Data.Layer.cLand && Data.Layer.gHex),'text-muted':(!Data.Layer.gHex || !Data.Layer.cLand) }"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label> <br/>
+					<input type="checkbox" ng-model="Data.Layer.gCities" id="cbCities"> <label for="cbCities" ng-class="{'text-success':Data.Layer.gCities,'text-muted':!Data.Layer.gCities}"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Cités</label> <br/>
 				</td>
 			</tr>
 		</table>

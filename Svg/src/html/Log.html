@@ -1,6 +1,6 @@
 <uib-accordion close-others="false">
 	<div uib-accordion-group class="panel-default" heading="Log In" is-open="true" ng-hide="Auth.isLoggedIn()">
-		<input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/> <button class="btn btn-default" type="button" ng-click="connect()">In</button>
+		<input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/> <button class="btn btn-default" type="button" ng-click="connect(alog,apwd)">In</button>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Log Out" is-open="true" ng-show="Auth.isLoggedIn()">
 		{{Auth.isLoggedIn().email}} <button class="btn btn-default" type="button" ng-click="unlog()">Out</button>
