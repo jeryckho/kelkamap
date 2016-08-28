@@ -13,59 +13,60 @@ angular.module('SvgMapApp')
 	///////////////////////////////////////
 	// Controleur Administration (#/Adm) //
 	///////////////////////////////////////
-	.controller('AdmCtrl', ['$scope', 'Data', 'currentAuth', function ($scope, Data, currentAuth) {
-		$scope.Data = Data;
-		$scope.cnt = 'ADM';
+	.controller('AdmCtrl', ['Data', 'currentAuth', function (Data, currentAuth) {
+		var vm = this;
+		vm.Data = Data;
+		vm.cnt = 'ADM';
 
-		$scope.Toggle = function () {
-			$scope.Data.Modif = !$scope.Data.Modif;
+		vm.Toggle = function () {
+			vm.Data.Modif = !vm.Data.Modif;
 		}
 
-		$scope.Add = function (what) {
-			if (!$scope.Data.Map.Nations[what]) {
-				$scope.Data.Map.Nations[what] = { Nom: 'Nouveau' };
-				$scope.New = '';
+		vm.Add = function (what) {
+			if (!vm.Data.Map.Nations[what]) {
+				vm.Data.Map.Nations[what] = { Nom: 'Nouveau' };
+				vm.New = '';
 			}
-			$scope.Data.OverNation(what);
+			vm.Data.OverNation(what);
 		}
 
-		$scope.Vide = function () {
-			$scope.New = "";
-			$scope.Data.OverNation("");
+		vm.Vide = function () {
+			vm.New = "";
+			vm.Data.OverNation("");
 		}
 
-		$scope.Xport = function () {
-			$scope.Xpt = $scope.Data.Xport();
-			$scope.Json = true;
+		vm.Xport = function () {
+			vm.Xpt = vm.Data.Xport();
+			vm.Json = true;
 		}
-
 	}])
 
 	//////////////////////////////
 	// Controleur Login (#/Log) //
 	//////////////////////////////
-	.controller('LogCtrl', ['$scope', 'Auth', '$location', function ($scope, Auth, $location) {
-		$scope.Auth = Auth;
-		$scope.cnt = 'LOG';
+	.controller('LogCtrl', ['Auth', '$location', function (Auth, $location) {
+		var vm = this;
+		vm.Auth = Auth;
+		vm.cnt = 'LOG';
 
-		$scope.connect = function (alog, apwd) {
-			$scope.Auth.login(alog, apwd)
+		vm.connect = function (alog, apwd) {
+			vm.Auth.login(alog, apwd)
 				.then(function (data) {
-					$scope.cnt = 'OK';
+					vm.cnt = 'OK';
 					$location.path('/Adm');
 				})
 				.catch(function (error) {
-					$scope.cnt = error;
+					vm.cnt = error;
 				});
 		}
-		$scope.unlog = function () {
-			$scope.Auth.logout()
+		vm.unlog = function () {
+			vm.Auth.logout()
 				.then(function (data) {
-					$scope.cnt = '-';
+					vm.cnt = '-';
 					$location.path('/');
 				})
 				.catch(function (error) {
-					$scope.cnt = error;
+					vm.cnt = error;
 				});
 		}
 	}])

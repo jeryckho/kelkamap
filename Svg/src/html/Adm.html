@@ -1,37 +1,37 @@
 <uib-accordion close-others="false">
-	<div uib-accordion-group class="panel-default" heading="Mode" is-open="true">
-		Mode actuel : {{ Data.Modif ? 'Modif' : 'Normal' }} <br/>
-		<button class="btn btn-default" ng-click="Toggle()">Changer mode</button>
+	<div uib-accordion-group class="panel-default" heading="{{VM.Data.Modif ? 'Mode Actuel : Modif' : 'Mode Actuel : Normal' }}" is-open="true">
+		<button class="btn btn-default" ng-click="VM.Toggle()">Changer mode</button>
+		<div ng-show="VM.Data.Modif" uib-alert class="alert-danger" >En mode Modif, vous pouvez créer des nations et leur (ré-)affecter des hexagones. Pensez à exporter pour conserver vos modifs.</div>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Modifs" is-open="true" ng-show="Data.Modif">
+	<div uib-accordion-group class="panel-default" heading="Modifs" is-open="true" ng-show="VM.Data.Modif">
 		<table>
-			<tbody ng-show="Data.Map.Focus.Nation">
+			<tbody ng-show="VM.Data.Map.Focus.Nation">
 				<tr>
-					<td>Modifier Nation <b>{{Data.Map.Focus.Nation}}</b></td>
+					<td>Modifier Nation <b>{{VM.Data.Map.Focus.Nation}}</b></td>
 				</tr>
 				<tr>
-					<td>Nom : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].Nom"></td>
+					<td>Nom : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Nom"></td>
 				</tr>
 				<tr>
-					<td>Nom Détaillé : <input type="text" ng-model="Data.Map.Nations[Data.Map.Focus.Nation].NomLong"></td>
+					<td>Nom Détaillé : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].NomLong"></td>
 				</tr>
 			</tbody>
-			<tbody ng-hide="Data.Map.Focus.Nation">
+			<tbody ng-hide="VM.Data.Map.Focus.Nation">
 				<tr>
 					<td>Ajouter Nation</td>
 				</tr>
 				<tr>
-					<td><input type="text" ng-model="New"> <button class="btn btn-default" ng-disabled="!New" ng-click="Add(New)">Add</button></td>
+					<td><input type="text" ng-model="VM.New"> <button class="btn btn-default" ng-disabled="!VM.New" ng-click="VM.Add(VM.New)">Add</button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Nouveau" is-open="true" ng-show="Data.Modif && Data.Map.Focus.Nation">
-		<button class="btn btn-default" ng-click="Vide()">Nouveau</button>
+	<div uib-accordion-group class="panel-default" heading="Nouveau" is-open="true" ng-show="VM.Data.Modif && VM.Data.Map.Focus.Nation">
+		<button class="btn btn-default" ng-click="VM.Vide()">Nouveau</button>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Export" is-open="false">
-		<button class="btn btn-default" ng-click="Xport()">Exporter</button> <input type="checkbox" ng-model="Json"><br/>
-		<div ng-show="Json">{{Xpt | json}}</div>
+		<button class="btn btn-default" ng-click="VM.Xport()">Exporter</button> <input type="checkbox" ng-model="VM.Json"><br/>
+		<div ng-show="VM.Json">{{VM.Xpt | json}}</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Consultation" is-open="true">
 		<a class="btn btn-default" href="#/" role="button">Back</a>

@@ -22,10 +22,12 @@ angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute', 'ui.b
 			.when('/Log', {
 				templateUrl: 'html/Log.html',
 				controller: 'LogCtrl',
+				controllerAs: 'VM'
 			})
 			.when('/Adm', {
 				templateUrl: 'html/Adm.html',
 				controller: 'AdmCtrl',
+				controllerAs: 'VM',
 				resolve: {
 					'currentAuth': ['Auth', function (Auth) {
 						return Auth.auth.$requireSignIn();
