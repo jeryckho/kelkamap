@@ -2,12 +2,12 @@ angular.module('SvgMapApp')
 	/////////////////////////////
 	// Controleur partie image //
 	/////////////////////////////
-	.controller('ImgCtrl', ['$scope', 'Data', 'Zoom', function ($scope, Data, Zoom) {
+	.controller('ImgCtrl', ['Data', 'Zoom', function (Data, Zoom) {
+		var vm = this;
+		vm.Data = Data;
+		vm.Zoom = Zoom;
 
-		$scope.Data = Data;
-		$scope.Zoom = Zoom;
-
-		$scope.Zoom.setBox();
+		vm.Zoom.setBox();
 	}])
 
 	///////////////////////////////////////
