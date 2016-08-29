@@ -1,3 +1,6 @@
+path#pin  {
+    fill: inherit;
+}
 svg .H {
     stroke-width: 0;
     stroke: #fff;
@@ -25,14 +28,14 @@ svg .H.nation {
     z-index: 90;
 }
 
-svg .C.nation path {
+svg .C.nation, svg .C.nation path {
     cursor: pointer;
 	 fill: #0f0 !important;
 	 fill-opacity: 0.75 !important;
     z-index: 95;
 }
 
-svg .C.city path, svg .C:hover path {
+svg .C.city, svg .C.city path, svg .C:hover, svg .C:hover path {
     cursor: pointer;
 	 fill: #00f !important;
 	 fill-opacity: 0.75 !important;
