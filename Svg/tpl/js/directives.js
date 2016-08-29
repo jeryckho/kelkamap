@@ -77,6 +77,28 @@ angular.module('SvgMapApp')
 		}
 	])
 
+	///////////////////////
+	// Suivi value width //
+	//////////////////////
+	.directive('ngWidth', function () {
+		return function (scope, elem, attrs) {
+			attrs.$observe('ngWidth', function (width) {
+				elem.attr('width', width);
+			});
+		};
+	})
+
+	////////////////////////
+	// Suivi value height //
+	////////////////////////
+	.directive('ngHeight', function () {
+		return function (scope, elem, attrs) {
+			attrs.$observe('ngHeight', function (height) {
+				elem.attr('height', height);
+			});
+		};
+	})
+
 	///////////////////
 	// Suivi value X //
 	///////////////////

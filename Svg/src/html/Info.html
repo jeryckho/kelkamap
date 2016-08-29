@@ -9,19 +9,19 @@
 		</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
-		<table>
-			<tr>
-				<td>
-					<div class="text-center" svg-rose></div>
-				</td>
-				<td style="vertical-align: top">
-					<input type="checkbox" ng-model="VM.Data.Layer.iFond" id="cbFond"> <label for="cbFond" ng-class="VM.Data.Layer.iFond?'text-success':'text-muted'"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i> Fond</label> <br/>
-					<input type="checkbox" ng-model="VM.Data.Layer.gHex" id="cbHex"> <label for="cbHex" ng-class="VM.Data.Layer.gHex?'text-success':'text-muted'"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label> <br/>
-					&nbsp; &nbsp; <input type="checkbox" ng-disabled="!VM.Data.Layer.gHex" ng-model="VM.Data.Layer.cLand" id="cbLand"> <label for="cbLand" ng-class="(VM.Data.Layer.cLand && VM.Data.Layer.gHex)?'text-success':'text-muted'"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label> <br/>
-					<input type="checkbox" ng-model="VM.Data.Layer.gCities" id="cbCities"> <label for="cbCities" ng-class="VM.Data.Layer.gCities?'text-success':'text-muted'"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Cités</label> <br/>
-				</td>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="text-center" svg-rose></div>
+			</div>
+			<div class="col-xs-6">
+				<input type="checkbox" ng-model="VM.Data.Layer.iFond" id="cbFond">&nbsp;<label for="cbFond" ng-class="VM.Data.Layer.iFond?'text-success':'text-muted'"><i class="glyphicon glyphicon-globe" aria-hidden="true"></i> Fond</label><br/>
+				<input type="checkbox" ng-model="VM.Data.Layer.gHex" id="cbHex">&nbsp;<label for="cbHex" ng-class="VM.Data.Layer.gHex?'text-success':'text-muted'"><i class="glyphicon glyphicon-th" aria-hidden="true"></i> Hexagones</label><br/>
+				 &nbsp;&nbsp;&nbsp;<input type="checkbox" ng-disabled="!VM.Data.Layer.gHex" ng-model="VM.Data.Layer.cLand" id="cbLand">&nbsp;<label for="cbLand" ng-class="(VM.Data.Layer.cLand && VM.Data.Layer.gHex)?'text-success':'text-muted'"><i class="glyphicon glyphicon-adjust" aria-hidden="true"></i> Limiter aux Terres</label><br/>
+				<input type="checkbox" ng-model="VM.Data.Layer.gCities" id="cbCities">&nbsp;<label for="cbCities" ng-class="VM.Data.Layer.gCities?'text-success':'text-muted'"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Cités</label><br/>
+				&nbsp;<br/>
+				<button class="btn btn-default" ng-click="VM.Zoom.Frame(-1)"><i class="glyphicon glyphicon-resize-small text-success" aria-hidden="true"></i></button>&nbsp;/&nbsp;<button class="btn btn-default" ng-click="VM.Zoom.Frame(+1)"><i class="glyphicon glyphicon-resize-full text-success" aria-hidden="true"></i></button> 
+			</div>
+		</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Administration" is-open="true" ng-show="Auth.isLoggedIn()">
 		<a class="btn btn-default" href="#/Adm" role="button">Accéder</a>

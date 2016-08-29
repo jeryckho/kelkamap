@@ -4,7 +4,7 @@ angular.module('SvgMapApp')
 	///////////////////////////////
 	.factory('Data', ['$http', '$document', function ($http, $document) {
 		var svc = {};
-		svc.Layer = { iFond: false, gHex: true, cLand: true, gCities: true };
+		svc.Layer = { iFond: true, gHex: true, cLand: true, gCities: true };
 		svc.Modif = false;
 		svc.Conflit = false;
 
@@ -157,6 +157,7 @@ angular.module('SvgMapApp')
 	.factory('Zoom', ['$document', function ($document) {
 		var svc = {};
 		svc.ViewBox = "";
+		svc.Size = { Crt: 2, Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
 		svc.vBox = {
 			Min: { x: -2640, y: -2520, w: 980, h: 980 },
 			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
@@ -175,6 +176,17 @@ angular.module('SvgMapApp')
 			if (svc.vBox.Crt.y + svc.vBox.Crt.h > svc.vBox.Max.y) svc.vBox.Crt.y = svc.vBox.Max.y - svc.vBox.Crt.h;
 			svc.ViewBox = svc.vBox.Crt.x + " " + svc.vBox.Crt.y + " " + svc.vBox.Crt.w + " " + svc.vBox.Crt.h;
 		};
+
+		svc.Frame = function (dlt) {
+			var crt = svc.Size.Crt + dlt;
+			if (crt < 0) {
+				crt = 0;
+			}
+			if (crt > 2) {
+				crt = 2;
+			}
+			svc.Size.Crt = crt;
+		}
 
 		svc.InOut = function (fac, bZoom, cX, cY) {
 
@@ -210,7 +222,7 @@ angular.module('SvgMapApp')
       };
 
       svc.WheelCenter = function (event, delta, deltaX, deltaY) {
-			var svg = $document[0].getElementById('svg4218');
+			var svg = $document[0].getElementById('svgMap');
 			var pt = svg.createSVGPoint();
 			pt.x = event.pageX || event.originalEvent.pageX || event.originalEvent.clientX;
 			pt.y = event.pageY || event.originalEvent.pageY || event.originalEvent.clientY;

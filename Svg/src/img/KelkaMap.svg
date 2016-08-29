@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg id="svg4218" 
+<svg id="svgMap" 
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
-	xmlns="http://www.w3.org/2000/svg" xml:space="preserve" data-view-box="{{ VM.Zoom.ViewBox }}" height="980px" width="980px" version="1.1" y="0px" x="0px" 
+	xmlns="http://www.w3.org/2000/svg" xml:space="preserve" data-view-box="{{ VM.Zoom.ViewBox }}" ng-height="{{ VM.Zoom.Size.Lst[VM.Zoom.Size.Crt][0] }}" ng-width="{{ VM.Zoom.Size.Lst[VM.Zoom.Size.Crt][1] }}" height="980px" width="980px" version="1.1" y="0px" x="0px" 
 	xmlns:cc="http://creativecommons.org/ns#" 
 	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-2640 -2520 5880 5880" 
 	xmlns:dc="http://purl.org/dc/elements/1.1/" msd-wheel="VM.Zoom.WheelCenter($event, $delta, $deltaX, $deltaY)">
