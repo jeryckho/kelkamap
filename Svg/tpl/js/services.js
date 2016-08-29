@@ -8,13 +8,28 @@ angular.module('SvgMapApp')
 		svc.Modif = false;
 		svc.Conflit = false;
 
-		svc.Find = function (id,pos) {
+		svc.Find = function (id, pos) {
 			var queryResult = $document[0].getElementById(id);
 			if (queryResult != null) {
 				var res = angular.element(queryResult).attr('points').split(" ");
-				return res[pos];
+				return parseFloat(res[pos]);
 			} else {
-				return "-1000";
+				return -1000;
+			}
+		}
+
+		svc.FindXY = function (id, X) {
+			var queryResult = $document[0].getElementById(id);
+			if (queryResult != null) {
+				var Res = angular.element(queryResult).attr('points').split(" ");
+				var Dlt = X ? 0 : 1;
+				var Sum = 0;
+				for (var Idx = 0; Idx <= 10; Idx += 2) {
+					Sum += parseFloat(Res[Idx + Dlt]);
+				}
+				return Sum / 6;
+			} else {
+				return -1000;
 			}
 		}
 
