@@ -54,6 +54,7 @@
 			],
 			"Cities": [
 				"Trancavel",
+				"Saint-Yougonoul",
 				"Sartak"
 			],
 			"Ressources": []
@@ -85,6 +86,9 @@
 				"H4924",
 				"H4925",
 				"H4926"
+			],
+			"Cities": [
+				"Morrannon"
 			]
 		},
 		"SHI": {
@@ -276,6 +280,10 @@
 				"H3638",
 				"H3639",
 				"H3640"
+			],
+			"Cities": [
+				"Shirama",
+				"Adibou-Ba"
 			]
 		},
 		"BRB": {
@@ -354,6 +362,9 @@
 				"H3501",
 				"H3502",
 				"H3602"
+			],
+			"Cities": [
+				"Ko'nan"
 			]
 		},
 		"KAM": {
@@ -399,6 +410,9 @@
 				"H2128",
 				"H2228",
 				"H2229"
+			],
+			"Cities": [
+				"Argeleb"
 			]
 		},
 		"LUN": {
@@ -465,6 +479,9 @@
 				"H2326",
 				"H2327",
 				"H2328"
+			],
+			"Cities": [
+				"Lunian"
 			]
 		},
 		"RAJ": {
@@ -581,6 +598,9 @@
 				"H1206",
 				"H1207",
 				"H1306"
+			],
+			"Cities": [
+				"Hoshitsuki"
 			]
 		},
 		"KLN": {
@@ -614,6 +634,9 @@
 				"H3422",
 				"H3423",
 				"H3424"
+			],
+			"Cities": [
+				"Leona"
 			]
 		},
 		"MND": {
@@ -635,6 +658,9 @@
 				"H2222",
 				"H2223",
 				"H2321"
+			],
+			"Cities": [
+				"Carlita"
 			]
 		},
 		"ELF": {
@@ -694,6 +720,9 @@
 				"H1825",
 				"H1826",
 				"H1919"
+			],
+			"Cities": [
+				"Ellerimm"
 			]
 		}
 	},
@@ -707,6 +736,76 @@
 			"H": "H3327",
 			"Type": "Capitale",
 			"Desc": "Capitale de la Nation Sartak."
+		},
+		"Saint-Yougonoul": {
+			"H": "H3528",
+			"Type": "Village",
+			"Desc": ""
+		},
+		"Adibou-Ba": {
+			"H": "H3033",
+			"Type": "Village",
+			"Desc": ""
+		},
+		"Shirama": {
+			"H": "H1438",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Lunian": {
+			"H": "H1627",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Carlita": {
+			"H": "H2023",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Alterak": {
+			"H": "H1910",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Hoshitsuki": {
+			"H": "H0418",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Ko'nan": {
+			"H": "H2102",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Ksach": {
+			"H": "H3314",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Leona": {
+			"H": "H3222",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Argeleb": {
+			"H": "H2128",
+			"Type": "Village",
+			"Desc": ""
+		},
+		"Morrannon": {
+			"H": "H4825",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Vinyamar": {
+			"H": "H2526",
+			"Type": "Capitale",
+			"Desc": ""
+		},
+		"Ellerimm": {
+			"H": "H1420",
+			"Type": "Capitale",
+			"Desc": ""
 		},
 		"Azura": {
 			"H": "H4424",
