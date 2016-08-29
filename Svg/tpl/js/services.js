@@ -154,7 +154,7 @@ angular.module('SvgMapApp')
 	////////////////////
 	// Service de Zoom//
 	////////////////////
-	.factory('Zoom', [function () {
+	.factory('Zoom', ['$document', function ($document) {
 		var svc = {};
 		svc.ViewBox = "";
 		svc.vBox = {
@@ -204,6 +204,22 @@ angular.module('SvgMapApp')
 				svc.InOut(1.1, true);
 			} else if (delta < 0) {
 				svc.InOut(1.1, false);
+			}
+			event.stopPropagation();
+			event.preventDefault();
+      };
+
+      svc.WheelCenter = function (event, delta, deltaX, deltaY) {
+			var svg = $document[0].getElementById('svg4218');
+			var pt = svg.createSVGPoint();
+			pt.x = event.pageX || event.originalEvent.pageX || event.originalEvent.clientX;
+			pt.y = event.pageY || event.originalEvent.pageY || event.originalEvent.clientY;
+			var ptm = pt.matrixTransform(svg.getScreenCTM().inverse());
+
+			if (delta > 0) {
+				svc.InOut(1.1, true, ptm.x, ptm.y);
+			} else if (delta < 0) {
+				svc.InOut(1.1, false, ptm.x, ptm.y);
 			}
 			event.stopPropagation();
 			event.preventDefault();
