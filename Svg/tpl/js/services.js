@@ -176,7 +176,11 @@ angular.module('SvgMapApp')
 			svc.ViewBox = svc.vBox.Crt.x + " " + svc.vBox.Crt.y + " " + svc.vBox.Crt.w + " " + svc.vBox.Crt.h;
 		};
 
-		svc.InOut = function (fac, bZoom) {
+		svc.InOut = function (fac, bZoom, cX, cY) {
+
+			cX = typeof cX !== 'undefined' ? cX : svc.vBox.Crt.x + svc.vBox.Crt.w / 2;
+			cY = typeof cY !== 'undefined' ? cY : svc.vBox.Crt.y + svc.vBox.Crt.h / 2;
+
 			if (bZoom) {
 				svc.vBox.Crt.w /= fac;
 				svc.vBox.Crt.h /= fac;
@@ -184,6 +188,8 @@ angular.module('SvgMapApp')
 				svc.vBox.Crt.w *= fac;
 				svc.vBox.Crt.h *= fac;
 			}
+			svc.vBox.Crt.x = cX - svc.vBox.Crt.w / 2;
+			svc.vBox.Crt.y = cY - svc.vBox.Crt.h / 2;
 			svc.setBox();
 		}
 
