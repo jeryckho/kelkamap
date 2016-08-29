@@ -53,7 +53,8 @@
 				"H3731"
 			],
 			"Cities": [
-				"Trancavel"
+				"Trancavel",
+				"Sartak"
 			],
 			"Ressources": []
 		},
@@ -698,17 +699,25 @@
 	},
 	"Cities": {
 		"Trancavel": {
-			"H" : "H3330",
+			"H": "H3330",
+			"Type": "Cité",
 			"Desc": "Fière cité qui défend la Marche du Sud."
 		},
+		"Sartak": {
+			"H": "H3327",
+			"Type": "Capitale",
+			"Desc": "Capitale de la Nation Sartak."
+		},
 		"Azura": {
-			"H" : "H4424",
+			"H": "H4424",
+			"Type": "Cité",
 			"Desc": "Berceau des Phénix."
 		}
 	},
 	"Hexs": {},
 	"Focus": {
 		"Hexs": {},
+		"City": "",
 		"Nation": "",
 		"Over": ""
 	}

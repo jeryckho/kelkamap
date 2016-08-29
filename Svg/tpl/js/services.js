@@ -36,7 +36,7 @@ angular.module('SvgMapApp')
 		svc.Xport = function () {
 			var x = {};
 			angular.copy(svc.Map, x);
-			x.Focus = { Hexs: {}, Nation: "", Over: "" };
+			x.Focus = { Hexs: {}, Nation: "", City: "", Over: "" };
 			x.Hexs = {};
 			angular.forEach(x.Nations, function (nation, code) {
 				nation.Hexs.sort();
@@ -53,9 +53,18 @@ angular.module('SvgMapApp')
 			});
 		}
 
+		svc.ComputeCities = function () {
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				angular.forEach(nation.Cities, function (city) {
+					svc.Map.Cities[city].Nation = code;
+				});
+			});
+		}
+
 		$http.get('data/Map.json').success(function (data) {
 			svc.Map = data;
 			svc.ComputeHexs();
+			svc.ComputeCities();
 		});
 
 		svc.Toggle = function (id) {
@@ -78,8 +87,21 @@ angular.module('SvgMapApp')
 			}
 		}
 
+		svc.OverCity = function (city) {
+			svc.Map.Focus.Hexs = {};
+			svc.Map.Focus.City = city;
+			svc.OverNation(svc.Map.Cities[city].Nation);
+		}
+
+		svc.OverInfoCity = function (city) {
+			svc.Map.Focus.Hexs = {};
+			svc.Map.Focus.Nation = "";
+			svc.Map.Focus.City = city;
+		}
+
 		svc.OverNation = function (nation) {
 			svc.Map.Focus.Hexs = {};
+			svc.Map.Focus.City = "";
 			svc.Map.Focus.Nation = nation;
 			if (nation != "") {
 				var Lst = svc.Map.Nations[nation].Hexs;
@@ -107,7 +129,7 @@ angular.module('SvgMapApp')
 					svc.OverNation(svc.Map.Focus.Nation);
 				}
 			} else {
-				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
+				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver, City: "" };
 				if (angular.isDefined(svc.Map.Hexs[hOver])) {
 					svc.OverNation(svc.Map.Hexs[hOver]);
 				}

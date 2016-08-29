@@ -8,6 +8,14 @@
 			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
+	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false">
+		<div class="regionlist">
+			<div ng-repeat="(key,city) in VM.Data.Map.Cities" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==key)}" ng-mouseover="VM.Data.OverInfoCity(key)">
+				<div>{{key}}</div>
+				<div>{{city.Type}}</div>
+			</div>
+		</div>
+	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
 		<div class="row">
 			<div class="col-xs-6">
