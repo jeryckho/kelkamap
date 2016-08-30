@@ -3,9 +3,6 @@
 @group: #0F0;
 @city: #00F;
 
-path#pin {
-	 fill: inherit;
-}
 svg {
 	.H {
 		stroke-width: 0;
@@ -41,26 +38,19 @@ svg {
 	}
 
 	.C {
-			&.nation, &.nation path {
+			&.nation {
 			cursor: pointer;
 			fill: @group !important;
 			fill-opacity: 0.75 !important;
 			z-index: 95;
 		}
 
-		&.city, &.city path, &:hover, &:hover path {
+		&.city {
 			cursor: pointer;
 			fill: @city !important;
 			fill-opacity: 0.75 !important;
 			z-index: 95;
 		}
-	}
-
-	.Z {
-		stroke-width: 0;
-		z-index: 25;
-		fill-opacity: 0;
-		stroke-opacity: 0;
 	}
 }
 
