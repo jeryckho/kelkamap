@@ -1,4 +1,4 @@
-angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute', 'ui.bootstrap','monospaced.mousewheel'])
+var app = angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRoute', 'ui.bootstrap', 'monospaced.mousewheel'])
 	/////////////////////////////////////
 	// Redirection de #/Adm vers #/Log //
 	/////////////////////////////////////

@@ -1,4 +1,4 @@
-angular.module('SvgMapApp')
+app
 	///////////////////////
 	// Service d'Authent //
 	///////////////////////
