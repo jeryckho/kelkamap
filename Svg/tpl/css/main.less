@@ -1,0 +1,87 @@
+@conflit: #F00;
+@select: #F00;
+@group: #0F0;
+@city: #00F;
+
+path#pin {
+	 fill: inherit;
+}
+svg {
+	.H {
+		stroke-width: 0;
+		stroke: #fff;
+		fill: @select;
+
+		-webkit-transition: stroke 0.5s, stroke-width 0.5s;
+		-o-transition: stroke 0.5s, stroke-width 0.5s;
+		transition: stroke 0.5s, stroke-width 0.5s;
+		z-index: 50;
+		fill-opacity: 0;
+		stroke-opacity: 0;
+
+		&.nation {
+			cursor: pointer;
+			fill: @group;
+			fill-opacity: 0.25;
+			z-index: 90;
+		}
+
+		&:hover {
+			cursor: pointer;
+			stroke: @select !important;
+			stroke-opacity: 0.25;
+			z-index: 100;
+			stroke-width: 10 !important;
+		}
+
+		&.conflit:hover {
+			fill: @conflit !important;
+			fill-opacity: 0.75 !important;
+		}
+	}
+
+	.C {
+			&.nation, &.nation path {
+			cursor: pointer;
+			fill: @group !important;
+			fill-opacity: 0.75 !important;
+			z-index: 95;
+		}
+
+		&.city, &.city path, &:hover, &:hover path {
+			cursor: pointer;
+			fill: @city !important;
+			fill-opacity: 0.75 !important;
+			z-index: 95;
+		}
+	}
+
+	.Z {
+		stroke-width: 0;
+		z-index: 25;
+		fill-opacity: 0;
+		stroke-opacity: 0;
+	}
+}
+
+.regionlist {
+	-webkit-column-count: 2; // Chrome, Safari, Opera
+	-moz-column-count: 2; // Firefox 
+	column-count: 2;
+
+	& > div {
+		display: inline-block;
+		width: 100%;
+		border-bottom: 1px solid grey;
+
+		&.active {
+			font-weight: bold;
+			background-color: lightblue;
+		}
+
+		& > div {
+			display: inline-block;
+			width: 48%;
+		}
+	}
+}

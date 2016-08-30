@@ -21,12 +21,19 @@ gulp.task('font', ['dev'], function () {
 		.pipe(gulp.dest('bin/public/fonts'));
 });
 
+gulp.task('less', ['purge'], function () {
+	return gulp.src('./tpl/css/**.less')
+		.pipe($.less())
+		.pipe($.rename({ extension: 'css' }))
+		.pipe(gulp.dest('tpl/css/'));
+});
+
 gulp.task('purge', function () {
 	return gulp.src('./bin/public/')
 		.pipe($.rimraf({ force: true }));
 });
 
-gulp.task('dev', ['purge'], function () {
+gulp.task('dev', ['less'], function () {
 	return gulp.src('./src/**')
 		.pipe(gulp.dest('bin/public/'));
 });
