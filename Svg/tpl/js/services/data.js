@@ -2,11 +2,15 @@ app
 	///////////////////////////////
 	// Service des Donnees Carte //
 	///////////////////////////////
-	.factory('Data', ['$http', '$document', function ($http, $document) {
+	.factory('Data', ['$http', '$document', 'Prefs', function ($http, $document, Prefs) {
 		var svc = {};
-		svc.Layer = { iFond: false, gHex: true, cLand: true, gCities: true };
+		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
 		svc.Modif = false;
 		svc.Conflit = false;
+
+		svc.Save = function () {
+			Prefs.Set('Layer', svc.Layer);
+		}
 
 		svc.Find = function (id, pos) {
 			var queryResult = $document[0].getElementById(id);

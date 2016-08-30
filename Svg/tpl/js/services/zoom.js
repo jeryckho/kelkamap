@@ -2,10 +2,11 @@ app
 	////////////////////
 	// Service de Zoom//
 	////////////////////
-	.factory('Zoom', ['$document', function ($document) {
+	.factory('Zoom', ['$document', 'Prefs', function ($document, Prefs) {
 		var svc = {};
 		svc.ViewBox = "";
-		svc.Size = { Crt: 2, Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
+		svc.Size = { Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
+		svc.Size.Crt = Prefs.Get('CrtSize', 2);
 		svc.vBox = {
 			Min: { x: -2640, y: -2520, w: 980, h: 980 },
 			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
@@ -34,6 +35,7 @@ app
 				crt = 2;
 			}
 			svc.Size.Crt = crt;
+			Prefs.Set('CrtSize', svc.Size.Crt);
 		}
 
 		svc.InOut = function (fac, bZoom, cX, cY) {

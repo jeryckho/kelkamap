@@ -8,6 +8,9 @@ var app = angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRou
 				$location.path('/Log');
 			}
 		});
+		window.onbeforeunload = function (event) {
+			$rootScope.$broadcast('savestate');
+		};
 	}])
 
 	////////////////////
