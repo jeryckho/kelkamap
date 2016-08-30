@@ -1,7 +1,7 @@
 <uib-accordion close-others="false">
 	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true">
 		<div class="regionlist">
-			<div ng-repeat="(key,region) in VM.Data.Map.Nations" ng-class="{active:VM.Data.Map.Focus.Nation==key}" ng-mouseover="VM.Data.OverNation(key)">
+			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom'" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div>{{region.Nom}}</div>
 				<div>{{region.Hexs.length | number}}</div>
 			</div>
@@ -10,8 +10,8 @@
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false">
 		<div class="regionlist">
-			<div ng-repeat="(key,city) in VM.Data.Map.Cities" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==key)}" ng-mouseover="VM.Data.OverInfoCity(key)">
-				<div>{{key}}</div>
+			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:'key'"" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
+				<div>{{city.key}}</div>
 				<div>{{city.Type}}</div>
 			</div>
 		</div>
