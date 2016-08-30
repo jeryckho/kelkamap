@@ -1,16 +1,18 @@
 <uib-accordion close-others="false">
 	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true">
+		<input type="checkbox" ng-model="fiNation" id="fNation" class="sr-only"/><label for="fNation"><span class="glyphicon glyphicon-filter"> </span></label> <input type="text" ng-model="filNation" ng-show="fiNation">
 		<div class="regionlist">
-			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom'" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
+			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom'  | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div>{{region.Nom}}</div>
 				<div>{{region.Hexs.length | number}}</div>
 			</div>
 			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false">
-		<div class="regionlist">
-			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:'key'"" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
+	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false" ng-init="sortCity=true;fiCity=false;">
+			<input type="checkbox" ng-model="fiCity" id="fCity" class="sr-only"/><label for="fCity"><span class="glyphicon glyphicon-filter"> </span></label> <input type="text" ng-model="filCity" ng-show="fiCity" ng-disabled="!fiCity"> | <input type="checkbox" ng-model="sortCity" id="sCity" class="sr-only"/> <label for="sCity"><span class="glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortCity,'glyphicon-sort-by-attributes':!sortCity}"> </span></label>
+			<div class="regionlist">
+			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:(sortCity?'key':['Type','key']) | filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
 				<div>{{city.key}}</div>
 				<div>{{city.Type}}</div>
 			</div>

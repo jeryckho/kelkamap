@@ -24,10 +24,10 @@ app
             return obj[i];
 			}
 
-			filtered.sort(function (a, b) {
+			function Compare(elem, a, b) {
             var comparator;
-            var reducedA = field.split('.').reduce(index, a);
-            var reducedB = field.split('.').reduce(index, b);
+            var reducedA = elem.split('.').reduce(index, a);
+            var reducedB = elem.split('.').reduce(index, b);
 
             if (isNumeric(reducedA) && isNumeric(reducedB)) {
 					reducedA = Number(reducedA);
@@ -41,6 +41,22 @@ app
             }
 
             return comparator;
+
+			}
+
+			filtered.sort(function (a, b) {
+				if (angular.isArray(field)) {
+					var compGlob = 0;
+					angular.forEach(field, function (elem) {
+						var compLoc = Compare(elem, a, b);
+						if (compGlob === 0) {
+							compGlob = compLoc;
+						}
+					});
+					return compGlob;
+				} else {
+					return Compare(field, a, b);
+				}
 			});
 
 			if (reverse) {
