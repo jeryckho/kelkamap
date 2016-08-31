@@ -68,24 +68,22 @@ app
 		return {
 			restrict: 'E',
 			scope: {
+				item: '=',
+				name: '@'
 			},
 			replace: 'true',
-			template: '<input type="checkbox" ng-model="fiNation" id="fNation" class="sr-only"/><label for="fNation"><span class="glyphicon glyphicon-filter"> </span></label> <span class="form-inline from-group"><input type="text" class="form-control" ng-model="filNation" ng-show="fiNation"></span>',
-			// link: function (scope, element, attrs) {
-			// 	scope.elementId = element.attr("id");
-			// 	scope.Data = Data;
-			// 	scope.regionClick = function () {
-			// 		scope.Data.ClickHex(scope.elementId);
-			// 	};
-			// 	scope.regionMouseOver = function () {
-			// 		scope.Data.OverHex(scope.elementId);
-			// 	};
-			// 	element.attr("ng-click", "regionClick()");
-			// 	element.attr("ng-mouseover", "regionMouseOver()");
-			// 	element.attr("ng-class", "{conflit:(Data.Map.Focus.Over==elementId)&&(Data.Conflit)&&(Data.Modif),nation:Data.Map.Focus.Hexs[elementId]}");
-			// 	element.removeAttr("region");
-			// 	$compile(element)(scope);
-			// }
+			template: '<span class="form-group form-inline"><input type="checkbox" ng-change="cbChange()" ng-model="myCb" id="cbFil{{ name }}" class="sr-only"/><label for="cbFil{{ name }}"><span class="glyphicon glyphicon-filter"> </span></label> <input type="text" class="form-control" ng-model="item" ng-show="myCb"></span>',
+			link: function (scope, element, attrs) {
+				scope.tmp = "";
+				scope.cbChange = function () {
+					if (!scope.myCb) {
+						scope.tmp = scope.item;
+						scope.item = "";
+					} else {
+						scope.item = scope.tmp;
+					}
+				};
+			}
 		}
 	}])
 
