@@ -1,4 +1,4 @@
-<uib-accordion close-others="false">
+<uib-accordion close-others="false" ng-cloak>
 	<div uib-accordion-group class="panel-default" heading="Connexion" is-open="true" ng-hide="VM.Auth.isLoggedIn()">
 		Log : <input type="text" ng-model="alog"> <br/> Pwd : <input type="password" ng-model="apwd"> <br/> <button class="btn btn-default" type="button" ng-click="VM.connect(alog,apwd)">Log In</button>
 	</div>

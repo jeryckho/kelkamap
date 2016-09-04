@@ -4,3 +4,5 @@ browser-sync start --config bs-config.js
 browser-sync start --server --files="src/**" --browser="firefox" --startPath="src"
 
 https://github.com/firebase/angularfire
+
+npm install --save-dev gulp-replace gulp-manifest

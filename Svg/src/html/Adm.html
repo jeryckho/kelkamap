@@ -1,4 +1,4 @@
-<uib-accordion close-others="false">
+<uib-accordion close-others="false" ng-cloak>
 	<div uib-accordion-group class="panel-default" heading="{{VM.Data.Modif ? 'Mode Actuel : Modif' : 'Mode Actuel : Normal' }}" is-open="true">
 		<button class="btn btn-default" ng-click="VM.Toggle()">Changer mode</button>
 		<div ng-show="VM.Data.Modif" uib-alert class="alert-danger" >En mode Modif, vous pouvez créer des nations et leur (ré-)affecter des hexagones. Pensez à exporter pour conserver vos modifs.</div>
