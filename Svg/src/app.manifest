@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# v1
+
+CACHE:
+img/fondcarte.jpg
+
+NETWORK:
+*
