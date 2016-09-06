@@ -25,4 +25,7 @@
 	<g transform="translate(-2480,-2180)" ng-show="VM.Data.Layer.gCities">
 		<use ng-repeat="(key,city) in VM.Data.Map.Cities" class="C" ng-href="{{ '#pin' }}" xlink:href="" ng-x="{{VM.Data.FindXY(city.H,true)}}" ng-y="{{VM.Data.FindXY(city.H,false)}}" id="key" ng-class="{nation:(VM.Data.Map.Focus.Nation==city.Nation),city:(VM.Data.Map.Focus.City==key)}" style="fill:url(#G2);" ng-click="VM.Data.OverCity(key)" ng-mouseover="VM.Data.OverInfoCity(key)"/>
 	</g>
+	<g transform="translate(-2480,-2180)">
+		<rect ng-repeat="zbox in VM.Zoom.Boxes" ng-x="{{zbox.X}}" ng-y="{{zbox.Y}}" ng-width="{{zbox.W}}" ng-height="{{zbox.H}}" style="fill:blue;fill-opacity:0.5;stroke-opacity:0" />
+	</g>
 </svg>

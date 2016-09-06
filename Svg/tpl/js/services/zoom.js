@@ -4,6 +4,7 @@ app
 	////////////////////
 	.factory('Zoom', ['$document', 'Prefs', function ($document, Prefs) {
 		var svc = {};
+		svc.Boxes = [];
 		svc.ViewBox = "";
 		svc.Size = { Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
 		svc.Size.Crt = Prefs.Get('CrtSize', 2);
@@ -86,6 +87,11 @@ app
 			event.stopPropagation();
 			event.preventDefault();
       };
+
+		svc.Box = function (box) {
+			svc.Boxes.push(box);
+			console.log(box);
+		}
 
 		return svc;
 	}]);

@@ -103,6 +103,33 @@ app
 			svc.Map.Focus.City = city;
 		}
 
+		svc.Box = function (nation, dlt) {
+			var minX, minY, maxX, maxY;
+			if ((nation != "") && (angular.isDefined(svc.Map.Nations[nation]))) {
+				var Lst = svc.Map.Nations[nation].Hexs;
+				angular.forEach(Lst, function (elem) {
+					var mx = svc.FindXY(elem, true);
+					var my = svc.FindXY(elem, false);
+					if (angular.isDefined(minX)) {
+						if (mx < minX) { minX = mx; }
+						if (my < minY) { minY = my; }
+						if (mx > maxX) { maxX = mx; }
+						if (my > maxY) { maxY = my; }
+					} else {
+						minX = mx;
+						minY = my;
+						maxX = mx;
+						maxY = my;
+					}
+				});
+			}
+			if (angular.isDefined(minX)) {
+				return { X: minX - dlt, Y: minY - dlt, W: 2 * dlt + maxX - minX, H: 2 * dlt + maxY - minY };
+			} else {
+				return undefined;
+			}
+		}
+
 		svc.OverNation = function (nation) {
 			svc.Map.Focus.Hexs = {};
 			svc.Map.Focus.City = "";

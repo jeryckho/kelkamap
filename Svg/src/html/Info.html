@@ -4,7 +4,7 @@
 		<div class="regionlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom' | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div>{{region.Nom}}</div>
-				<div>{{region.Hexs.length | number}}</div>
+				<div><span class="badge" style="cursor:pointer!important" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))">{{region.Hexs.length | number}}</span></div>
 			</div>
 			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[VM.Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>
