@@ -21,11 +21,11 @@ gulp.task('font', ['dev'], function () {
 		.pipe(gulp.dest('bin/public/fonts'));
 });
 
-gulp.task('less', ['purge'], function () {
-	return gulp.src('./tpl/css/**.less')
+gulp.task('less', function () {
+	return gulp.src('./tpl/**/*.less')
 		.pipe($.less())
 		.pipe($.rename({ extension: 'css' }))
-		.pipe(gulp.dest('tpl/css/'));
+		.pipe(gulp.dest('tpl/'));
 });
 
 gulp.task('purge', function () {
@@ -33,9 +33,13 @@ gulp.task('purge', function () {
 		.pipe($.rimraf({ force: true }));
 });
 
-gulp.task('dev', ['less'], function () {
+gulp.task('dev', ['less', 'purge'], function () {
 	return gulp.src('./src/**')
 		.pipe(gulp.dest('bin/public/'));
 });
 
 gulp.task('default', ['dev']);
+
+gulp.task('wless', function () {
+	gulp.watch('./tpl/**/*.less', ['less']);
+});
