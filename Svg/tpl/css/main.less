@@ -54,7 +54,7 @@ svg {
 	}
 }
 
-.regionlist {
+.regionlist(@first, @others) {
 	-webkit-column-count: 2; // Chrome, Safari, Opera
 	-moz-column-count: 2; // Firefox 
 	column-count: 2;
@@ -71,14 +71,22 @@ svg {
 
 		& > div {
 			display: inline-block;
-			width: 22%;
+			width: @others;
 		}
 
 		& > div:first-child {
 			display: inline-block;
-			width: 48%;
+			width: @first;
 		}
 	}
+}
+
+.nationlist {
+	.regionlist(48%,22%);
+}
+
+.citylist {
+	.regionlist(48%,48%);
 }
 
 .smallinput {
