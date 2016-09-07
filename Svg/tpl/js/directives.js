@@ -72,7 +72,7 @@ app
 				name: '@'
 			},
 			replace: 'true',
-			template: '<span class="form-group"><input type="checkbox" ng-change="cbChange()" ng-model="myCb" id="cbFil{{ name }}" class="sr-only"/><label for="cbFil{{ name }}"><span class="glyphicon glyphicon-filter"> </span></label> <input type="text" class="form-control smallinput" ng-model="item" ng-show="myCb"></span>',
+			template: '<span class="form-group"><input type="checkbox" ng-change="cbChange()" ng-model="myCb" id="cbFil{{ name }}" class="sr-only"/><label for="cbFil{{ name }}"><span class="glyphicon glyphicon-filter" style="cursor:pointer"> </span></label> <input type="text" class="form-control smallinput" ng-model="item" ng-show="myCb"></span>',
 			link: function (scope, element, attrs) {
 				scope.tmp = "";
 				scope.cbChange = function () {

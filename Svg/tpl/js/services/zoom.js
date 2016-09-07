@@ -96,5 +96,14 @@ app
 			svc.setBox();
 		}
 
+		svc.isZoomed = function () {
+			return ((svc.vBox.Crt.w != svc.vBox.Max.w) || (svc.vBox.Crt.h != svc.vBox.Max.h));
+		}
+
+		svc.Org = function () {
+			svc.vBox.Crt = { x: svc.vBox.Min.x, y: svc.vBox.Min.y, w: svc.vBox.Max.w, h: svc.vBox.Max.h };
+			svc.setBox();
+		}
+
 		return svc;
 	}]);
