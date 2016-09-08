@@ -3,9 +3,12 @@
 		<filtre name="Nation" item="filNation"/></filtre> | <span class="glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" style="cursor:pointer" ng-click="VM.Zoom.Org()"> </span>
 		<div class="nationlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom' | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
-				<div>{{region.Nom}}</div>
-				<div><span class="badge">{{region.Hexs.length | number}}</span></div>
-				<div><span class="glyphicon glyphicon-search" style="cursor:pointer!important" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))"> </span></div>
+				<div ng-click="VM.Data.PinIt(region.key)">{{region.Nom}}</div>
+				<div ng-click="VM.Data.PinIt(region.key)"><span class="badge">{{region.Hexs.length | number}}</span></div>
+				<div>
+					<span class="glyphicon glyphicon-search" style="cursor:pointer!important" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))"> </span>
+					<span class="glyphicon glyphicon-pushpin" ng-show="region.key == VM.Data.Pin"> </span>
+				</div>
 			</div>
 			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[VM.Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>

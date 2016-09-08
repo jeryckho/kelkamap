@@ -8,6 +8,7 @@ app
 		svc.Modif = false;
 		svc.Conflit = false;
 		svc.Swap = false;
+		svc.Pin = "";
 
 		svc.Save = function () {
 			Prefs.Set('Layer', svc.Layer);
@@ -93,15 +94,19 @@ app
 		}
 
 		svc.OverCity = function (city) {
-			svc.Map.Focus.Hexs = {};
 			svc.Map.Focus.City = city;
-			svc.OverNation(svc.Map.Cities[city].Nation);
+			if (svc.Pin == "") {
+				svc.Map.Focus.Hexs = {};
+				svc.OverNation(svc.Map.Cities[city].Nation);
+			}
 		}
 
 		svc.OverInfoCity = function (city) {
-			svc.Map.Focus.Hexs = {};
-			svc.Map.Focus.Nation = "";
 			svc.Map.Focus.City = city;
+			if (svc.Pin == "") {
+				svc.Map.Focus.Hexs = {};
+				svc.Map.Focus.Nation = "";
+			}			
 		}
 
 		svc.Box = function (nation, dlt) {
@@ -132,14 +137,16 @@ app
 		}
 
 		svc.OverNation = function (nation) {
-			svc.Map.Focus.Hexs = {};
-			svc.Map.Focus.City = "";
-			svc.Map.Focus.Nation = nation;
-			if ((nation != "") && (angular.isDefined(svc.Map.Nations[nation]))) {
-				var Lst = svc.Map.Nations[nation].Hexs;
-				angular.forEach(Lst, function (elem) {
-					svc.Map.Focus.Hexs[elem] = true;
-				});
+			if (svc.Pin == "") {
+				svc.Map.Focus.Hexs = {};
+				svc.Map.Focus.City = "";
+				svc.Map.Focus.Nation = nation;
+				if ((nation != "") && (angular.isDefined(svc.Map.Nations[nation]))) {
+					var Lst = svc.Map.Nations[nation].Hexs;
+					angular.forEach(Lst, function (elem) {
+						svc.Map.Focus.Hexs[elem] = true;
+					});
+				}
 			}
 		}
 
@@ -163,9 +170,11 @@ app
 					svc.OverNation(svc.Map.Focus.Nation);
 				}
 			} else {
-				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver, City: "" };
-				if (angular.isDefined(svc.Map.Hexs[hOver])) {
-					svc.OverNation(svc.Map.Hexs[hOver]);
+				if (svc.Pin == "") {
+					svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver, City: "" };
+					if (angular.isDefined(svc.Map.Hexs[hOver])) {
+						svc.OverNation(svc.Map.Hexs[hOver]);
+					}
 				}
 			}
 		}
@@ -175,11 +184,17 @@ app
 				svc.Map.Focus.Over = hOver;
 				svc.Conflit = (angular.isDefined(svc.Map.Hexs[hOver])) && (svc.Map.Focus.Nation != "") && (svc.Map.Hexs[hOver] != "") && (svc.Map.Hexs[hOver] != svc.Map.Focus.Nation);
 			} else {
-				svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
-				if (angular.isDefined(svc.Map.Hexs[hOver])) {
-					svc.OverNation(svc.Map.Hexs[hOver]);
+				if (svc.Pin == "") {
+					svc.Map.Focus = { Hexs: {}, Nation: "", Over: hOver };
+					if (angular.isDefined(svc.Map.Hexs[hOver])) {
+						svc.OverNation(svc.Map.Hexs[hOver]);
+					}
 				}
 			}
+		}
+
+		svc.PinIt = function(nation) {
+			svc.Pin = (svc.Pin == nation) ? "" : nation;
 		}
 
 		return svc;
