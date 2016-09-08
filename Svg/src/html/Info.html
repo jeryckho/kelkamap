@@ -34,7 +34,10 @@
 			</div>
 		</div>
 	</div>
-	<div uib-accordion-group class="panel-default" heading="Administration" is-open="true" ng-show="VM.Auth.isLoggedIn()">
-		<a class="btn btn-default" href="#/Adm" role="button">Accéder</a>
+	<div uib-accordion-group ng-class="VM.Data.Modif?'panel-danger':'panel-default' " heading="Administration" is-open="true" ng-show="VM.Auth.isLoggedIn()">
+		<input type="checkbox" ng-model="VM.Data.Modif" id="cbMdf">&nbsp;<label for="cbMdf">Mode {{VM.Data.Modif?'Modif':'Normal'}}</label><br/>
+		<input type="checkbox" ng-model="VM.Data.Swap" id="cbSwap">&nbsp;<label for="cbSwap">Forcer hexagones</label><br/>
+		<br/>
+		<a class="btn btn-default" href="#/Adm" role="button">Accéder à la zone Admin</a><br/>
 	</div>
 </uib-accordion>

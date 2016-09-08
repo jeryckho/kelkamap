@@ -7,6 +7,7 @@ app
 		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
 		svc.Modif = false;
 		svc.Conflit = false;
+		svc.Swap = false;
 
 		svc.Save = function () {
 			Prefs.Set('Layer', svc.Layer);
@@ -154,8 +155,10 @@ app
 						svc.SubHexToNation(hOver, svc.Map.Focus.Nation);
 					} else {
 						// SWAP
-						svc.SubHexToNation(hOver, svc.Map.Hexs[hOver]);
-						svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
+						if (svc.Swap) {
+							svc.SubHexToNation(hOver, svc.Map.Hexs[hOver]);
+							svc.AddHexToNation(hOver, svc.Map.Focus.Nation);
+						}
 					}
 					svc.OverNation(svc.Map.Focus.Nation);
 				}
