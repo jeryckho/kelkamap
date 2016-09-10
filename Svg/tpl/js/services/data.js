@@ -9,6 +9,17 @@ app
 		svc.Conflit = false;
 		svc.Swap = false;
 		svc.Pin = "";
+		svc.Colors = false;
+		svc.Style = {};
+
+		svc.setColors = function (bool) {
+			svc.Colors = bool;
+			if (bool) {
+				svc.ComputeStyles();
+			} else {
+				svc.Style = {};
+			}
+		}
 
 		svc.Save = function () {
 			Prefs.Set('Layer', svc.Layer);
@@ -50,9 +61,16 @@ app
 			});
 			angular.forEach(x.Cities, function (city, code) {
 				delete city.key;
-				delete city.Nation;				
+				delete city.Nation;
 			});
 			return x;
+		}
+
+		svc.ComputeStyles = function () {
+			svc.Style = {};
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				svc.Style[code] = { 'fill': nation.Couleur };
+			});
 		}
 
 		svc.ComputeHexs = function () {

@@ -3,6 +3,7 @@
 		"STK": {
 			"Nom": "Sartak",
 			"NomLong": "Duché de Sartak",
+			"Couleur": "blue",
 			"Hexs": [
 				"H2925",
 				"H3025",
@@ -62,6 +63,7 @@
 		"EDS": {
 			"Nom": "Enders",
 			"NomLong": "Royaume d'Enders",
+			"Couleur": "cyan",
 			"Hexs": [
 				"H4324",
 				"H4424",
@@ -77,6 +79,7 @@
 		"MRN": {
 			"Nom": "Morrannon",
 			"NomLong": "Royaume de Morrannon",
+			"Couleur": "grey",
 			"Hexs": [
 				"H4724",
 				"H4725",
@@ -93,6 +96,8 @@
 		},
 		"SHI": {
 			"Nom": "Shirama",
+			"NomLong": "Sultanat de Shirama",
+			"Couleur": "yellow",
 			"Hexs": [
 				"H0735",
 				"H0736",
@@ -289,6 +294,7 @@
 		"BRB": {
 			"Nom": "Ko'nan",
 			"NomLong": "Terres du clan de l'Ours",
+			"Couleur": "brown",
 			"Hexs": [
 				"H1801",
 				"H1802",
@@ -370,6 +376,7 @@
 		"KAM": {
 			"Nom": "Khanat Amar",
 			"NomLong": "Khanat Amar",
+			"Couleur": "pink",
 			"Hexs": [
 				"H4818",
 				"H4819",
@@ -389,6 +396,7 @@
 		"SNO": {
 			"Nom": "Sauvages",
 			"NomLong": "Ile des Sauvages du Nord",
+			"Couleur": "darkslategrey",
 			"Hexs": [
 				"H4414",
 				"H4415",
@@ -406,6 +414,7 @@
 		"AGL": {
 			"Nom": "Argeleb",
 			"NomLong": "Terre des Druides",
+			"Couleur": "green",
 			"Hexs": [
 				"H2128",
 				"H2228",
@@ -418,6 +427,7 @@
 		"LUN": {
 			"Nom": "Lunian",
 			"NomLong": "Magocratie de Lunian",
+			"Couleur": "orangered",
 			"Hexs": [
 				"H1128",
 				"H1129",
@@ -488,6 +498,7 @@
 		"RAJ": {
 			"Nom": "Rawhajpoutalah",
 			"NomLong": "Raj du Rawhajpoutalah",
+			"Couleur": "goldenrod",
 			"Hexs": [
 				"H4628",
 				"H4629",
@@ -504,6 +515,7 @@
 		"OTK": {
 			"Nom": "Hoshitsuki",
 			"NomLong": "Shogunat d'Hoshitsuki",
+			"Couleur": "white",
 			"Hexs": [
 				"H0122",
 				"H0123",
@@ -607,6 +619,7 @@
 		"KLN": {
 			"Nom": "Kolona",
 			"NomLong": "Zone libre de Kolona",
+			"Couleur": "red",
 			"Hexs": [
 				"H2822",
 				"H2823",
@@ -643,6 +656,7 @@
 		"MND": {
 			"Nom": "Mando",
 			"NomLong": "Mando",
+			"Couleur": "gold",
 			"Hexs": [
 				"H1921",
 				"H1922",
@@ -667,6 +681,7 @@
 		"ELF": {
 			"Nom": "Elfes",
 			"NomLong": "Royaume Ellerimm",
+			"Couleur": "darkgreen",
 			"Hexs": [
 				"H1217",
 				"H1218",
@@ -729,6 +744,7 @@
 		"DRW": {
 			"Nom": "Drows",
 			"NomLong": "Terres Drows",
+			"Couleur": "black",
 			"Hexs": [
 				"H1920",
 				"H2020",

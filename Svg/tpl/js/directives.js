@@ -54,7 +54,8 @@ app
 				};
 				element.attr("ng-click", "regionClick()");
 				element.attr("ng-mouseover", "regionMouseOver()");
-				element.attr("ng-class", "{conflit:(Data.Map.Focus.Over==elementId)&&(Data.Conflit)&&(Data.Modif),nation:Data.Map.Focus.Hexs[elementId]}");
+				element.attr("ng-class", "{conflit:(Data.Map.Focus.Over==elementId)&&(Data.Conflit)&&(Data.Modif),nation:Data.Map.Focus.Hexs[elementId],colors:Data.Colors}");
+				element.attr("ng-style", "Data.Style[Data.Map.Hexs[elementId]]");
 				element.removeAttr("region");
 				$compile(element)(scope);
 			}

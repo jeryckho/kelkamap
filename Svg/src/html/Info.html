@@ -1,6 +1,6 @@
 <uib-accordion close-others="false" ng-cloak>
 	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true">
-		<filtre name="Nation" item="filNation"/></filtre> | <span class="glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" style="cursor:pointer" ng-click="VM.Zoom.Org()"> </span>
+		 <span class="glyphicon glyphicon-globe"  ng-class="{ 'text-muted': VM.Data.Colors }" style="cursor:pointer" ng-mouseover="VM.Data.setColors(true)" ng-mouseout="VM.Data.setColors(false)"> </span> | <filtre name="Nation" item="filNation"/></filtre> | <span class="glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" style="cursor:pointer" ng-click="VM.Zoom.Org()"> </span>
 		<div class="nationlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:'Nom' | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div ng-click="VM.Data.PinIt(region.key)">{{region.Nom}}</div>
