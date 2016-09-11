@@ -16,13 +16,16 @@
 			<stop style="stop-color:#ffff00;stop-opacity:0;" offset="1" id="stop4146" />
 		</linearGradient>
 		<linearGradient xlink:href="#G1" id="G2" x1="16" y1="149" x2="85" y2="11" gradientUnits="userSpaceOnUse" gradientTransform="translate(-47,-104)" />
-		<path style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" d="m 2.9383239,-86.839842 a 29.293486,29.293485 0 0 0 -29.2207029,27.84961 l -0.609375,0.004 0.542969,1.3418 a 29.293486,29.293485 0 0 0 -0.0059,0.0977 29.293486,29.293485 0 0 0 8.304688,20.43359 L 0.47933986,8.7246082 21.819183,-35.189452 a 29.293486,29.293485 0 0 0 10.359375,-21.32031 l 1.4375,-2.95703 -1.451172,0.0117 A 29.293486,29.293485 0 0 0 2.9383239,-86.839842 Z" id="pin" />
+		<path style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" d="M -1.937828e-6,-39.700318 -26.281252,-13.419068 l 0.21875,0.21875 -0.25,0 0,46.625 52.625,0 0,-46.625 -0.25,0 0.21875,-0.21875 z" id="Village" />
+		<path style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" d="M 25.8125 -53.09375 L 25.8125 -13.875 L 0 -39.6875 L -26.28125 -13.40625 L -26.0625 -13.1875 L -26.3125 -13.1875 L -26.3125 31.4375 L 25.8125 31.4375 L 26.3125 31.4375 L 65.1875 31.4375 L 65.1875 -53.09375 L 57.3125 -53.09375 L 57.3125 -47.09375 L 49.4375 -47.09375 L 49.4375 -53.09375 L 41.5625 -53.09375 L 41.5625 -47.09375 L 33.6875 -47.09375 L 33.6875 -53.09375 L 25.8125 -53.09375 z " id="Ville" />
+		<path style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" d="m -65.1875,-53.09375 0,84.53125 38.875,0 0.5,0 51.625,0 0.5,0 38.875,0 0,-84.53125 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,39.21875 L 0,-39.6875 l -25.8125,25.8125 0,-39.21875 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 z" id="Grande-Ville" />
+		<path style="fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" d="m -65.1875,-53.09375 0,84.53125 38.875,0 0.5,0 51.625,0 0.5,0 38.875,0 0,-84.53125 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,39.21875 L 0,-39.6875 l -25.8125,25.8125 0,-39.21875 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 0,6 -7.875,0 0,-6 -7.875,0 z" id="Capitale" />
 	</defs>
 	<image ng-show="VM.Data.Layer.iFond" id="image4188" width="5.88e3" xlink:href="img/fondcarte.jpg" height="5.88e3" y="-2.52e3" x="-2.64e3" preserveAspectRatio="none"/>
 	<g clip-path="url(#land)">
 		<g transform="translate(-2480,-2180)" ng-show="VM.Data.Layer.gHex" svg-grid=""></g>
 	</g>
 	<g transform="translate(-2480,-2180)" ng-show="VM.Data.Layer.gCities">
-		<use ng-repeat="(key,city) in VM.Data.Map.Cities" class="C" ng-href="{{ '#pin' }}" xlink:href="" ng-x="{{VM.Data.FindXY(city.H,true)}}" ng-y="{{VM.Data.FindXY(city.H,false)}}" id="key" ng-class="{nation:(VM.Data.Map.Focus.Nation==city.Nation),city:(VM.Data.Map.Focus.City==key)}" style="fill:url(#G2);" ng-click="VM.Data.OverCity(key)" ng-mouseover="VM.Data.OverInfoCity(key)"/>
+		<use ng-repeat="(key,city) in VM.Data.Map.Cities" class="C" ng-href="{{ '#'+city.Type }}" xlink:href="" ng-x="{{VM.Data.FindXY(city.H,true)}}" ng-y="{{VM.Data.FindXY(city.H,false)}}" id="key" ng-class="{nation:(VM.Data.Map.Focus.Nation==city.Nation),city:(VM.Data.Map.Focus.City==key)}" style="fill:url(#G2);" ng-click="VM.Data.OverCity(key)" ng-mouseover="VM.Data.OverInfoCity(key)"/>
 	</g>
 </svg>
