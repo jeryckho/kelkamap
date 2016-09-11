@@ -16,15 +16,15 @@
 					<td>Nom Détaillé : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].NomLong"></td>
 				</tr>
 				<tr>
-					<td>Couleur : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur"></td>
+					<td>Couleur <span class="glyphicon glyphicon-home" style="color:{{VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur}}"> </span> : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur"></td>
 				</tr>
 			</tbody>
 			<tbody ng-hide="VM.Data.Map.Focus.Nation">
 				<tr>
-					<td>Ajouter Nation</td>
+					<td>Ajouter Nation (ex : STK)</td>
 				</tr>
 				<tr>
-					<td><input type="text" ng-model="VM.New"> <button class="btn btn-default" ng-disabled="!VM.New" ng-click="VM.Add(VM.New)">Add</button></td>
+					<td><input type="text" ng-model="VM.New" ng-pattern="/^[A-Z]{2,4}$/" size="4"> <button class="btn btn-default" ng-disabled="!VM.New" ng-click="VM.Add(VM.New)">Add</button></td>
 				</tr>
 			</tbody>
 		</table>
