@@ -2,11 +2,14 @@
 @select: #F00;
 @group: #0F0;
 @city: #00F;
+@def: #FFF;
+
+.cursor-pointer{cursor: pointer;}
 
 svg {
 	.H {
 		stroke-width: 0;
-		stroke: #fff;
+		stroke: @def;
 		fill: @select;
 
 		-webkit-transition: stroke 0.5s, stroke-width 0.5s;
@@ -17,14 +20,14 @@ svg {
 		stroke-opacity: 0;
 
 		&.nation {
-			cursor: pointer;
+			.cursor-pointer;
 			fill: @group;
 			fill-opacity: 0.25;
 			z-index: 90;
 		}
 
 		&:hover {
-			cursor: pointer;
+			.cursor-pointer;
 			stroke: @select !important;
 			stroke-opacity: 0.25;
 			z-index: 100;
@@ -47,14 +50,14 @@ svg {
 
 	.C {
 			&.nation {
-			cursor: pointer;
+			.cursor-pointer;
 			fill: @group !important;
 			fill-opacity: 0.75 !important;
 			z-index: 95;
 		}
 
 		&.city {
-			cursor: pointer;
+			.cursor-pointer;
 			fill: @city !important;
 			fill-opacity: 0.75 !important;
 			z-index: 95;

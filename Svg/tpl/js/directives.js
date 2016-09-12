@@ -73,7 +73,7 @@ app
 				name: '@'
 			},
 			replace: 'true',
-			template: '<span class="form-group"><input type="checkbox" ng-change="cbChange()" ng-model="myCb" id="cbFil{{ name }}" class="sr-only"/><label for="cbFil{{ name }}"><span class="glyphicon glyphicon-filter" style="cursor:pointer"> </span></label> <input type="text" class="form-control smallinput" ng-model="item" ng-show="myCb"></span>',
+			template: '<span class="form-group"><input type="checkbox" ng-change="cbChange()" ng-model="myCb" id="cbFil{{ name }}" class="sr-only"/><label for="cbFil{{ name }}"><span class="cursor-pointer glyphicon glyphicon-filter"> </span></label> <input type="text" class="form-control smallinput" ng-model="item" ng-show="myCb"></span>',
 			link: function (scope, element, attrs) {
 				scope.tmp = "";
 				scope.cbChange = function () {
@@ -87,66 +87,6 @@ app
 			}
 		}
 	}])
-
-	///////////////////
-	// Suivi ViewBox //
-	///////////////////
-	.directive('viewBox', [
-		function () {
-			'use strict';
-			return {
-				link: function (scope, element, attributes) {
-					attributes.$observe('viewBox', function (value) {
-						element.attr('viewBox', value);
-					});
-				}
-			};
-		}
-	])
-
-	///////////////////////
-	// Suivi value width //
-	//////////////////////
-	.directive('ngWidth', function () {
-		return function (scope, elem, attrs) {
-			attrs.$observe('ngWidth', function (width) {
-				elem.attr('width', width);
-			});
-		};
-	})
-
-	////////////////////////
-	// Suivi value height //
-	////////////////////////
-	.directive('ngHeight', function () {
-		return function (scope, elem, attrs) {
-			attrs.$observe('ngHeight', function (height) {
-				elem.attr('height', height);
-			});
-		};
-	})
-
-	///////////////////
-	// Suivi value X //
-	///////////////////
-	.directive('ngX', function () {
-		return function (scope, elem, attrs) {
-			attrs.$observe('ngX', function (x) {
-				elem.attr('x', x);
-			});
-		};
-	})
-
-	///////////////////
-	// Suivi value Y //
-	///////////////////
-	.directive('ngY', function () {
-		return function (scope, elem, attrs) {
-			attrs.$observe('ngY', function (y) {
-				elem.attr('y', y);
-			});
-		};
-	})
 
 	////////////////////
 	// Inclusion Rose //
