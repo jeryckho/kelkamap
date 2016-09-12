@@ -1,9 +1,19 @@
 # Kelkalor Responsive Map
 
-[TOC]
+ - [Fonctionnalités](#Fonc)
+  - [Carte](#Carte)
+  - [Zone d'Information](#Info)
+    - [Nations](#Nations)
+    - [Cités](#Cities)
+    - [Affichage](#Aff)
+  - [Zone d'Administration](#Admin)
+ - [Installation](#Install)
+ - [A faire](#Todo)
 
+<a name="Fonc"/>
 ## Fonctionnalités
 
+<a name="Carte"/>
 ### Carte
 
 La carte est composée :
@@ -22,13 +32,15 @@ Sur la carte, on peut :
 
 > - La possibilité de déplacer la carte par drag'n'drop.
 
+<a name="Info"/>
 ### Zone d'Information
 
+<a name="Nations"/>
 #### Nations
 
 Cette zone liste les différentes Nations. Elle donne accès à certains éléments particulier.
 
- - :cool: L'icône **Globe** affiche la vue synthétique, chaque nation étant représentée par sa couleur,
+ - /!\ L'icône **Globe** affiche la vue synthétique, chaque nation étant représentée par sa couleur  ,
  - L'icône **Filtre** permet de filtrer la liste des Nations,
  - L'icône **Plein Ecran** pour réinitialiser le zoom.
 
@@ -42,6 +54,7 @@ Sur la liste, on peut :
 
 > - La possibilité de trier les Nations selon divers critères.
 
+<a name="Cities"/>
 #### Cités
 
 Cette zone liste les différentes Cités.
@@ -57,6 +70,7 @@ Sur la liste, on peut :
 
 > - La possibilité de centrer la carte sur une Cité.  
 
+<a name="Aff"/>
 #### Affichage
 
 La **Rose des Vents** permet de zoomer et de déplacer la carte, en cliquant sur ses branches ou son centre.
@@ -73,6 +87,7 @@ Les **Layers** peuvent afficher/cacher :
 > - Un récap des informations de la Nation,
 > - Un layer Annotations, masquable. (Vecto, c'est du texte)
 
+<a name="Admin"/>
 ### La Zone admin
 
  :lock: Cette zone est limité aux administrateurs de la carte.
@@ -81,6 +96,7 @@ Les **Layers** peuvent afficher/cacher :
 
 > - Les gestions des cités et des ressources.  
  
+<a name="Install"/>
 ## Installation ##
     npm install
     gulp prod
@@ -88,6 +104,7 @@ Les **Layers** peuvent afficher/cacher :
     firebase login
     firebase deploy
 
+<a name="Todo"/>
 ## A faire
 
 > - Vérifier le fonctionnement des naviguateurs suivants : 
