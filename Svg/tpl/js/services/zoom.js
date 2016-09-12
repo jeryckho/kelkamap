@@ -8,9 +8,9 @@ app
 		svc.Size = { Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
 		svc.Size.Crt = Prefs.Get('CrtSize', 2);
 		svc.vBox = {
-			Min: { x: -2640, y: -2520, w: 980, h: 980 },
-			Max: { x: 3240, y: 3360, w: 5880, h: 5880 },
-			Crt: { x: -2640, y: -2520, w: 5880, h: 5880 }
+			Min: { x: 0, y: 0, w: 980, h: 980 },
+			Max: { x: 5880, y: 5880, w: 5880, h: 5880 },
+			Crt: { x: 0, y: 0, w: 5880, h: 5880 }
 		};
 
 		svc.setBox = function () {
@@ -89,8 +89,8 @@ app
 
 		svc.Box = function (box) {
 			var zf = (box.W > box.H) ? box.W : box.H;
-			svc.vBox.Crt.x = box.X + box.W / 2 - zf / 2 - 2480;
-			svc.vBox.Crt.y = box.Y + box.H / 2 - zf / 2 - 2180;
+			svc.vBox.Crt.x = box.X + box.W / 2 - zf / 2;
+			svc.vBox.Crt.y = box.Y + box.H / 2 - zf / 2;
 			svc.vBox.Crt.w = zf;
 			svc.vBox.Crt.h = zf;
 			svc.setBox();
