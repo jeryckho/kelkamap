@@ -40,6 +40,6 @@ gulp.task('dev', ['less', 'purge'], function () {
 
 gulp.task('default', ['dev']);
 
-gulp.task('wless', function () {
+gulp.task('wless', ['less'], function () {
 	gulp.watch('./tpl/**/*.less', ['less']);
 });

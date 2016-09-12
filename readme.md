@@ -74,6 +74,7 @@ Sur la liste, on peut :
 #### Affichage
 
 La **Rose des Vents** permet de zoomer et de déplacer la carte, en cliquant sur ses branches ou son centre.
+
 Les **Layers** peuvent afficher/cacher :
 
  - Le Fond de Carte,
@@ -81,10 +82,12 @@ Les **Layers** peuvent afficher/cacher :
   - C'est ici que l'on peut restreindre (ou non) les hexagones aux zones terrestres,
  - Les Cités.
 
+La **Taille de la Carte** peut être ajustée ( 640x640 pixels, 800x800 pixels ou 980x980 pixels).
+
 > **Il manque :**
 
-> - Les ressources.,
-> - Un récap des informations de la Nation,
+> - Les ressources,
+> - Un récap des informations de la Nation, **_(en cours)_**
 > - Un layer Annotations, masquable. (Vecto, c'est du texte)
 
 <a name="Admin"/>
@@ -110,7 +113,7 @@ Les **Layers** peuvent afficher/cacher :
 > - Vérifier le fonctionnement des naviguateurs suivants : 
    - FireFox
    - Google Chrome
-   - Internet Explorer
+   - ~~Internet Explorer~~
    - Opera
    - Safari
    - SeaMonkey

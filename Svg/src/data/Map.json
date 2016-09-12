@@ -1188,5 +1188,11 @@
 		"City": "",
 		"Nation": "",
 		"Over": ""
+	},
+	"Population": {
+		"Village": 500000,
+		"Ville": 1000000,
+		"Grande-Ville": 2000000,
+		"Capitale": 2000000
 	}
 }

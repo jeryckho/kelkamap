@@ -58,6 +58,7 @@ app
 			angular.forEach(x.Nations, function (nation, code) {
 				nation.Hexs.sort();
 				delete nation.key;
+				delete nation.Population;
 			});
 			angular.forEach(x.Cities, function (city, code) {
 				delete city.key;
@@ -82,6 +83,16 @@ app
 			});
 		}
 
+		svc.ComputePopulations = function () {
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				var pop = 0;
+				angular.forEach(nation.Cities, function (city) {
+					pop += svc.Map.Population[svc.Map.Cities[city].Type];
+				});
+				nation.Population = pop;
+			});
+		}
+
 		svc.ComputeCities = function () {
 			angular.forEach(svc.Map.Nations, function (nation, code) {
 				angular.forEach(nation.Cities, function (city) {
@@ -94,6 +105,7 @@ app
 			svc.Map = data;
 			svc.ComputeHexs();
 			svc.ComputeCities();
+			svc.ComputePopulations();
 		});
 
 		svc.Toggle = function (id) {

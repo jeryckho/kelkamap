@@ -10,7 +10,6 @@
 					<span class="glyphicon glyphicon-pushpin" ng-show="region.key == VM.Data.Pin"> </span>
 				</div>
 			</div>
-			<!--H: {{VM.Data.Map.Focus.Over}} N: {{VM.Data.Map.Hexs[VM.Data.Map.Focus.Over]}} F: {{ VM.Data.Map.Focus.Hexs | json }}-->
 		</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false" ng-init="sortCity=true;fiCity=false;">
@@ -23,6 +22,13 @@
 		</div>
 	</div>
 </uib-accordion><uib-accordion close-others="false" ng-cloak>
+	<div uib-accordion-group class="panel-default" heading="Détails" is-open="true" ng-hide="VM.Data.Pin == ''">
+		<b>Nom : </b><span class="glyphicon glyphicon-home" style="color:{{VM.Data.Map.Nations[VM.Data.Pin].Couleur}}"> </span> {{VM.Data.Map.Nations[VM.Data.Pin].Nom}}<br/>
+		<b>Nom Complet : </b>{{VM.Data.Map.Nations[VM.Data.Pin].NomLong}}<br/>
+		<b>Surface : </b>{{VM.Data.Map.Nations[VM.Data.Pin].Hexs.length||0}}<br/>
+		<b>Cités : </b>{{VM.Data.Map.Nations[VM.Data.Pin].Cities.length||0}}<br/>
+		<b>Population : </b> {{VM.Data.Map.Nations[VM.Data.Pin].Population||0|number}}
+	</div>
 	<div uib-accordion-group class="panel-default" heading="Affichage" is-open="true">
 		<div class="row">
 			<div class="col-xs-6">
