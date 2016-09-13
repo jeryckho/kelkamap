@@ -38,5 +38,10 @@ var app = angular.module('SvgMapApp', ['angular-loading-bar', 'firebase', 'ngRou
 					}]
 				}
 			})
+			.when('/Doc', {
+				templateUrl: 'html/Doc.html',
+				controller: 'InfoCtrl',
+				controllerAs: 'VM'
+			})
 			.otherwise({ redirectTo: '/' });
 	}]);

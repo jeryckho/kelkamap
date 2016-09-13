@@ -19,14 +19,14 @@
 La carte est composée :
 
  - D'un layer "Fond de Carte" en png en jpg. Juste les terres, mers, reliefs. 
- - Ensuite un layer "Hexagones" calculé à la volée, masquable. Ce est celui qui porte les informations d'appartenance à une nation. Par défaut, il est limité aux terres, mais peut être étendu aux zones maritimes.
- - Un layer Cités, masquable. (Les icônes sont en Png)
+ - Ensuite un layer "Hexagones" calculé à la volée, masquable. C'est celui qui porte les informations d'appartenance à une _Nation_. Par défaut, il est limité aux terres, mais peut être étendu aux zones maritimes.
+ - Un layer _Cités_, masquable. (Les icônes sont en Png)
 
 Sur la carte, on peut :
 
  - zoomer/dézoomer en utilisant la roulette de la souris,
- - survoler une nation pour la mettre en surbrillance,
- - survoler une cité pour la mettre en sur surbrillance.
+ - survoler une _Nation_ pour la mettre en surbrillance,
+ - survoler une _Cité_ pour la mettre en sur surbrillance.
 
 > **Il manque :**
 
@@ -36,39 +36,39 @@ Sur la carte, on peut :
 ### Zone d'Information
 
 <a name="Nations"/>
-#### Nations
+#### _Nations_
 
-Cette zone liste les différentes Nations. Elle donne accès à certains éléments particulier.
+Cette zone liste les différentes _Nations_. Elle donne accès à certains éléments particulier.
 
- - /!\ L'icône **Globe** affiche la vue synthétique, chaque nation étant représentée par sa couleur  ,
- - L'icône **Filtre** permet de filtrer la liste des Nations,
+ - /!\ L'icône **Globe** affiche la vue synthétique, chaque _Nation_ étant représentée par sa couleur  ,
+ - L'icône **Filtre** permet de filtrer la liste des _Nations_,
  - L'icône **Plein Ecran** pour réinitialiser le zoom.
 
 Sur la liste, on peut :
 
- - survoler la liste pour mettre en surbrillance la Nation sur la carte,
- - zoomer sur une Nation avec l'icône**Loupe**,
- - punaiser une Nation en cliquant sur son nom.
+ - survoler la liste pour mettre en surbrillance la _Nation_ sur la carte,
+ - zoomer sur une _Nation_ avec l'icône **Loupe**,
+ - punaiser une _Nation_ en cliquant sur son nom. Un récap des informations de la _Nation_ est alors affiché.
 
 > **Il manque :**
 
-> - La possibilité de trier les Nations selon divers critères.
+> - La possibilité de trier les _Nations_ selon divers critères **_(en cours)_**.
 
 <a name="Cities"/>
-#### Cités
+#### _Cités_
 
-Cette zone liste les différentes Cités.
+Cette zone liste les différentes _Cités_.
 
- - L'icône **Tri** permet d'ordonner les cités suivant leur nom, ou leur taille,
- - L'icône **Filtre** permet de filtrer la liste des Cités.
+ - L'icône **Tri** permet d'ordonner les _Cités_ suivant leur nom, ou leur taille,
+ - L'icône **Filtre** permet de filtrer la liste des _Cités_.
 
 Sur la liste, on peut :
 
- - survoler la liste pour mettre en avant la Cité sur la carte.
+ - survoler la liste pour mettre en avant la _Cité_ sur la carte.
 
 > **Il manque :**
 
-> - La possibilité de centrer la carte sur une Cité.  
+> - La possibilité de centrer la carte sur une _Cité_.  
 
 <a name="Aff"/>
 #### Affichage
@@ -78,16 +78,16 @@ La **Rose des Vents** permet de zoomer et de déplacer la carte, en cliquant sur
 Les **Layers** peuvent afficher/cacher :
 
  - Le Fond de Carte,
- - Les Hexagones (_ie_ les Nations),
+ - Les Hexagones (_ie_ les _Nations_),
   - C'est ici que l'on peut restreindre (ou non) les hexagones aux zones terrestres,
- - Les Cités.
+ - Les _Cités_.
 
 La **Taille de la Carte** peut être ajustée ( 640x640 pixels, 800x800 pixels ou 980x980 pixels).
 
 > **Il manque :**
 
 > - Les ressources,
-> - Un récap des informations de la Nation, **_(en cours)_**
+> - Un récap des informations de la _Nation_, **_(en cours)_**
 > - Un layer Annotations, masquable. (Vecto, c'est du texte)
 
 <a name="Admin"/>
@@ -97,7 +97,7 @@ La **Taille de la Carte** peut être ajustée ( 640x640 pixels, 800x800 pixels o
 
 > **Il manque :**
 
-> - Les gestions des cités et des ressources.  
+> - Les gestions des _Cités_ et des ressources.  
  
 <a name="Install"/>
 ## Installation ##
