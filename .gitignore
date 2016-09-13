@@ -1,1 +1,3 @@
-Svg/tpl/css/main.css
+tpl/css/main.css
+node_modules/
+bin/public/
