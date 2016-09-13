@@ -17,3 +17,33 @@
    - Safari
    - SeaMonkey
    - Vivaldi
+
+## Ressources
+ 
+ - Principales :
+  - Pierre,
+  - Bois,
+  - Métal,
+  - Pierre Précieuse,
+  - Or.
+ - Vivrières :
+  - Nourriture,
+  - Vin,
+  - Épice.
+ - Annexes :
+  - Forge,
+  - Orfèvrerie,
+  - Atelier de vêtements,
+  - Haras.
+
+## Cités (7 types ?)
+
+ - Village (fortifié ou pas)
+ - Ville (fortifiée ou pas)
+ - Grande Ville (fortifiée ou pas)
+ - Capitale
+
+## Fortifications (2 types)
+
+ - Château
+ - Forteresse

@@ -19,7 +19,7 @@
 		<filtre name="City" item="filCity"></filtre>
 		 | <input type="checkbox" ng-model="sortCity" id="sCity" class="sr-only"/> <label for="sCity"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortCity,'glyphicon-sort-by-attributes':!sortCity}"> </span></label>
 		<div class="citylist">
-			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:(sortCity?'key':['-Population','key']) | filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
+			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:(sortCity?'key':['-Population','Type','key']) | filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
 				<div>{{city.key}}</div>
 				<div>{{city.Type}}</div>
 			</div>
