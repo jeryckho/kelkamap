@@ -26,6 +26,11 @@ app
 
 			function Compare(elem, a, b) {
             var comparator;
+				var invertor = 1;
+				if (elem.substr(0, 1) === '-') {
+					invertor = -1;
+					elem = elem.slice(1);
+				}
             var reducedA = elem.split('.').reduce(index, a);
             var reducedB = elem.split('.').reduce(index, b);
 
@@ -40,8 +45,7 @@ app
 					comparator = reducedA > reducedB ? 1 : -1;
             }
 
-            return comparator;
-
+            return invertor*comparator;
 			}
 
 			filtered.sort(function (a, b) {

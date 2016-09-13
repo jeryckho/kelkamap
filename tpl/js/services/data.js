@@ -63,6 +63,7 @@ app
 			angular.forEach(x.Cities, function (city, code) {
 				delete city.key;
 				delete city.Nation;
+				delete city.Population;
 			});
 			return x;
 		}
@@ -87,7 +88,9 @@ app
 			angular.forEach(svc.Map.Nations, function (nation, code) {
 				var pop = 0;
 				angular.forEach(nation.Cities, function (city) {
-					pop += svc.Map.Population[svc.Map.Cities[city].Type];
+					var lpop = svc.Map.Population[svc.Map.Cities[city].Type];
+					svc.Map.Cities[city].Population = lpop;
+					pop += lpop;
 				});
 				nation.Population = pop;
 			});
