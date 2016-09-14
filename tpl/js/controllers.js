@@ -74,9 +74,13 @@ app
 	//////////////////////////
 	// Controleur Info (#/) //
 	//////////////////////////
-	.controller('InfoCtrl', ['Data', 'Auth', 'Zoom', function (Data, Auth, Zoom) {
+	.controller('InfoCtrl', ['Data', 'Auth', 'Zoom', '$location', function (Data, Auth, Zoom, $location) {
 		var vm = this;
 		vm.Auth = Auth;
 		vm.Data = Data;
 		vm.Zoom = Zoom;
+
+		vm.Goto = function (sub) {
+			$location.path(sub);
+		}
 	}]);
