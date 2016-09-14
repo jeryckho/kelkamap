@@ -23,7 +23,11 @@
 	</defs>
 	<image ng-show="VM.Data.Layer.iFond" id="image4188" width="5880" xlink:href="img/fondcarte.jpg" height="5880" y="0" x="0" preserveAspectRatio="none"/>
 	<g clip-path="url(#land)">
-		<g ng-show="VM.Data.Layer.gHex" svg-grid=""></g>
+		<g ng-show="VM.Data.Layer.gHex">
+			<defs><polygon id="Hx" points="72.59 0 36.3 62.87 -36.29 62.87 -72.58 0 -36.29 -62.86 36.3 -62.86"/></defs>
+			<!--<g ng-repeat="y in [0..46]">
+			</g>-->
+		</g>
 	</g>
 	<g ng-show="VM.Data.Layer.gCities">
 		<use ng-repeat="(key,city) in VM.Data.Map.Cities" class="C" ng-href="{{ '#'+city.Type }}" xlink:href="" ng-attr-x="{{VM.Data.FindXY(city.H,true)}}" ng-attr-y="{{VM.Data.FindXY(city.H,false)}}" id="key" ng-class="{nation:(VM.Data.Map.Focus.Nation==city.Nation),city:(VM.Data.Map.Focus.City==key)}" style="fill:url(#G2);" ng-click="VM.Data.OverCity(key)" ng-mouseover="VM.Data.OverInfoCity(key)"/>
