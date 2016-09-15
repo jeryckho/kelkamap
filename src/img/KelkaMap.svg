@@ -25,8 +25,7 @@
 	<g clip-path="url(#land)">
 		<g ng-show="VM.Data.Layer.gHex">
 			<defs><polygon id="Hx" points="72.59 0 36.3 62.87 -36.29 62.87 -72.58 0 -36.29 -62.86 36.3 -62.86"/></defs>
-			<!--<g ng-repeat="y in [0..46]">
-			</g>-->
+			<use ng-repeat="Hx in VM.Data.HList" class="H" ng-attr-id="{{Hx.ID}}" xlink:href="#Hx" ng-attr-x="{{Hx.X}}" ng-attr-y="{{Hx.Y}}" ng-click="VM.Data.ClickHex(Hx.ID)" ng-class="{conflit:(VM.Data.Map.Focus.Over==Hx.ID)&&(VM.Data.Conflit)&&(VM.Data.Modif),nation:VM.Data.Map.Focus.Hexs[Hx.ID],colors:VM.Data.Colors}"  ng-mouseover="VM.Data.OverHex(Hx.ID)" ng-style="VM.Data.Style[VM.Data.Map.Hexs[Hx.ID]]"></use>
 		</g>
 	</g>
 	<g ng-show="VM.Data.Layer.gCities">

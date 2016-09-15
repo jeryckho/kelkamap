@@ -5,60 +5,7 @@ app
 	.directive('svgMap', ['$compile', function ($compile) {
 		return {
 			restrict: 'A',
-			templateUrl: 'img/KelkaMap.svg',
-			link: function (scope, element, attrs) {
-				var regions = element[0].querySelectorAll('.H');
-				angular.forEach(regions, function (path, key) {
-					var regionElement = angular.element(path);
-					regionElement.attr("region", "");
-					$compile(regionElement)(scope);
-				})
-			}
-		}
-	}])
-
-	///////////////////
-	// Inclusion Hex //
-	///////////////////
-	.directive('svgGrid', ['$compile', function ($compile) {
-		return {
-			restrict: 'A',
-			templateUrl: 'img/KelkaGrid.svg',
-			link: function (scope, element, attrs) {
-				var regions = element[0].querySelectorAll('.H');
-				angular.forEach(regions, function (path, key) {
-					var regionElement = angular.element(path);
-					regionElement.attr("region", "");
-					$compile(regionElement)(scope);
-				})
-			}
-		}
-	}])
-
-	////////////////////////
-	// Decoration des Hex //
-	////////////////////////
-	.directive('region', ['$compile', 'Data', function ($compile, Data) {
-		return {
-			restrict: 'A',
-			scope: {
-			},
-			link: function (scope, element, attrs) {
-				scope.elementId = element.attr("id");
-				scope.Data = Data;
-				scope.regionClick = function () {
-					scope.Data.ClickHex(scope.elementId);
-				};
-				scope.regionMouseOver = function () {
-					scope.Data.OverHex(scope.elementId);
-				};
-				element.attr("ng-click", "regionClick()");
-				element.attr("ng-mouseover", "regionMouseOver()");
-				element.attr("ng-class", "{conflit:(Data.Map.Focus.Over==elementId)&&(Data.Conflit)&&(Data.Modif),nation:Data.Map.Focus.Hexs[elementId],colors:Data.Colors}");
-				element.attr("ng-style", "Data.Style[Data.Map.Hexs[elementId]]");
-				element.removeAttr("region");
-				$compile(element)(scope);
-			}
+			templateUrl: 'img/KelkaMap.svg'
 		}
 	}])
 
