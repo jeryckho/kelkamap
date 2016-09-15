@@ -30,7 +30,7 @@ app
 				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
 				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
 					Lst.push({
-						ID: 'H' + ((Cnf.dx < 10) ? '0' + Cnf.dx : Cnf.dx) + '' + + ((Cnf.dy < 10) ? '0' + Cnf.dy : Cnf.dy),
+						ID: ((Cnf.dx < 10) ? 'H0'  : 'H' ) + Cnf.dx + ((Cnf.dy < 10) ? '0' : '') + Cnf.dy ,
 						X: x + Cnf.OX,
 						Y: y + Cnf.OY + Cnf.dV
 					});
