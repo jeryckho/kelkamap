@@ -3,7 +3,6 @@
 		 <span class="cursor-pointer glyphicon glyphicon-globe"  ng-class="{ 'text-muted': VM.Data.Colors }" ng-mouseover="VM.Data.setColors(true)" ng-mouseout="VM.Data.setColors(false)"> </span>
 		  | <filtre name="Nation" item="filNation"/></filtre>
 		  | <input type="checkbox" ng-model="sortNation" id="sNation" class="sr-only"/> <label for="sNation"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortNation,'glyphicon-sort-by-attributes':!sortNation}"> </span></label>
-		  | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" ng-click="VM.Zoom.Org()"> </span>
 		  | <span class="cursor-pointer glyphicon glyphicon-question-sign" ng-click="VM.Goto('/Doc')"> </span>
 			<div class="nationlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:(sortNation?'Nom':['-Population','Nom']) | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
@@ -19,6 +18,7 @@
 	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false" ng-init="sortCity=true">
 		<filtre name="City" item="filCity"></filtre>
 		 | <input type="checkbox" ng-model="sortCity" id="sCity" class="sr-only"/> <label for="sCity"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortCity,'glyphicon-sort-by-attributes':!sortCity}"> </span></label>
+		 | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" ng-click="VM.Zoom.Org()"> </span>
 		 | <span class="cursor-pointer glyphicon glyphicon-question-sign" ng-click="VM.Goto('/Doc')"> </span>
 		<div class="citylist">
 			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:(sortCity?'key':['-Population','Type','key']) | filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
