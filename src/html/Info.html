@@ -1,17 +1,17 @@
 <uib-accordion close-others="true" ng-cloak>
 	<div uib-accordion-group class="panel-default" heading="Nations" is-open="true" ng-init="sortNation=true">
-		 <span class="cursor-pointer glyphicon glyphicon-globe"  ng-class="{ 'text-muted': VM.Data.Colors }" ng-mouseover="VM.Data.setColors(true)" ng-mouseout="VM.Data.setColors(false)"> </span>
-		  | <filtre name="Nation" item="filNation"/></filtre>
-		  | <input type="checkbox" ng-model="sortNation" id="sNation" class="sr-only"/> <label for="sNation"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortNation,'glyphicon-sort-by-attributes':!sortNation}"> </span></label>
-		  | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" ng-click="VM.Zoom.Org()"> </span>
-		  | <span class="cursor-pointer glyphicon glyphicon-question-sign" ng-click="VM.Goto('/Doc')"> </span>
+		 <span class="cursor-pointer glyphicon glyphicon-globe" ng-class="{'text-muted':VM.Data.Colors}" ng-mouseover="VM.Data.setColors(true)" ng-mouseout="VM.Data.setColors(false)"> </span>
+		 | <filtre name="Nation" item="filNation"/></filtre>
+		 | <input type="checkbox" ng-model="sortNation" id="sNation" class="sr-only"/> <label for="sNation"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortNation,'glyphicon-sort-by-attributes':!sortNation}"> </span></label>
+		 | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{'text-muted':(!VM.Zoom.isZoomed())}" ng-click="VM.Zoom.Org()"> </span>
+		 | <span class="cursor-pointer glyphicon glyphicon-question-sign" ng-click="VM.Goto('/Doc')"> </span>
 			<div class="nationlist">
-			<div ng-repeat="(key,region) in VM.Data.Map.Nations | orderObjectBy:(sortNation?'Nom':['-Population','Nom']) | filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
+			<div ng-repeat="(key,region) in VM.Data.Map.Nations|orderObjectBy:(sortNation?'Nom':['-Population','Nom'])|filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div ng-click="VM.Data.PinIt(region.key)">{{region.Nom}}</div>
-				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Hexs.length | number}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" style="color:{{region.Couleur}}"> </span></div>
+				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Hexs.length|number}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" style="color:{{region.Couleur}}"> </span></div>
 				<div>
 					<span class="cursor-pointer glyphicon glyphicon-search" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))"> </span>
-					<span class="glyphicon glyphicon-pushpin" ng-show="region.key == VM.Data.Pin"> </span>
+					<span class="glyphicon glyphicon-pushpin" ng-show="region.key==VM.Data.Pin"> </span>
 				</div>
 			</div>
 		</div>
@@ -19,17 +19,17 @@
 	<div uib-accordion-group class="panel-default" heading="Cités" is-open="false" ng-init="sortCity=true">
 		<filtre name="City" item="filCity"></filtre>
 		 | <input type="checkbox" ng-model="sortCity" id="sCity" class="sr-only"/> <label for="sCity"><span class="cursor-pointer glyphicon" ng-class="{'glyphicon-sort-by-alphabet':sortCity,'glyphicon-sort-by-attributes':!sortCity}"> </span></label>
-		 | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{ 'text-muted':(!VM.Zoom.isZoomed()) }" ng-click="VM.Zoom.Org()"> </span>
+		 | <span class="cursor-pointer glyphicon glyphicon-fullscreen" ng-class="{'text-muted':(!VM.Zoom.isZoomed())}" ng-click="VM.Zoom.Org()"> </span>
 		 | <span class="cursor-pointer glyphicon glyphicon-question-sign" ng-click="VM.Goto('/Doc')"> </span>
 		<div class="citylist">
-			<div ng-repeat="(key,city) in VM.Data.Map.Cities | orderObjectBy:(sortCity?'key':['-Population','Type','key']) | filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
+			<div ng-repeat="(key,city) in VM.Data.Map.Cities|orderObjectBy:(sortCity?'key':['-Population','Type','key'])|filter:filCity" ng-class="{active:(VM.Data.Map.Focus.Nation==city.Nation)||(VM.Data.Map.Focus.City==city.key)}" ng-mouseover="VM.Data.OverInfoCity(city.key)">
 				<div>{{city.key}}</div>
 				<div>{{city.Type}}</div>
 			</div>
 		</div>
 	</div>
 </uib-accordion><uib-accordion close-others="false" ng-cloak>
-	<div uib-accordion-group class="panel-default" heading="Détails" is-open="true" ng-hide="VM.Data.Pin == ''">
+	<div uib-accordion-group class="panel-default" heading="Détails" is-open="true" ng-hide="VM.Data.Pin==''">
 		<b>Nom : </b><span class="glyphicon glyphicon-home" style="color:{{VM.Data.Map.Nations[VM.Data.Pin].Couleur}}"> </span> {{VM.Data.Map.Nations[VM.Data.Pin].Nom}}<br/>
 		<b>Nom Complet : </b>{{VM.Data.Map.Nations[VM.Data.Pin].NomLong}}<br/>
 		<b>Surface : </b>{{VM.Data.Map.Nations[VM.Data.Pin].Hexs.length||0}}<br/>
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</div>
-	<div uib-accordion-group ng-class="VM.Data.Modif?'panel-danger':'panel-default' " heading="Administration" is-open="true" ng-show="VM.Auth.isLoggedIn()">
+	<div uib-accordion-group ng-class="VM.Data.Modif?'panel-danger':'panel-default'" heading="Administration" is-open="true" ng-show="VM.Auth.isLoggedIn()">
 		<input type="checkbox" ng-model="VM.Data.Modif" id="cbMdf">&nbsp;<label for="cbMdf">Mode {{VM.Data.Modif?'Modif':'Normal'}}</label><br/>
 		<input type="checkbox" ng-model="VM.Data.Swap" id="cbSwap">&nbsp;<label for="cbSwap">Forcer hexagones</label><br/>
 		<br/>
