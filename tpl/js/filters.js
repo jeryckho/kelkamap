@@ -69,5 +69,20 @@ app
 
 			return filtered;
 		};
+	})
+	.filter('population', function () {
+		return function (input) {
+			var out = "";
+			var size = parseInt(input);
+			if (isNaN(size)) return "0";
+			var unit = ["", "K", "M", "G", "T"];
+			var i = 0;
+			while (size >= 1000) {
+				i++;
+				size = size / 1000;
+			}
+			out = size.toFixed(2) + ' ' + unit[i];
+			return out;
+		}
 	});
 

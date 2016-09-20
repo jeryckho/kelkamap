@@ -8,7 +8,7 @@
 			<div class="nationlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations|orderObjectBy:(sortNation?'Nom':['-Population','Nom'])|filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div ng-click="VM.Data.PinIt(region.key)">{{region.Nom}}</div>
-				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Hexs.length|number}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" style="color:{{region.Couleur}}"> </span></div>
+				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Population|population}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" style="color:{{region.Couleur}}"> </span></div>
 				<div>
 					<span class="cursor-pointer glyphicon glyphicon-search" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))"> </span>
 					<span class="glyphicon glyphicon-pushpin" ng-show="region.key==VM.Data.Pin"> </span>
