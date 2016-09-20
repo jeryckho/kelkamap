@@ -1,7 +1,6 @@
 # Todo
 
 > **Il manque :**
-
 > - Les ressources.
 > - La possibilité de trier les _Nations_ selon divers critères **_(en cours)_**.
 > - Un récap des informations de la _Nation_ **_(en cours)_**.
@@ -17,6 +16,10 @@
    - Safari
    - SeaMonkey
    - Vivaldi
+
+> **Ainsi que :**
+> - Frontières administratives
+> - Version imprimable
 
 ## Ressources
  
