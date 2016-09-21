@@ -45,7 +45,7 @@ app
 					comparator = reducedA > reducedB ? 1 : -1;
             }
 
-            return invertor*comparator;
+            return invertor * comparator;
 			}
 
 			filtered.sort(function (a, b) {
@@ -75,13 +75,14 @@ app
 			var out = "";
 			var size = parseInt(input);
 			if (isNaN(size)) return "0";
-			var unit = ["", "K", "M", "G", "T"];
+			var unit = ["", "k", "M", "G", "T", "P", "E", "Z", "Y"];
 			var i = 0;
 			while (size >= 1000) {
+				size = Math.round(size);
 				i++;
 				size = size / 1000;
 			}
-			out = size.toFixed(2) + ' ' + unit[i];
+			out = size + unit[i];
 			return out;
 		}
 	});
