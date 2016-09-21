@@ -11,9 +11,16 @@ app
 		svc.Pin = "";
 		svc.Colors = false;
 		svc.Style = {};
+		svc.Bound = {};
 
 		svc.MkID = function (a, b) {
 			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
+		}
+
+		svc.MkXY = function (ID) {
+			var a = parseInt(ID.substr(1, 2));
+			var b = parseInt(ID.substr(3, 2));
+			return [a, b];
 		}
 
 		svc.setList = function () {
@@ -113,6 +120,27 @@ app
 			});
 		}
 
+		svc.ComputeBoundary = function (natcod) {
+			svc.Bound[natcod] = [];
+			angular.forEach(svc.Map.Nations[natcod].Hexs, function (hex) {
+				var org = svc.MkXY(hex);
+				var id = svc.MkID(org[0], org[1] - 1);
+				if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
+					svc.Bound[natcod].push({ X: svc.FindXY(hex, true), Y: svc.FindXY(hex, false) - 60 });
+				}
+				id = svc.MkID(org[0], org[1] + 1);
+				if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
+					svc.Bound[natcod].push({ X: svc.FindXY(hex, true), Y: svc.FindXY(hex, false) + 60 });
+				}
+			});
+		}
+
+		svc.ComputeBoundaries = function () {
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				svc.ComputeBoundary(code);
+			});
+		}
+
 		svc.ComputePopulations = function () {
 			angular.forEach(svc.Map.Nations, function (nation, code) {
 				var pop = 0;
@@ -138,6 +166,7 @@ app
 			svc.ComputeHexs();
 			svc.ComputeCities();
 			svc.ComputePopulations();
+			svc.ComputeBoundaries();
 		});
 
 		svc.Toggle = function (id) {
