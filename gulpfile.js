@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
 $ = require('gulp-load-plugins')();
 
 gulp.task('prod', ['font'], function () {
@@ -42,4 +43,13 @@ gulp.task('default', ['dev']);
 
 gulp.task('wless', ['less'], function () {
 	gulp.watch('./tpl/**/*.less', ['less']);
+});
+
+gulp.task('serve', ['wless'], function () {
+	browserSync.init({
+		server: true,
+		browser: 'firefox',
+		startPath: 'src',
+		files: ['src/**', 'tpl/**']
+	});
 });
