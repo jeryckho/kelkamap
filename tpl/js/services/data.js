@@ -12,6 +12,10 @@ app
 		svc.Colors = false;
 		svc.Style = {};
 
+		svc.MkID = function (a, b) {
+			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
+		}
+
 		svc.setList = function () {
 			var Lst = [];
 			var Cnf = {
@@ -30,9 +34,9 @@ app
 				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
 				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
 					Lst.push({
-						ID: ((Cnf.dx < 10) ? 'H0'  : 'H' ) + Cnf.dx + ((Cnf.dy < 10) ? '0' : '') + Cnf.dy ,
-						X: Math.round( x + Cnf.OX ),
-						Y: Math.round( y + Cnf.OY + Cnf.dV )
+						ID: svc.MkID(Cnf.dx, Cnf.dy),
+						X: Math.round(x + Cnf.OX),
+						Y: Math.round(y + Cnf.OY + Cnf.dV)
 					});
 					Cnf.dy++;
 				}
