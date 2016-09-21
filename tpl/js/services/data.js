@@ -12,6 +12,41 @@ app
 		svc.Colors = false;
 		svc.Style = {};
 
+		svc.MkID = function (a, b) {
+			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
+		}
+
+		svc.setList = function () {
+			var Lst = [];
+			var Cnf = {
+				OX: 160,
+				OY: 340,
+				Size: 5880 / 81,
+				Vert: (5880 / 81) * Math.sqrt(3),
+				W: 5880,
+				H: 5880,
+				dx: 0,
+				dy: 0,
+				dV: 0
+			};
+
+			for (var x = 0; x < Cnf.W; x += Cnf.Size * 1.5) {
+				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
+				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
+					Lst.push({
+						ID: svc.MkID(Cnf.dx, Cnf.dy),
+						X: Math.round(x + Cnf.OX),
+						Y: Math.round(y + Cnf.OY + Cnf.dV)
+					});
+					Cnf.dy++;
+				}
+				Cnf.dx++;
+				Cnf.dy = 0;
+			}
+			return Lst;
+		}
+		svc.HList = svc.setList();
+
 		svc.setColors = function (bool) {
 			svc.Colors = bool;
 			if (bool) {
@@ -38,13 +73,7 @@ app
 		svc.FindXY = function (id, X) {
 			var queryResult = $document[0].getElementById(id);
 			if (queryResult != null) {
-				var Res = angular.element(queryResult).attr('points').split(" ");
-				var Dlt = X ? 0 : 1;
-				var Sum = 0;
-				for (var Idx = 0; Idx <= 10; Idx += 2) {
-					Sum += parseFloat(Res[Idx + Dlt]);
-				}
-				return Sum / 6;
+				return parseFloat(angular.element(queryResult).attr(X ? 'x' : 'y'));
 			} else {
 				return -1000;
 			}
