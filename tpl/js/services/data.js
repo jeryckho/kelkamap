@@ -3,22 +3,14 @@ app
 	// Service des Donnees Carte //
 	///////////////////////////////
 	.factory('Data', ['$http', '$document', 'Prefs', function ($http, $document, Prefs) {
-		var svc = {};
-		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
-		svc.Modif = false;
-		svc.Conflit = false;
-		svc.Swap = false;
-		svc.Pin = "";
-		svc.Colors = false;
-		svc.Style = {};
-
-		svc.MkID = function (a, b) {
-			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
-		}
-
-		svc.setList = function () {
-			var Lst = [];
-			var Cnf = {
+		var svc = {
+			Modif: false,
+			Conflit: false,
+			Swap: false,
+			Pin: "",
+			Colors: false,
+			Style: {},
+			Cnf: {
 				OX: 160,
 				OY: 340,
 				Size: 5880 / 81,
@@ -28,20 +20,29 @@ app
 				dx: 0,
 				dy: 0,
 				dV: 0
-			};
+			}
+		};
+		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
 
-			for (var x = 0; x < Cnf.W; x += Cnf.Size * 1.5) {
-				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
-				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
+		svc.MkID = function (a, b) {
+			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
+		}
+
+		svc.setList = function () {
+			var Lst = [];
+
+			for (var x = 0; x < svc.Cnf.W; x += svc.Cnf.Size * 1.5) {
+				svc.Cnf.dV = ((svc.Cnf.dx % 2) == 0) ? 0 : svc.Cnf.Vert / 2;
+				for (var y = 0; y < svc.Cnf.H; y += svc.Cnf.Vert) {
 					Lst.push({
-						ID: svc.MkID(Cnf.dx, Cnf.dy),
-						X: Math.round(x + Cnf.OX),
-						Y: Math.round(y + Cnf.OY + Cnf.dV)
+						ID: svc.MkID(svc.Cnf.dx, svc.Cnf.dy),
+						X: Math.round(x + svc.Cnf.OX),
+						Y: Math.round(y + svc.Cnf.OY + svc.Cnf.dV)
 					});
-					Cnf.dy++;
+					svc.Cnf.dy++;
 				}
-				Cnf.dx++;
-				Cnf.dy = 0;
+				svc.Cnf.dx++;
+				svc.Cnf.dy = 0;
 			}
 			return Lst;
 		}

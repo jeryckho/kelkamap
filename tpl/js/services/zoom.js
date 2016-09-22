@@ -3,15 +3,16 @@ app
 	// Service de Zoom//
 	////////////////////
 	.factory('Zoom', ['$document', 'Prefs', function ($document, Prefs) {
-		var svc = {};
-		svc.ViewBox = "";
-		svc.Size = { Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] };
-		svc.Size.Crt = Prefs.Get('CrtSize', 2);
-		svc.vBox = {
-			Min: { x: 0, y: 0, w: 980, h: 980 },
-			Max: { x: 5880, y: 5880, w: 5880, h: 5880 },
-			Crt: { x: 0, y: 0, w: 5880, h: 5880 }
+		var svc = {
+			ViewBox: "",
+			Size: { Lst: [["640px", "640px"], ["800px", "800px"], ["980px", "980px"]] },
+			vBox: {
+				Min: { x: 0, y: 0, w: 980, h: 980 },
+				Max: { x: 5880, y: 5880, w: 5880, h: 5880 },
+				Crt: { x: 0, y: 0, w: 5880, h: 5880 }
+			}
 		};
+		svc.Size.Crt = Prefs.Get('CrtSize', 2);
 
 		svc.setBox = function () {
 			if (svc.vBox.Crt.w > svc.vBox.Max.w) svc.vBox.Crt.w = svc.vBox.Max.w;

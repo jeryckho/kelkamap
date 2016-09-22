@@ -1,5 +1,5 @@
 <uib-accordion close-others="false" ng-cloak>
-	<div uib-accordion-group class="panel-default" heading="{{VM.Data.Modif ? 'Mode Actuel : Modif' : 'Mode Actuel : Normal' }}" is-open="true">
+	<div uib-accordion-group class="panel-default" heading="{{VM.Data.Modif?'Mode Actuel : Modif':'Mode Actuel : Normal' }}" is-open="true">
 		<button class="btn btn-default" ng-click="VM.Toggle()">Changer mode</button>
 		<div ng-show="VM.Data.Modif" uib-alert class="alert-danger" >En mode Modif, vous pouvez créer des nations et leur (ré-)affecter des hexagones. Pensez à exporter pour conserver vos modifs.</div>
 	</div>
@@ -34,7 +34,7 @@
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Export" is-open="false">
 		<button class="btn btn-default" ng-click="VM.Xport()">Exporter</button> <input type="checkbox" ng-model="VM.Json"><br/>
-		<div ng-show="VM.Json">{{VM.Xpt | json}}</div>
+		<div ng-show="VM.Json">{{VM.Xpt|json}}</div>
 	</div>
 	<div uib-accordion-group class="panel-default" heading="Consultation" is-open="true">
 		<a class="btn btn-default" href="#/" role="button">Back</a>
