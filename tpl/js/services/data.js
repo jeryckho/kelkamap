@@ -12,6 +12,7 @@ app
 		svc.Colors = false;
 		svc.Style = {};
 		svc.Bound = {};
+		svc.Poly = {};
 
 		svc.MkID = function (a, b) {
 			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
@@ -137,18 +138,35 @@ app
 
 		svc.ComputeBoundary = function (natcod) {
 			svc.Bound[natcod] = [];
+			svc.Poly[natcod] = [];
 			angular.forEach(svc.Map.Nations[natcod].Hexs, function (hex) {
 				var org = svc.MkXY(hex);
 				var ox = svc.FindXY(hex, true);
 				var oy = svc.FindXY(hex, false);
 				var DH = org[0] % 2;
-				svc.hexLine(0, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH));
-				svc.hexLine(1, natcod, ox, oy, svc.MkID(org[0], org[1] + 1));
-				svc.hexLine(2, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH));
-				svc.hexLine(3, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH - 1));
-				svc.hexLine(4, natcod, ox, oy, svc.MkID(org[0], org[1] - 1));
 				svc.hexLine(5, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH - 1));
+				svc.hexLine(4, natcod, ox, oy, svc.MkID(org[0], org[1] - 1));
+				svc.hexLine(3, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH - 1));
+				svc.hexLine(2, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH));
+				svc.hexLine(1, natcod, ox, oy, svc.MkID(org[0], org[1] + 1));
+				svc.hexLine(0, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH));
 			});
+			var First = svc.Bound[natcod].shift();
+			svc.Poly[natcod] = [First.X1, First.Y1, First.X2, First.Y2];
+			var fnd;
+			do {
+				fnd = 0;
+				for (var i = svc.Bound[natcod].length - 1; i >= 0; i--) {
+					var crt = svc.Bound[natcod][i];
+					if ((Math.abs(crt.X1 - First.X2) <= 2) && (Math.abs(crt.Y1 - First.Y2) <= 2)) {
+						svc.Poly[natcod].push(crt.X2, crt.Y2);
+						First.X2 = crt.X2;
+						First.Y2 = crt.Y2;
+						svc.Bound[natcod].splice(i,1);
+						fnd++;
+					}
+				}
+			} while(fnd > 0);
 		}
 
 		svc.ComputeBoundaries = function () {
