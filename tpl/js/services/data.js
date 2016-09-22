@@ -4,7 +4,7 @@ app
 	///////////////////////////////
 	.factory('Data', ['$http', '$document', 'Prefs', function ($http, $document, Prefs) {
 		var svc = {};
-		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
+		svc.Layer = Prefs.Get('Layer', { iFond: true, gBound: false, gHex: true, cLand: true, gCities: true });
 		svc.Modif = false;
 		svc.Conflit = false;
 		svc.Swap = false;
@@ -120,18 +120,34 @@ app
 			});
 		}
 
+		svc.hexPoint = function (i, cx, cy, r) {
+			return {
+				X: Math.round(cx + r * Math.cos(60 * i * (Math.PI / 180))),
+				Y: Math.round(cy + r * Math.sin(60 * i * (Math.PI / 180))),
+			}
+		}
+
+		svc.hexLine = function (pt, natcod, ox, oy, id) {
+			if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
+				var P1 = svc.hexPoint(pt, ox, oy, 5880 / 81);
+				var P2 = svc.hexPoint(pt + 1, ox, oy, 5880 / 81);
+				svc.Bound[natcod].push({ X1: P1.X, Y1: P1.Y, X2: P2.X, Y2: P2.Y });
+			}
+		}
+
 		svc.ComputeBoundary = function (natcod) {
 			svc.Bound[natcod] = [];
 			angular.forEach(svc.Map.Nations[natcod].Hexs, function (hex) {
 				var org = svc.MkXY(hex);
-				var id = svc.MkID(org[0], org[1] - 1);
-				if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
-					svc.Bound[natcod].push({ X: svc.FindXY(hex, true), Y: svc.FindXY(hex, false) - 60 });
-				}
-				id = svc.MkID(org[0], org[1] + 1);
-				if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
-					svc.Bound[natcod].push({ X: svc.FindXY(hex, true), Y: svc.FindXY(hex, false) + 60 });
-				}
+				var ox = svc.FindXY(hex, true);
+				var oy = svc.FindXY(hex, false);
+				var DH = org[0] % 2;
+				svc.hexLine(0, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH));
+				svc.hexLine(1, natcod, ox, oy, svc.MkID(org[0], org[1] + 1));
+				svc.hexLine(2, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH));
+				svc.hexLine(3, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH - 1));
+				svc.hexLine(4, natcod, ox, oy, svc.MkID(org[0], org[1] - 1));
+				svc.hexLine(5, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH - 1));
 			});
 		}
 
