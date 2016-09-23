@@ -16,7 +16,7 @@
 					<td>Nom Détaillé : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].NomLong"></td>
 				</tr>
 				<tr>
-					<td>Couleur <span class="glyphicon glyphicon-home" style="color:{{VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur}}"> </span> : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur"></td>
+					<td>Couleur <span class="glyphicon glyphicon-home" ng-style="{color:VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur}"> </span> : <input type="text" ng-model="VM.Data.Map.Nations[VM.Data.Map.Focus.Nation].Couleur"></td>
 				</tr>
 			</tbody>
 			<tbody ng-hide="VM.Data.Map.Focus.Nation">

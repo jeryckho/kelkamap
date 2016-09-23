@@ -8,7 +8,7 @@
 			<div class="nationlist">
 			<div ng-repeat="(key,region) in VM.Data.Map.Nations|orderObjectBy:(sortNation?'Nom':['-Population','Nom'])|filter:filNation" ng-class="{active:VM.Data.Map.Focus.Nation==region.key}" ng-mouseover="VM.Data.OverNation(region.key)">
 				<div ng-click="VM.Data.PinIt(region.key)">{{region.Nom}}</div>
-				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Population|population}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" style="color:{{region.Couleur}}"> </span></div>
+				<div ng-click="VM.Data.PinIt(region.key)"><span ng-hide="VM.Data.Colors" class="badge">{{region.Population|population}}</span><span ng-show="VM.Data.Colors" class="glyphicon glyphicon-home" ng-style="{color:region.Couleur}"> </span></div>
 				<div>
 					<span class="cursor-pointer glyphicon glyphicon-search" ng-click="VM.Zoom.Box(VM.Data.Box(region.key, 200))"> </span>
 					<span class="glyphicon glyphicon-pushpin" ng-show="region.key==VM.Data.Pin"> </span>
@@ -30,7 +30,7 @@
 	</div>
 </uib-accordion><uib-accordion close-others="false" ng-cloak>
 	<div uib-accordion-group class="panel-default" heading="Détails" is-open="true" ng-hide="VM.Data.Pin==''">
-		<b>Nom : </b><span class="glyphicon glyphicon-home" style="color:{{VM.Data.Map.Nations[VM.Data.Pin].Couleur}}"> </span> {{VM.Data.Map.Nations[VM.Data.Pin].Nom}}<br/>
+		<b>Nom : </b><span class="glyphicon glyphicon-home" ng-style="{color:VM.Data.Map.Nations[VM.Data.Pin].Couleur}"> </span> {{VM.Data.Map.Nations[VM.Data.Pin].Nom}}<br/>
 		<b>Nom Complet : </b>{{VM.Data.Map.Nations[VM.Data.Pin].NomLong}}<br/>
 		<b>Surface : </b>{{VM.Data.Map.Nations[VM.Data.Pin].Hexs.length||0}}<br/>
 		<b>Cités : </b>{{VM.Data.Map.Nations[VM.Data.Pin].Cities.length||0}}<br/>

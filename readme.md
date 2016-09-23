@@ -95,18 +95,16 @@ La **Taille de la Carte** peut être ajustée ( 640x640 pixels, 800x800 pixels o
 
 > **Il manque :**
 > - Les ressources.
-> - Frontières administratives
 > - Version imprimable
-> - La possibilité de trier les _Nations_ selon divers critères **_(en cours)_**.
 > - Un récap des informations de la _Nation_ **_(en cours)_**.
 > - Les gestions des _Cités_ et des ressources.  
 > - La possibilité de déplacer la carte par drag'n'drop.
 > - La possibilité de centrer la carte sur une _Cité_.  
 > - Un layer Annotations, masquable. (Vecto, c'est du texte).
 > - Vérifier le fonctionnement des naviguateurs suivants : 
->   - FireFox
->   - Google Chrome
->   - **Internet Explorer 11**
+>   - **FireFox 49**
+>   - **Google Chrome 53**
+>   - **Internet Explorer 9**
 >   - Opera
 >   - Safari
 >   - SeaMonkey

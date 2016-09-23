@@ -9,8 +9,8 @@ app
 			Swap: false,
 			Pin: "",
 			Colors: false,
-			Style: {},
 			Bound: {},
+			BoundOpacity: 0.1,
 			Poly: {},
 			Cnf: {
 				OX: 160,
@@ -59,9 +59,9 @@ app
 		svc.setColors = function (bool) {
 			svc.Colors = bool;
 			if (bool) {
-				svc.ComputeStyles();
+				svc.BoundOpacity = 0.9;
 			} else {
-				svc.Style = {};
+				svc.BoundOpacity = 0.1;
 			}
 		}
 
@@ -93,13 +93,6 @@ app
 				delete city.Population;
 			});
 			return x;
-		}
-
-		svc.ComputeStyles = function () {
-			svc.Style = {};
-			angular.forEach(svc.Map.Nations, function (nation, code) {
-				svc.Style[code] = { 'fill': nation.Couleur };
-			});
 		}
 
 		svc.ComputeHexs = function () {
