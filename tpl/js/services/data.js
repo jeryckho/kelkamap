@@ -2,7 +2,7 @@ app
 	///////////////////////////////
 	// Service des Donnees Carte //
 	///////////////////////////////
-	.factory('Data', ['$http', '$document', 'Prefs', function ($http, $document, Prefs) {
+	.factory('Data', ['$http', 'Prefs', function ($http, Prefs) {
 		var svc = {
 			Modif: false,
 			Conflit: false,
@@ -10,6 +10,8 @@ app
 			Pin: "",
 			Colors: false,
 			Style: {},
+			Bound: {},
+			Poly: {},
 			Cnf: {
 				OX: 160,
 				OY: 340,
@@ -22,23 +24,29 @@ app
 				dV: 0
 			}
 		};
-		svc.Layer = Prefs.Get('Layer', { iFond: true, gHex: true, cLand: true, gCities: true });
+		svc.Layer = Prefs.Get('Layer', { iFond: true, gBound: false, gHex: true, cLand: true, gCities: true });
 
 		svc.MkID = function (a, b) {
 			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
 		}
 
-		svc.setList = function () {
-			var Lst = [];
+		svc.MkXY = function (ID) {
+			var a = parseInt(ID.substr(1, 2));
+			var b = parseInt(ID.substr(3, 2));
+			return [a, b];
+		}
 
+		svc.setList = function () {
+			var Lst = {};
 			for (var x = 0; x < svc.Cnf.W; x += svc.Cnf.Size * 1.5) {
 				svc.Cnf.dV = ((svc.Cnf.dx % 2) == 0) ? 0 : svc.Cnf.Vert / 2;
 				for (var y = 0; y < svc.Cnf.H; y += svc.Cnf.Vert) {
-					Lst.push({
-						ID: svc.MkID(svc.Cnf.dx, svc.Cnf.dy),
+					var id = svc.MkID(svc.Cnf.dx, svc.Cnf.dy);
+					Lst[id] = {
+						ID: id,
 						X: Math.round(x + svc.Cnf.OX),
 						Y: Math.round(y + svc.Cnf.OY + svc.Cnf.dV)
-					});
+					};
 					svc.Cnf.dy++;
 				}
 				svc.Cnf.dx++;
@@ -61,20 +69,9 @@ app
 			Prefs.Set('Layer', svc.Layer);
 		}
 
-		svc.Find = function (id, pos) {
-			var queryResult = $document[0].getElementById(id);
-			if (queryResult != null) {
-				var res = angular.element(queryResult).attr('points').split(" ");
-				return parseFloat(res[pos]);
-			} else {
-				return -1000;
-			}
-		}
-
-		svc.FindXY = function (id, X) {
-			var queryResult = $document[0].getElementById(id);
-			if (queryResult != null) {
-				return parseFloat(angular.element(queryResult).attr(X ? 'x' : 'y'));
+		svc.FindXY = function (id, bX) {
+			if (angular.isDefined(svc.HList[id])) {
+				return bX ? svc.HList[id].X : svc.HList[id].Y;
 			} else {
 				return -1000;
 			}
@@ -114,6 +111,64 @@ app
 			});
 		}
 
+		svc.hexPoint = function (i, cx, cy, r) {
+			return {
+				X: Math.round(cx + r * Math.cos(60 * i * (Math.PI / 180))),
+				Y: Math.round(cy + r * Math.sin(60 * i * (Math.PI / 180))),
+			}
+		}
+
+		svc.hexLine = function (pt, natcod, ox, oy, id) {
+			if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
+				var P1 = svc.hexPoint(pt, ox, oy, svc.Cnf.Size);
+				var P2 = svc.hexPoint(pt + 1, ox, oy, svc.Cnf.Size);
+				svc.Bound[natcod].push({ X1: P1.X, Y1: P1.Y, X2: P2.X, Y2: P2.Y });
+			}
+		}
+
+		svc.ComputeBoundary = function (natcod) {
+			svc.Bound[natcod] = [];
+			svc.Poly[natcod] = [];
+			angular.forEach(svc.Map.Nations[natcod].Hexs, function (hex) {
+				var org = svc.MkXY(hex);
+				var ox = svc.FindXY(hex, true);
+				var oy = svc.FindXY(hex, false);
+				var DH = org[0] % 2;
+				svc.hexLine(5, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH - 1));
+				svc.hexLine(4, natcod, ox, oy, svc.MkID(org[0], org[1] - 1));
+				svc.hexLine(3, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH - 1));
+				svc.hexLine(2, natcod, ox, oy, svc.MkID(org[0] - 1, org[1] + DH));
+				svc.hexLine(1, natcod, ox, oy, svc.MkID(org[0], org[1] + 1));
+				svc.hexLine(0, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH));
+			});
+			var Idx = 0;
+			while (svc.Bound[natcod].length > 0) {
+				var First = svc.Bound[natcod].shift();
+				svc.Poly[natcod][Idx] = [First.X1, First.Y1, First.X2, First.Y2];
+				var fnd;
+				do {
+					fnd = 0;
+					for (var i = svc.Bound[natcod].length - 1; i >= 0; i--) {
+						var crt = svc.Bound[natcod][i];
+						if ((Math.abs(crt.X1 - First.X2) <= 2) && (Math.abs(crt.Y1 - First.Y2) <= 2)) {
+							svc.Poly[natcod][Idx].push(crt.X2, crt.Y2);
+							First.X2 = crt.X2;
+							First.Y2 = crt.Y2;
+							svc.Bound[natcod].splice(i, 1);
+							fnd++;
+						}
+					}
+				} while (fnd > 0);
+				Idx++;
+			}
+		}
+
+		svc.ComputeBoundaries = function () {
+			angular.forEach(svc.Map.Nations, function (nation, code) {
+				svc.ComputeBoundary(code);
+			});
+		}
+
 		svc.ComputePopulations = function () {
 			angular.forEach(svc.Map.Nations, function (nation, code) {
 				var pop = 0;
@@ -139,6 +194,7 @@ app
 			svc.ComputeHexs();
 			svc.ComputeCities();
 			svc.ComputePopulations();
+			svc.ComputeBoundaries();
 		});
 
 		svc.Toggle = function (id) {

@@ -33,11 +33,18 @@
 	</defs>
 	<!--Image de fond-->
 	<image ng-show="VM.Data.Layer.iFond" id="image4188" width="5880" xlink:href="img/fondcarte.jpg" height="5880" y="0" x="0" preserveAspectRatio="none"/>
-	<!--Grille (Hexs)-->
+	<!--Grille-->
 	<g clip-path="url(#land)">
+		<!--Grille (Boundaries)-->
+		<g ng-if="VM.Data.Layer.gBound" style="stroke:#000000;stroke-width:10">
+			<g ng-repeat="(nat,lines) in VM.Data.Poly" class="{{nat}}">
+				<polyline ng-repeat="line in lines" stroke-dasharray="25,50" ng-style="{fill:VM.Data.Map.Nations[nat].Couleur,'fill-opacity':((nat==VM.Data.Map.Focus.Nation)?0:0.1)}" ng-attr-points="{{line.join(' ')}}" />
+			</g>
+		</g>
+		<!--Grille (Hexs)-->
 		<g ng-show="VM.Data.Layer.gHex">
 			<defs><polygon id="Hx" points="72.59 0 36.3 62.87 -36.29 62.87 -72.58 0 -36.29 -62.86 36.3 -62.86"/></defs>
-			<use ng-repeat="Hx in VM.Data.HList" class="H" ng-attr-id="{{Hx.ID}}" xlink:href="#Hx" ng-attr-x="{{Hx.X}}" ng-attr-y="{{Hx.Y}}" ng-click="VM.Data.ClickHex(Hx.ID)" ng-class="{conflit:(VM.Data.Map.Focus.Over==Hx.ID)&&(VM.Data.Conflit)&&(VM.Data.Modif),nation:VM.Data.Map.Focus.Hexs[Hx.ID],colors:VM.Data.Colors}"  ng-mouseover="VM.Data.OverHex(Hx.ID)" ng-style="VM.Data.Style[VM.Data.Map.Hexs[Hx.ID]]"></use>
+			<use ng-repeat="(id,Hx) in VM.Data.HList" class="H" ng-attr-id="{{Hx.ID}}" xlink:href="#Hx" ng-attr-x="{{Hx.X}}" ng-attr-y="{{Hx.Y}}" ng-click="VM.Data.ClickHex(Hx.ID)" ng-class="{conflit:(VM.Data.Map.Focus.Over==Hx.ID)&&(VM.Data.Conflit)&&(VM.Data.Modif),nation:VM.Data.Map.Focus.Hexs[Hx.ID],colors:VM.Data.Colors}"  ng-mouseover="VM.Data.OverHex(Hx.ID)" ng-style="VM.Data.Style[VM.Data.Map.Hexs[Hx.ID]]"></use>
 		</g>
 	</g>
 	<!--Cités, Villes, etc...-->
