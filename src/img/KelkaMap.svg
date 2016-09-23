@@ -38,7 +38,7 @@
 		<!--Grille (Boundaries)-->
 		<g ng-if="VM.Data.Layer.gBound||VM.Data.Colors" style="stroke:#000000;stroke-width:10">
 			<g ng-repeat="(nat,lines) in VM.Data.Poly" class="{{nat}}">
-				<polyline ng-repeat="line in lines" stroke-dasharray="25,50" ng-style="{fill:VM.Data.Map.Nations[nat].Couleur,'fill-opacity':((nat==VM.Data.Map.Focus.Nation)?0:VM.Data.BoundOpacity)}" ng-attr-points="{{line.join(' ')}}" />
+				<polyline ng-repeat="line in lines" stroke-dasharray="25,50" ng-style="{fill:VM.Data.Map.Nations[nat].Couleur,'fill-opacity':((nat==VM.Data.Map.Focus.Nation)&&!VM.Data.Colors?0:VM.Data.BoundOpacity)}" ng-attr-points="{{line.join(' ')}}" />
 			</g>
 		</g>
 		<!--Grille (Hexs)-->

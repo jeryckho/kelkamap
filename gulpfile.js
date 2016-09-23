@@ -49,7 +49,7 @@ gulp.task('serve', ['wless'], function () {
 	browserSync.init({
 		server: true,
 		browser: 'firefox',
-		startPath: 'src',
-		files: ['src/**', 'tpl/**']
+		startPath: 'src'
 	});
+	gulp.watch(['./src/**','./tpl/**']).on('change', browserSync.reload);
 });
