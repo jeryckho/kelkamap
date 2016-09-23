@@ -3,16 +3,28 @@ app
 	// Service des Donnees Carte //
 	///////////////////////////////
 	.factory('Data', ['$http', 'Prefs', function ($http, Prefs) {
-		var svc = {};
+		var svc = {
+			Modif: false,
+			Conflit: false,
+			Swap: false,
+			Pin: "",
+			Colors: false,
+			Style: {},
+			Bound: {},
+			Poly: {},
+			Cnf: {
+				OX: 160,
+				OY: 340,
+				Size: 5880 / 81,
+				Vert: (5880 / 81) * Math.sqrt(3),
+				W: 5880,
+				H: 5880,
+				dx: 0,
+				dy: 0,
+				dV: 0
+			}
+		};
 		svc.Layer = Prefs.Get('Layer', { iFond: true, gBound: false, gHex: true, cLand: true, gCities: true });
-		svc.Modif = false;
-		svc.Conflit = false;
-		svc.Swap = false;
-		svc.Pin = "";
-		svc.Colors = false;
-		svc.Style = {};
-		svc.Bound = {};
-		svc.Poly = {};
 
 		svc.MkID = function (a, b) {
 			return ((a < 10) ? 'H0' : 'H') + a + ((b < 10) ? '0' : '') + b;
@@ -26,31 +38,19 @@ app
 
 		svc.setList = function () {
 			var Lst = {};
-			var Cnf = {
-				OX: 160,
-				OY: 340,
-				Size: 5880 / 81,
-				Vert: (5880 / 81) * Math.sqrt(3),
-				W: 5880,
-				H: 5880,
-				dx: 0,
-				dy: 0,
-				dV: 0
-			};
-
-			for (var x = 0; x < Cnf.W; x += Cnf.Size * 1.5) {
-				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
-				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
-					var id = svc.MkID(Cnf.dx, Cnf.dy);
+			for (var x = 0; x < svc.Cnf.W; x += svc.Cnf.Size * 1.5) {
+				svc.Cnf.dV = ((svc.Cnf.dx % 2) == 0) ? 0 : svc.Cnf.Vert / 2;
+				for (var y = 0; y < svc.Cnf.H; y += svc.Cnf.Vert) {
+					var id = svc.MkID(svc.Cnf.dx, svc.Cnf.dy);
 					Lst[id] = {
 						ID: id,
-						X: Math.round(x + Cnf.OX),
-						Y: Math.round(y + Cnf.OY + Cnf.dV)
+						X: Math.round(x + svc.Cnf.OX),
+						Y: Math.round(y + svc.Cnf.OY + svc.Cnf.dV)
 					};
-					Cnf.dy++;
+					svc.Cnf.dy++;
 				}
-				Cnf.dx++;
-				Cnf.dy = 0;
+				svc.Cnf.dx++;
+				svc.Cnf.dy = 0;
 			}
 			return Lst;
 		}
@@ -120,8 +120,8 @@ app
 
 		svc.hexLine = function (pt, natcod, ox, oy, id) {
 			if ((!angular.isDefined(svc.Map.Hexs[id])) || (svc.Map.Hexs[id] != natcod)) {
-				var P1 = svc.hexPoint(pt, ox, oy, 5880 / 81);
-				var P2 = svc.hexPoint(pt + 1, ox, oy, 5880 / 81);
+				var P1 = svc.hexPoint(pt, ox, oy, svc.Cnf.Size);
+				var P2 = svc.hexPoint(pt + 1, ox, oy, svc.Cnf.Size);
 				svc.Bound[natcod].push({ X1: P1.X, Y1: P1.Y, X2: P2.X, Y2: P2.Y });
 			}
 		}

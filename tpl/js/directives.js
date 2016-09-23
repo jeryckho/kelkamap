@@ -2,7 +2,7 @@ app
 	///////////////////
 	// Inclusion Map //
 	///////////////////
-	.directive('svgMap', ['$compile', function ($compile) {
+	.directive('svgMap', [ function () {
 		return {
 			restrict: 'A',
 			templateUrl: 'img/KelkaMap.svg'
@@ -12,7 +12,7 @@ app
 	////////////////////////
 	// Composant Filtrage //
 	////////////////////////
-	.directive('filtre', ['$compile', function ($compile) {
+	.directive('filtre', [ function () {
 		return {
 			restrict: 'E',
 			scope: {
@@ -38,7 +38,7 @@ app
 	////////////////////
 	// Inclusion Rose //
 	////////////////////
-	.directive('svgRose', ['$compile', function ($compile) {
+	.directive('svgRose', [ function () {
 		return {
 			restrict: 'A',
 			templateUrl: 'img/Rose.svg'

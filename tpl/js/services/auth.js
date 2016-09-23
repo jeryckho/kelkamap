@@ -3,9 +3,9 @@ app
 	// Service d'Authent //
 	///////////////////////
 	.factory('Auth', ['$firebaseAuth', function ($firebaseAuth) {
-		var svc = {};
-		svc.auth = $firebaseAuth();
-
+		var svc = {
+			auth: $firebaseAuth()
+		};
 		svc.login = function (lg, mp) {
 			return svc.auth.$signInWithEmailAndPassword(lg, mp);
 		}
