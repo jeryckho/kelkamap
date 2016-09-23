@@ -2,7 +2,7 @@ app
 	///////////////////////////////
 	// Service des Donnees Carte //
 	///////////////////////////////
-	.factory('Data', ['$http', '$document', 'Prefs', function ($http, $document, Prefs) {
+	.factory('Data', ['$http', 'Prefs', function ($http, Prefs) {
 		var svc = {};
 		svc.Layer = Prefs.Get('Layer', { iFond: true, gBound: false, gHex: true, cLand: true, gCities: true });
 		svc.Modif = false;
@@ -25,7 +25,7 @@ app
 		}
 
 		svc.setList = function () {
-			var Lst = [];
+			var Lst = {};
 			var Cnf = {
 				OX: 160,
 				OY: 340,
@@ -41,11 +41,12 @@ app
 			for (var x = 0; x < Cnf.W; x += Cnf.Size * 1.5) {
 				Cnf.dV = ((Cnf.dx % 2) == 0) ? 0 : Cnf.Vert / 2;
 				for (var y = 0; y < Cnf.H; y += Cnf.Vert) {
-					Lst.push({
-						ID: svc.MkID(Cnf.dx, Cnf.dy),
+					var id = svc.MkID(Cnf.dx, Cnf.dy);
+					Lst[id] = {
+						ID: id,
 						X: Math.round(x + Cnf.OX),
 						Y: Math.round(y + Cnf.OY + Cnf.dV)
-					});
+					};
 					Cnf.dy++;
 				}
 				Cnf.dx++;
@@ -68,20 +69,9 @@ app
 			Prefs.Set('Layer', svc.Layer);
 		}
 
-		svc.Find = function (id, pos) {
-			var queryResult = $document[0].getElementById(id);
-			if (queryResult != null) {
-				var res = angular.element(queryResult).attr('points').split(" ");
-				return parseFloat(res[pos]);
-			} else {
-				return -1000;
-			}
-		}
-
-		svc.FindXY = function (id, X) {
-			var queryResult = $document[0].getElementById(id);
-			if (queryResult != null) {
-				return parseFloat(angular.element(queryResult).attr(X ? 'x' : 'y'));
+		svc.FindXY = function (id, bX) {
+			if (angular.isDefined(svc.HList[id])) {
+				return bX ? svc.HList[id].X : svc.HList[id].Y;
 			} else {
 				return -1000;
 			}
@@ -151,22 +141,26 @@ app
 				svc.hexLine(1, natcod, ox, oy, svc.MkID(org[0], org[1] + 1));
 				svc.hexLine(0, natcod, ox, oy, svc.MkID(org[0] + 1, org[1] + DH));
 			});
-			var First = svc.Bound[natcod].shift();
-			svc.Poly[natcod] = [First.X1, First.Y1, First.X2, First.Y2];
-			var fnd;
-			do {
-				fnd = 0;
-				for (var i = svc.Bound[natcod].length - 1; i >= 0; i--) {
-					var crt = svc.Bound[natcod][i];
-					if ((Math.abs(crt.X1 - First.X2) <= 2) && (Math.abs(crt.Y1 - First.Y2) <= 2)) {
-						svc.Poly[natcod].push(crt.X2, crt.Y2);
-						First.X2 = crt.X2;
-						First.Y2 = crt.Y2;
-						svc.Bound[natcod].splice(i,1);
-						fnd++;
+			var Idx = 0;
+			while (svc.Bound[natcod].length > 0) {
+				var First = svc.Bound[natcod].shift();
+				svc.Poly[natcod][Idx] = [First.X1, First.Y1, First.X2, First.Y2];
+				var fnd;
+				do {
+					fnd = 0;
+					for (var i = svc.Bound[natcod].length - 1; i >= 0; i--) {
+						var crt = svc.Bound[natcod][i];
+						if ((Math.abs(crt.X1 - First.X2) <= 2) && (Math.abs(crt.Y1 - First.Y2) <= 2)) {
+							svc.Poly[natcod][Idx].push(crt.X2, crt.Y2);
+							First.X2 = crt.X2;
+							First.Y2 = crt.Y2;
+							svc.Bound[natcod].splice(i, 1);
+							fnd++;
+						}
 					}
-				}
-			} while(fnd > 0);
+				} while (fnd > 0);
+				Idx++;
+			}
 		}
 
 		svc.ComputeBoundaries = function () {

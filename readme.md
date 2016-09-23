@@ -70,6 +70,7 @@ La **Rose des Vents** permet de zoomer et de déplacer la carte, en cliquant sur
 Les **Layers** peuvent afficher/cacher :
 
  - Le Fond de Carte,
+ - Les Frontières,
  - Les Hexagones (_ie_ les _Nations_),
   - C'est ici que l'on peut restreindre (ou non) les hexagones aux zones terrestres,
  - Les _Cités_.
