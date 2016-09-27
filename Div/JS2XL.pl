@@ -3,30 +3,45 @@ use JSON qw( );
 our $JS = JSON->new;
 
 my $str = File2String('../src/data/Map.json');
-my $res = $JS->decode( $str );
+my $map = $JS->decode( $str );
 
-# print Data::Dumper->Dump([ $res ], [ 'res' ]);
+# print Data::Dumper->Dump([ $map ], [ 'map' ]);
 
-$NatFile = join("\t", 'Code', 'Nom', 'NomLong','Couleur' )."\n";
-foreach my $nat (keys %{ $res->{Nations} }) {
-	$NatFile .= join("\t", $nat, $res->{Nations}{$nat}{Nom}, $res->{Nations}{$nat}{NomLong}, $res->{Nations}{$nat}{Couleur} )."\n";
-	foreach my $city (@{ $res->{Nations}{$nat}{Cities} }) {
-		$res->{Cities}{$city}{Nation} = $res->{Nations}{$nat}{Nom};
+my $NatFile = join("\t", 'Code', 'Nom', 'NomLong','Couleur' )."\n";
+my $RssFile = join("\t", "Nom", "Nation", "Type", "Hexagone", "Qté" )."\n";
+my $CtyFile = join("\t", "Nom", "Nation", "Type", "Hexagone", "Fortification", "Description" )."\n";
+my $HexFile = join("\t", "Hexagone", "Nation" )."\n";
+
+
+foreach my $nat (keys %{ $map->{Nations} }) {
+	$NatFile .= join("\t", $nat, $map->{Nations}{$nat}{Nom}, $map->{Nations}{$nat}{NomLong}, $map->{Nations}{$nat}{Couleur} )."\n";
+	foreach my $city (@{ $map->{Nations}{$nat}{Cities} }) {
+		$map->{Cities}{$city}{Nation} = $map->{Nations}{$nat}{Nom};
+	}
+	foreach my $rss (@{ $map->{Nations}{$nat}{Ressources} }) {
+		$map->{Cities}{$city}{Nation} = $map->{Nations}{$nat}{Nom};
+		$RssFile .= join("\t", $rss->{Nom}, $map->{Nations}{$nat}{Nom}, $rss->{Type}, $rss->{H}, $rss->{Qte} )."\n";
+	}
+	foreach my $hex (@{ $map->{Nations}{$nat}{Hexs} }) {
+		$HexFile .= join("\t", $hex, $map->{Nations}{$nat}{Nom} )."\n";
 	}
 }
+
+foreach my $city (keys %{ $map->{Cities} }) {
+	$CtyFile .= join("\t", $city, $map->{Cities}{$city}{Nation}, $map->{Cities}{$city}{Type}, $map->{Cities}{$city}{H}, ($map->{Cities}{$city}{Fortification}?$map->{Cities}{$city}{Fortification}:'?'), $map->{Cities}{$city}{Desc} )."\n";
+}
+
 # print $NatFile;
 String2File("Nations.tsv",$NatFile);
 
-$CityFile .= join("\t", "Nom", "Nation", "Type", "Hexagone", "Fortification", "Description" )."\n";
-foreach my $city (keys %{ $res->{Cities} }) {
-	$CityFile .= join("\t", $city, $res->{Cities}{$city}{Nation}, $res->{Cities}{$city}{Type}, $res->{Cities}{$city}{H}, ($res->{Cities}{$city}{Fortification}?$res->{Cities}{$city}{Fortification}:'?'), $res->{Cities}{$city}{Desc} )."\n";
-}
-# print $CityFile;
-String2File("Cities.tsv",$CityFile);
+# print $CtyFile;
+String2File("Cities.tsv",$CtyFile);
 
-$ResFile .= join("\t", "Nom", "Nation", "Type", "Hexagone", "Qté" )."\n";
-# print $ResFile;
-String2File("Ressources.tsv",$ResFile);
+# print $RssFile;
+String2File("Ressources.tsv",$RssFile);
+
+# print $HexFile;
+String2File("Hexagones.tsv",$HexFile);
 
 exit(0);
 
