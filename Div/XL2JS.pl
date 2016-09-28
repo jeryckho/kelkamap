@@ -32,32 +32,35 @@ foreach my $hex (@{ $HexFile }) {
 }
 
 foreach my $rss (@{ $RssFile }) {
-	push(@{ $Rsss->{ $rss->{Nation} } }, { Nom => $rss->{Nom}, Type => $rss->{Type}, H => $rss->{H}, Qte => $rss->{'Qté'} }); 
+	push(@{ $Rsss->{ $rss->{Nation} } }, { Nom => $rss->{Nom}, Type => Def($rss->{Type},'Autre'), H => $rss->{Hexagone}, Qte => Def(int($rss->{'Qté'}),0) }); 
 }
 
 foreach my $cty (@{ $CtyFile }) {
 	push(@{ $Ctys->{ $cty->{Nation} } }, $cty->{Nom}); 
 	$Map->{Cities}{ $cty->{Nom} } = {
-		H => $cty->{Hexagone},
-		Type => $cty->{Type},
-		Desc => $cty->{Description}?$cty->{Description}:'',  
+		H =>					$cty->{Hexagone},
+		Type =>				Def($cty->{Type},'Autre'),
+		Fortification =>	Def($cty->{Fortification},''),
+		Desc =>				Def($cty->{Description},''),  
 	};
 }
 
 foreach my $nat (@{ $NatFile }) {
 	$Map->{Nations}{ $nat->{Code} } = {
-		Nom => $nat->{Nom},
-		NomLong => $nat->{NomLong}?$nat->{NomLong}:'',
-		Couleur => $nat->{Couleur}?$nat->{Couleur}:'',
-		Cities => $Ctys->{ $nat->{Nom} }?$Ctys->{ $nat->{Nom} }:[],
-		Hexs => $Hexs->{ $nat->{Nom} }?$Hexs->{ $nat->{Nom} }:[],
-		Ressources => $Rsss->{ $nat->{Nom} }?$Rsss->{ $nat->{Nom} }:[]
+		Nom =>			$nat->{Nom},
+		NomLong =>		Def($nat->{NomLong},''),
+		Couleur =>		Def($nat->{Couleur},''),
+		Cities =>		Def($Ctys->{ $nat->{Nom} },[]),
+		Hexs =>			Def($Hexs->{ $nat->{Nom} },[]),
+		Ressources =>	Def($Rsss->{ $nat->{Nom} },[]),
 	};
 }
 
 print $JS->canonical->encode( $Map );
 
 exit(0);
+
+sub Def($$) { return $_[0]?$_[0]:$_[1]; }
 
 sub File2String ($;@) 	{
 	my($name) = shift(@_);
