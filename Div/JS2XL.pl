@@ -32,16 +32,16 @@ foreach my $city (keys %{ $map->{Cities} }) {
 }
 
 # print $NatFile;
-String2File("Nations.tsv",$NatFile);
+String2File("KelkaMap - Nations.tsv",$NatFile);
 
 # print $CtyFile;
-String2File("Cities.tsv",$CtyFile);
+String2File("KelkaMap - Cities.tsv",$CtyFile);
 
 # print $RssFile;
-String2File("Ressources.tsv",$RssFile);
+String2File("KelkaMap - Ressources.tsv",$RssFile);
 
 # print $HexFile;
-String2File("Hexagones.tsv",$HexFile);
+String2File("KelkaMap - Hexagones.tsv",$HexFile);
 
 exit(0);
 

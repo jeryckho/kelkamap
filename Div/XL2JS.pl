@@ -22,10 +22,10 @@ my $Hexs = {};
 my $Ctys = {};
 my $Rsss = {};
 
-my( $NatFile ) = XTsv("Nations.tsv");
-my( $CtyFile ) = XTsv("Cities.tsv");
-my( $RssFile ) = XTsv("Ressources.tsv");
-my( $HexFile ) = XTsv("Hexagones.tsv");
+my( $NatFile ) = XTsv("KelkaMap - Nations.tsv");
+my( $CtyFile ) = XTsv("KelkaMap - Cities.tsv");
+my( $RssFile ) = XTsv("KelkaMap - Ressources.tsv");
+my( $HexFile ) = XTsv("KelkaMap - Hexagones.tsv");
 
 foreach my $hex (@{ $HexFile }) {
 	push(@{ $Hexs->{ $hex->{Nation} } }, $hex->{Hexagone}); 

@@ -6,71 +6,239 @@
 			"H": "H3033",
 			"Type": "Ville"
 		},
+		"Aida": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1424",
+			"Type": "Ville"
+		},
 		"Alterak": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H1910",
 			"Type": "Capitale"
 		},
 		"Argeleb": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H2128",
-			"Type": "Village"
+			"Type": "Capitale"
 		},
-		"Azura": {
-			"Desc": "Berceau des Phénix.",
-			"Fortification": "?",
-			"H": "H4424",
+		"Blanrieu": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H1213",
 			"Type": "Ville"
+		},
+		"Bourlis": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2327",
+			"Type": "Grande-Ville"
+		},
+		"Bourrine Rodolphe": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H1928",
+			"Type": "Ville"
+		},
+		"Capitale Drow": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2121",
+			"Type": "Capitale"
 		},
 		"Carlita": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H2023",
 			"Type": "Capitale"
 		},
+		"Champfol": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2418",
+			"Type": "Village"
+		},
+		"Darmstadt": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H3518",
+			"Type": "Grande-Ville"
+		},
 		"Ellerimm": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H1420",
 			"Type": "Capitale"
 		},
+		"Enders": {
+			"Desc": "Berceau des Phénix.",
+			"Fortification": "1",
+			"H": "H4424",
+			"Type": "Capitale"
+		},
+		"Eresse": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1824",
+			"Type": "Village"
+		},
+		"Fairie": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1826",
+			"Type": "Village"
+		},
+		"Farnese": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1728",
+			"Type": "Village"
+		},
+		"Fière Plaine": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2016",
+			"Type": "Grande-Ville"
+		},
+		"Flution": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1514",
+			"Type": "Ville"
+		},
+		"Friedbourg": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2429",
+			"Type": "Grande-Ville"
+		},
+		"Glamion": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2026",
+			"Type": "Grande-Ville"
+		},
+		"Haut Séjour": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2614",
+			"Type": "Ville"
+		},
+		"Hoffbourg": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H3616",
+			"Type": "Grande-Ville"
+		},
 		"Hoshitsuki": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H0418",
 			"Type": "Capitale"
 		},
 		"Ko'nan": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H2102",
 			"Type": "Capitale"
 		},
 		"Ksach": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H3314",
 			"Type": "Capitale"
 		},
+		"Lenbas": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2830",
+			"Type": "Grande-Ville"
+		},
 		"Leona": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H3222",
 			"Type": "Capitale"
 		},
 		"Lunian": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H1627",
 			"Type": "Capitale"
 		},
+		"Malbork": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2917",
+			"Type": "Grande-Ville"
+		},
+		"Meiningen": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H3014",
+			"Type": "Grande-Ville"
+		},
+		"Montague": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1228",
+			"Type": "Village"
+		},
 		"Morrannon": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H4825",
 			"Type": "Capitale"
+		},
+		"Naucalle": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1821",
+			"Type": "Village"
+		},
+		"Orkrieg": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H3712",
+			"Type": "Grande-Ville"
+		},
+		"Pleurouille en Bourlis": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2628",
+			"Type": "Grande-Ville"
+		},
+		"Quea": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1418",
+			"Type": "Village"
+		},
+		"Raxe": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1721",
+			"Type": "Village"
+		},
+		"Rieu": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1815",
+			"Type": "Grande-Ville"
+		},
+		"Rustenberg": {
+			"Desc": "",
+			"Fortification": "1",
+			"H": "H2911",
+			"Type": "Ville"
+		},
+		"Saint Edonis": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H2114",
+			"Type": "Grande-Ville"
 		},
 		"Saint-Yougonoul": {
 			"Desc": "",
@@ -78,17 +246,29 @@
 			"H": "H3528",
 			"Type": "Village"
 		},
+		"Sanophia": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1430",
+			"Type": "Grande-Ville"
+		},
 		"Sartak": {
 			"Desc": "Capitale de la Nation Sartak.",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H3327",
 			"Type": "Capitale"
 		},
 		"Shirama": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H1438",
 			"Type": "Capitale"
+		},
+		"Tannenberg": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H3312",
+			"Type": "Ville"
 		},
 		"Trancavel": {
 			"Desc": "Fière cité qui défend la Marche du Sud.",
@@ -96,11 +276,23 @@
 			"H": "H3330",
 			"Type": "Grande-Ville"
 		},
+		"Verone": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1426",
+			"Type": "Village"
+		},
 		"Vinyamar": {
 			"Desc": "",
-			"Fortification": "?",
+			"Fortification": "1",
 			"H": "H2526",
 			"Type": "Capitale"
+		},
+		"Yave": {
+			"Desc": "",
+			"Fortification": "",
+			"H": "H1717",
+			"Type": "Ville"
 		}
 	},
 	"Focus": {
@@ -127,7 +319,14 @@
 		},
 		"ALT": {
 			"Cities": [
-				"Alterak"
+				"Alterak",
+				"Blanrieu",
+				"Champfol",
+				"Fière Plaine",
+				"Flution",
+				"Haut Séjour",
+				"Rieu",
+				"Saint Edonis"
 			],
 			"Couleur": "ivory",
 			"Hexs": [
@@ -252,22 +451,12 @@
 				"H2616",
 				"H2617",
 				"H2618",
-				"H2628",
-				"H2629",
-				"H2630",
 				"H2712",
 				"H2713",
 				"H2714",
 				"H2715",
 				"H2716",
-				"H2717",
-				"H2727",
-				"H2728",
-				"H2729",
-				"H2829",
-				"H2830",
-				"H2929",
-				"H3029"
+				"H2717"
 			],
 			"Nom": "Alterak",
 			"NomLong": "Empire d'Alterak",
@@ -357,7 +546,9 @@
 			"Ressources": []
 		},
 		"DRW": {
-			"Cities": [],
+			"Cities": [
+				"Capitale Drow"
+			],
 			"Couleur": "black",
 			"Hexs": [
 				"H1920",
@@ -374,9 +565,7 @@
 			"Ressources": []
 		},
 		"EDS": {
-			"Cities": [
-				"Azura"
-			],
+			"Cities": ["Enders"],
 			"Couleur": "cyan",
 			"Hexs": [
 				"H4324",
@@ -391,7 +580,14 @@
 		},
 		"ELF": {
 			"Cities": [
-				"Ellerimm"
+				"Aida",
+				"Ellerimm",
+				"Eresse",
+				"Fairie",
+				"Naucalle",
+				"Quea",
+				"Raxe",
+				"Yave"
 			],
 			"Couleur": "darkgreen",
 			"Hexs": [
@@ -516,7 +712,15 @@
 		},
 		"KSH": {
 			"Cities": [
-				"Ksach"
+				"Darmstadt",
+				"Friedbourg",
+				"Hoffbourg",
+				"Ksach",
+				"Malbork",
+				"Meiningen",
+				"Orkrieg",
+				"Rustenberg",
+				"Tannenberg"
 			],
 			"Couleur": "indigo",
 			"Hexs": [
@@ -640,7 +844,14 @@
 		},
 		"LUN": {
 			"Cities": [
-				"Lunian"
+				"Bourlis",
+				"Bourrine Rodolphe",
+				"Farnese",
+				"Glamion",
+				"Lunian",
+				"Montague",
+				"Sanophia",
+				"Verone"
 			],
 			"Couleur": "orangered",
 			"Hexs": [
@@ -704,7 +915,8 @@
 				"H2227",
 				"H2326",
 				"H2327",
-				"H2328"
+				"H2328",
+				"H2427"
 			],
 			"Nom": "Lunian",
 			"NomLong": "Magocratie de Lunian",
@@ -730,8 +942,17 @@
 				"H2124",
 				"H2222",
 				"H2223",
+				"H2224",
+				"H2225",
 				"H2321",
-				"H2421"
+				"H2322",
+				"H2323",
+				"H2324",
+				"H2325",
+				"H2421",
+				"H2422",
+				"H2423",
+				"H2424"
 			],
 			"Nom": "Mando",
 			"NomLong": "Mando",
@@ -865,9 +1086,16 @@
 			"Cities": [],
 			"Couleur": "hotpink",
 			"Hexs": [
+				"H2425",
+				"H2426",
 				"H2520",
 				"H2521",
+				"H2522",
+				"H2523",
 				"H2524",
+				"H2525",
+				"H2526",
+				"H2527",
 				"H2619",
 				"H2620",
 				"H2621",
@@ -875,6 +1103,8 @@
 				"H2623",
 				"H2624",
 				"H2625",
+				"H2626",
+				"H2627",
 				"H2718",
 				"H2719",
 				"H2720",
@@ -882,9 +1112,19 @@
 				"H2722",
 				"H2723",
 				"H2724",
+				"H2725",
+				"H2726",
 				"H2820",
 				"H2821",
-				"H2824"
+				"H2824",
+				"H2825",
+				"H2826",
+				"H2827",
+				"H2828",
+				"H2924",
+				"H2926",
+				"H2927",
+				"H2928"
 			],
 			"Nom": "Passionata",
 			"NomLong": "Marquisat de Passionata",
@@ -1129,17 +1369,29 @@
 		},
 		"STK": {
 			"Cities": [
+				"Lenbas",
+				"Pleurouille en Bourlis",
+				"Saint-Yougonoul",
 				"Sartak",
-				"Trancavel",
-				"Saint-Yougonoul"
+				"Trancavel"
 			],
 			"Couleur": "blue",
 			"Hexs": [
+				"H2628",
+				"H2629",
+				"H2630",
+				"H2727",
+				"H2728",
+				"H2729",
+				"H2829",
+				"H2830",
 				"H2925",
+				"H2929",
 				"H3025",
 				"H3026",
 				"H3027",
 				"H3028",
+				"H3029",
 				"H3030",
 				"H3125",
 				"H3126",
@@ -1185,44 +1437,21 @@
 			],
 			"Nom": "Sartak",
 			"NomLong": "Duché de Sartak",
-			"Ressources": []
+			"Ressources": [
+				{
+					"H": "H3326",
+					"Nom": "Nourriture",
+					"Qte": 2,
+					"Type": "Vivrière"
+				}
+			]
 		},
 		"VIN": {
 			"Cities": [
 				"Vinyamar"
 			],
 			"Couleur": "crimson",
-			"Hexs": [
-				"H2224",
-				"H2225",
-				"H2322",
-				"H2323",
-				"H2324",
-				"H2325",
-				"H2422",
-				"H2423",
-				"H2424",
-				"H2425",
-				"H2426",
-				"H2427",
-				"H2522",
-				"H2523",
-				"H2525",
-				"H2526",
-				"H2527",
-				"H2626",
-				"H2627",
-				"H2725",
-				"H2726",
-				"H2825",
-				"H2826",
-				"H2827",
-				"H2828",
-				"H2924",
-				"H2926",
-				"H2927",
-				"H2928"
-			],
+			"Hexs": [],
 			"Nom": "Vinyamar",
 			"NomLong": "République du Vinyamar",
 			"Ressources": []
